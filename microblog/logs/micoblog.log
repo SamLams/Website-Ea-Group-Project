@@ -1,0 +1,48 @@
+2020-03-13 04:20:15,237 ERROR: Exception on /user/12345 [GET] [in /home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/osboxes/PycharmProjects/microblog/app/routes.py", line 140, in user
+    next_url=next_url, prev_url=prev_url)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/loaders.py", line 129, in load
+    code = environment.compile(source, name, filename)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/osboxes/PycharmProjects/microblog/app/templates/user.html", line 39, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2020-03-13 04:49:24,300 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:48]
+2020-03-16 05:29:18,213 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
+2020-03-16 05:37:32,442 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
+2020-03-16 05:39:24,666 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
+2020-03-16 05:39:35,128 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
+2020-03-16 05:39:50,033 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
+2020-03-16 05:42:31,482 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
+2020-03-16 05:42:35,589 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
+2020-03-16 05:42:39,776 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
+2020-03-16 09:55:03,566 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
+2020-03-16 09:55:36,991 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:51]
