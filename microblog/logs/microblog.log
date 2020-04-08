@@ -58,3 +58,4 @@ WHERE user.username = ?
 (Background on this error at: http://sqlalche.me/e/e3q8)
 2020-03-30 04:01:01,320 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
 2020-03-30 04:23:48,264 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
+2020-04-08 04:24:50,289 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:74]
