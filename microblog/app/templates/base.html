@@ -1,12 +1,83 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block title %}
-    {% if title %}{{ title }} - Microblog{% else %}{{ _('Welcome to Microblog') }}{% endif %}
+    {% if title %}{{ title }} - HKTVmall{% else %}{{ _('Welcome to HKTVmall') }}{% endif %}
 {% endblock %}
 
+{% block header %}
+
+{% endblock %}
+
+
 {% block navbar %}
+    <div id="bannerTop">
+        <div class="banner-1188" style="background-color:#fec35d">
+            <div class="width-1188">
+                <a tabindex="-1"
+                   href="https://cloud.marketing.hktvmall.com/longholiday_fighttogetherwithyou?openinapp=true&amp;autoTriggerApp=true&amp;fastrender=true"
+                   target="_blank">
+                    <img src="//images.hktvmall.com/banner/bannerzh_200410043231.jpg" alt="Long Holiday 5%"
+                         title="Long Holiday 5%">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="bannerTop1">
+        <div class="banner-1188" style="background-color:#fec35d">
+            <div class="width-1188">
+                <a tabindex="-1"
+                   href="https://cloud.marketing.hktvmall.com/longholiday_fighttogetherwithyou?openinapp=true&amp;autoTriggerApp=true&amp;fastrender=true"
+                   target="_blank">
+                    <img src="//images.hktvmall.com/banner/banneren_200410043910.jpg" alt="5% apr holiday"
+                         title="5% apr holiday">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="top container">
+        <div class="row">
+            <div class="col-sm-6 text-left col">
+                1|2|3|4
+            </div>
+            <div class="col-sm-6 text-right" col>
+                1|2|3
+                <span class="badge bage-success">ENG</span>
+            </div>
+        </div>
+        <div class="card text-center">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <div class="logo">
+                    <a href="/hktv/zh/"><img title="HKTVmalllogo_20171220.png" alt="HKTVmalllogo_20171220.png"
+                                             src=""></a>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                tab
+            </div>
+
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: flex;">
+            <label class="btn btn-secondary active" style="flex: 1;">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+            </label>
+        </div>
+    </div>
+
+
+
     <nav class="navbar navbar-default">
         <div class="container">
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -15,7 +86,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url_for('main.index') }}">Microblog</a>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}">HKTVmall</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -26,13 +97,17 @@
                     {% if current_user.is_anonymous %}
                         <li><a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a></li>
+                        <li>
+                            <a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
+                        </li>
                         <li><a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a></li>
                     {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
+
+
 {% endblock %}
 
 {% block content %}
