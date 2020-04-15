@@ -1,38 +1,163 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block title %}
-    {% if title %}{{ title }} - Microblog{% else %}{{ _('Welcome to Microblog') }}{% endif %}
+    {% if title %}{{ title }} - HKTVmall{% else %}{{ _('Welcome to HKTVmall') }}{% endif %}
 {% endblock %}
 
+{% block header %}
+
+
+{% endblock %}
+
+
 {% block navbar %}
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ url_for('main.index') }}">Microblog</a>
+    <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
+
+    <div class="top container">
+
+        <div class="card text-center">
+            <div class="card-header">
+
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
-                    <li><a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    {% if current_user.is_anonymous %}
-                        <li><a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a></li>
-                        <li><a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a></li>
-                    {% endif %}
-                </ul>
+            <div class="card-body">
+                <div class="logo">
+                    <a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='img/HKTVlogo.jpg') }}" class="round"
+                                             title="HKTVmalllogo_20171220.png" alt="HKTVmalllogo_20171220.png"></a>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+            </div>
+
+        </div>
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: flex;">
+            <label class="btn btn-secondary active" style="flex: 1;">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>{{ _('Supermarket') }}
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+                <input type="radio" name="options" id="option2" autocomplete="off">{{ _('Personal Care') }}
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+                <input type="radio" name="options" id="option3" autocomplete="off">{{ _('Skincare & Makeup') }}
+            </label>
+        </div>
+    </div>
+
+
+
+    <nav class="navbar navbar-default" id="navbar_style">
+        <div class="container">
+            <div class="row">
+
+                <div class="navbar-header" >
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ url_for('main.index') }}">HKTVmall</a>
+
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav" style="margin-top: 8px; margin-left: 4px;" id="search_bar">
+                        <li>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                       aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if current_user.is_anonymous %}
+
+                            <li>
+                                <a href="{{ url_for('auth.login') }}">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    {{ _('Login') }}
+                                </a>
+                            </li>
+                            <li>
+                            <a href="{{ url_for('auth.register') }}">
+                                <span class="glyphicon glyphicon-pencil"></span>{{ _('Register') }}
+                            </a>
+                        </li>
+                        {% else %}
+                            <li>
+
+                                <a href="{{ url_for('main.user', username=current_user.username) }}">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                    {{ _('Profile') }}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ url_for('auth.logout') }}">
+                                    <span class="glyphicon glyphicon-user"></span>{{ _('Logout') }}
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        <li>
+                            <a href="{{ url_for('auth.login') }}">
+                                <span class="glyphicon glyphicon-bell"></span>{{ _('Notification') }}
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('auth.login') }}">
+                                <span class="glyphicon glyphicon-heart"></span>{{ _('My List') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('auth.login') }}">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>{{ _('Cart') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row" id="bs-example-navbar-collapse-2">
+
+                    <div class="col-xs-1 col-auto" id="dropdown">
+                        <div class="dropdown">
+                            <button class="dropbtn btn btn-secondary">{{ _('Categories') }}</button>
+                            <div class="dropdown-content">
+                                <a href="#">{{ _('Pets') }}</a>
+                                <a href="#">{{ _('Fashion') }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-11 " id="marquee">
+                        <marquee direction="left" scrollamount="6" bgcolor="red" style="padding-top: 5px;">
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-3" role="group" aria-label="First group">
+                                    <button type="button" class="btn btn-secondary">{{ _('top1') }}</button>
+                                </div>
+                                <div class="btn-group mr-3" role="group" aria-label="Second group">
+                                    <button type="button" class="btn btn-secondary">{{ _('top2') }}</button>
+                                </div>
+                                <div class="btn-group" role="group" aria-label="Third group">
+                                    <button type="button" class="btn btn-secondary">{{ _('top3') }}</button>
+                                </div>
+                            </div>
+                        </marquee>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
+
+    <button id="Salesforce-cshelp" onclick="location.href='/hktv/en/cs-help';">
+        <span>{{ _('Customer Services') }}</span>
+    </button>
+
 {% endblock %}
 
 {% block content %}

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07eff1cc-9972-4978-a0fc-403aabd3552a" name="Default" comment="" />
+    <list default="true" id="07eff1cc-9972-4978-a0fc-403aabd3552a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,36 +11,6 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/microblog$microblog.coverage" NAME="microblog Coverage Results" MODIFIED="1584951049708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="app.db" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="app.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="app.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-      </path>
-    </expand>
-    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,6 +29,9 @@
       <replace>@bp.</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1Zq5qk5hx9quy7r7AotnPHrz5sw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -64,23 +39,24 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/run.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../microblog" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/static/images" />
+      <recent name="$PROJECT_DIR$/" />
       <recent name="$PROJECT_DIR$/app/templates/auth" />
       <recent name="$PROJECT_DIR$/app/templates/errors" />
-      <recent name="$PROJECT_DIR$/app/main" />
-      <recent name="$PROJECT_DIR$/app/errors" />
-      <recent name="$PROJECT_DIR$/app" />
     </key>
   </component>
   <component name="RunManager">
@@ -117,55 +93,85 @@
       <workItem from="1585554034862" duration="4041000" />
       <workItem from="1585738461323" duration="1967000" />
       <workItem from="1586155857917" duration="1335000" />
+      <workItem from="1586172756868" duration="38862000" />
+      <workItem from="1586687491831" duration="9000" />
+      <workItem from="1586687588824" duration="351000" />
+      <workItem from="1586688294418" duration="381000" />
+      <workItem from="1586689061227" duration="398000" />
+      <workItem from="1586689643313" duration="102000" />
+      <workItem from="1586693098072" duration="28000" />
+      <workItem from="1586693149774" duration="257000" />
+      <workItem from="1586693425622" duration="367000" />
+      <workItem from="1586701894068" duration="101000" />
+      <workItem from="1586702054074" duration="6797000" />
+      <workItem from="1586709610873" duration="12202000" />
+      <workItem from="1586843818204" duration="20738000" />
+      <workItem from="1586876378020" duration="532000" />
+      <workItem from="1586877025460" duration="8719000" />
     </task>
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="180" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585556624607">
-      <screen x="65" y="24" width="1301" height="688" />
+    <state x="229" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586705097346">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="180" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/65.24.1301.688@65.24.1301.688" timestamp="1585556624607" />
-    <state x="426" y="160" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585555204966">
-      <screen x="65" y="24" width="1301" height="688" />
+    <state x="229" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1586705097346" />
+    <state x="229" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/65.24.1855.971@65.24.1855.971" timestamp="1586688517169" />
+    <state x="580" y="233" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586788712270">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="426" y="160" key="#com.intellij.fileTypes.FileTypeChooser/65.24.1301.688@65.24.1301.688" timestamp="1585555204966" />
-    <state x="368" y="120" key="FileChooserDialogImpl" timestamp="1585556153867">
-      <screen x="65" y="24" width="1301" height="688" />
+    <state x="580" y="233" key="#com.intellij.fileTypes.FileTypeChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1586788712270" />
+    <state x="497" y="171" width="424" height="482" key="FileChooserDialogImpl" timestamp="1586876488424">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="368" y="120" key="FileChooserDialogImpl/65.24.1301.688@65.24.1301.688" timestamp="1585556153867" />
-    <state width="1255" height="304" key="GridCell.Tab.0.bottom" timestamp="1585557061334">
-      <screen x="65" y="24" width="1301" height="688" />
+    <state x="497" y="171" width="424" height="482" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1586876488424" />
+    <state width="1809" height="338" key="GridCell.Tab.0.bottom" timestamp="1586947549512">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1255" height="304" key="GridCell.Tab.0.bottom/65.24.1301.688@65.24.1301.688" timestamp="1585557061334" />
-    <state width="1255" height="304" key="GridCell.Tab.0.center" timestamp="1585557061332">
-      <screen x="65" y="24" width="1301" height="688" />
+    <state width="1255" height="217" key="GridCell.Tab.0.bottom/65.24.1301.744@65.24.1301.744" timestamp="1586672541289" />
+    <state width="1809" height="338" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1586947549512" />
+    <state width="1809" height="338" key="GridCell.Tab.0.center" timestamp="1586947549509">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1255" height="304" key="GridCell.Tab.0.center/65.24.1301.688@65.24.1301.688" timestamp="1585557061332" />
-    <state width="1255" height="304" key="GridCell.Tab.0.left" timestamp="1585557061331">
-      <screen x="65" y="24" width="1301" height="688" />
+    <state width="1255" height="217" key="GridCell.Tab.0.center/65.24.1301.744@65.24.1301.744" timestamp="1586672541283" />
+    <state width="1809" height="338" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1586947549509" />
+    <state width="1809" height="338" key="GridCell.Tab.0.left" timestamp="1586947549508">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1255" height="304" key="GridCell.Tab.0.left/65.24.1301.688@65.24.1301.688" timestamp="1585557061331" />
-    <state width="1255" height="304" key="GridCell.Tab.0.right" timestamp="1585557061333">
-      <screen x="65" y="24" width="1301" height="688" />
+    <state width="1255" height="217" key="GridCell.Tab.0.left/65.24.1301.744@65.24.1301.744" timestamp="1586672541282" />
+    <state width="1809" height="338" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1586947549508" />
+    <state width="1809" height="338" key="GridCell.Tab.0.right" timestamp="1586947549512">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1255" height="304" key="GridCell.Tab.0.right/65.24.1301.688@65.24.1301.688" timestamp="1585557061333" />
-    <state x="378" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1586155871334">
-      <screen x="65" y="24" width="1301" height="744" />
+    <state width="1255" height="217" key="GridCell.Tab.0.right/65.24.1301.744@65.24.1301.744" timestamp="1586672541288" />
+    <state width="1809" height="338" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1586947549512" />
+    <state x="270" y="24" key="SettingsEditor" timestamp="1586705031571">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="209" y="24" key="SettingsEditor/65.24.1301.744@65.24.1301.744" timestamp="1586334015034" />
+    <state x="270" y="24" key="SettingsEditor/65.24.1855.1056@65.24.1855.1056" timestamp="1586705031571" />
+    <state x="270" y="24" key="SettingsEditor/65.24.1855.971@65.24.1855.971" timestamp="1586693459768" />
+    <state x="511" y="289" key="com.intellij.ide.util.TipDialog" timestamp="1586687591540">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="378" y="197" key="com.intellij.ide.util.TipDialog/65.24.1301.688@65.24.1301.688" timestamp="1585554116329" />
     <state x="378" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1586155871334" />
+    <state x="511" y="289" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1586687591540" />
+    <state x="655" y="219" width="672" height="624" key="search.everywhere.popup" timestamp="1586693584290">
+      <screen x="65" y="24" width="1855" height="971" />
+    </state>
+    <state x="655" y="236" width="672" height="678" key="search.everywhere.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1586585610715" />
+    <state x="655" y="219" width="672" height="624" key="search.everywhere.popup/65.24.1855.971@65.24.1855.971" timestamp="1586693584290" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/microblog$microblog.coverage" NAME="microblog Coverage Results" MODIFIED="1586947549460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
