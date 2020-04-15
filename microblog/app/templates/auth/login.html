@@ -2,14 +2,23 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block current_app_content %}
+<<<<<<< HEAD
+    <h1>{{ _('Sign In')}}</h1>
+=======
     <h1>Login/Register</h1>
+>>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
     <div class="row">
         <div class="col-md-4">
             {{ wtf.quick_form(form) }}
         </div>
     </div>
     <br>
+<<<<<<< HEAD
+    <p>Switch Phone Number Login? <a href="{{ url_for('auth.phone_login') }}">Click to Phone Number Login!</a></p>
+    <p>New User? <a href="{{ url_for('auth.register') }}">Click to Register!</a> </p>
+=======
     <p>New to HKTVmall?<br/>Create an account to enjoy shopping<a href="{{ url_for('auth.register') }}">Click to Register!</a> </p>
+>>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
     <p>
         Forgot Your Password?
     <a href="{{ url_for('auth.reset_password_request') }}">Click to Reset It</a>

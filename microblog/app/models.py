@@ -16,9 +16,15 @@ followers = db.Table(
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(64), index=True, unique=True)
+    last_name = db.Column(db.String(64), index=True, unique=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
+    phone = db.Column(db.Integer, index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    gender = db.Column(db.String(120))
+    delivery_address = db.Column(db.String(240))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow())

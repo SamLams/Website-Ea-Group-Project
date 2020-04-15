@@ -1,4 +1,8 @@
 #!/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/bin/python
+<<<<<<< HEAD
+
+=======
+>>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
 # -*- coding: utf-8 -*-
 import re
 import sys
