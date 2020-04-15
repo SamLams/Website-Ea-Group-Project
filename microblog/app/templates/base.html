@@ -11,7 +11,7 @@
 
 
 {% block navbar %}
-    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
     <div id="bannerTop">
         <div class="banner-1188" style="background-color:#fec35d">
             <div class="width-1188">
@@ -107,17 +107,6 @@
                             </form>
                         </li>
                     </ul>
-
-                    <!--<ul class="nav navbar-nav">
-
-                        <li>
-                            <a href="{{ url_for('main.index') }}">
-                                <span class="glyphicon glyphicon-home"></span> {{ _('Home') }}
-                            </a>
-                        </li>
-
-                        <li><a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a></li>
-                    </ul>-->
                     <ul class="nav navbar-nav navbar-right">
                         {% if current_user.is_anonymous %}
 
@@ -198,7 +187,7 @@
     </nav>
 
     <button id="Salesforce-cshelp" onclick="location.href='/hktv/en/cs-help';">
-        <span>Customer Services</span>
+        <span>{{ _('Customer Services') }}</span>
     </button>
 
 {% endblock %}
