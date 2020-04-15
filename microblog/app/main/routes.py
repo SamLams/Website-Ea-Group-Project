@@ -69,18 +69,44 @@ def user(username):
                            next_url=next_url, prev_url=prev_url)
 
 
+@bp.route('/delivery_address')
+@login_required
+def delivery_address():
+    page = request.args.get('page', 1, type=int)
+    user = User.query.order_by(User.timestamp.desc()).paginate(
+        page, current_app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('main.delivery_address', page=user.next_num) \
+        if user.has_next else None
+    prev_url = url_for('main.delivery_address', page=user.prev_num) \
+        if user.has_prev else None
+    return render_template('delivery_address.html', title=_('Delivery Address'),
+                           user=user.items, next_url=next_url,
+                           prev_url=prev_url)
+
+
 @bp.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
-    form = EditProfileForm(current_user.username)
+    form = EditProfileForm(current_user.username, current_user.email, current_user.phone, current_user.first_name,
+                           current_user.last_name)
     if form.validate_on_submit():
         current_user.username = form.username.data
+        current_user.first_name = form.first_name.data
+        current_user.last_name = form.last_name.data
+        current_user.email = form.email.data
+        current_user.phone = form.phone.data
+        current_user.gender = form.gender.data
         current_user.about_me = form.about_me.data
         db.session.commit()
         flash(_('Your changes have been saved.'))
         return redirect(url_for('main.edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
+        form.first_name.data = current_user.first_name
+        form.last_name.data = current_user.last_name
+        form.email.data = current_user.email
+        form.phone.data = current_user.phone
+        form.gender.data = current_user.gender
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title=_('Edit Profile'),
                            form=form)
