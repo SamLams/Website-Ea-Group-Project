@@ -12,48 +12,16 @@
 
 {% block navbar %}
     <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
-    <div id="bannerTop">
-        <div class="banner-1188" style="background-color:#fec35d">
-            <div class="width-1188">
-                <a tabindex="-1"
-                   href="https://cloud.marketing.hktvmall.com/longholiday_fighttogetherwithyou?openinapp=true&amp;autoTriggerApp=true&amp;fastrender=true"
-                   target="_blank">
-                    <img src="//images.hktvmall.com/banner/bannerzh_200410043231.jpg" alt="Long Holiday 5%"
-                         title="Long Holiday 5%">
-                </a>
-            </div>
-        </div>
-    </div>
 
-    <div id="bannerTop1">
-        <div class="banner-1188" style="background-color:#fec35d">
-            <div class="width-1188">
-                <a tabindex="-1"
-                   href="https://cloud.marketing.hktvmall.com/longholiday_fighttogetherwithyou?openinapp=true&amp;autoTriggerApp=true&amp;fastrender=true"
-                   target="_blank">
-                    <img src="//images.hktvmall.com/banner/banneren_200410043910.jpg" alt="5% apr holiday"
-                         title="5% apr holiday">
-                </a>
-            </div>
-        </div>
-    </div>
     <div class="top container">
-        <div class="row">
-            <div class="col-sm-6 text-left col">
-                {{ _('All Categories') }} | {{ _('Store Directory') }}
-            </div>
-            <div class="col-sm-offset-6 text-right" col id="righttop_row">
-                {{ _('FAQ') }} | {{ _('Merchants Recuitment') }}
-                <span class="badge bage-success">ENG</span>
-            </div>
-        </div>
+
         <div class="card text-center">
             <div class="card-header">
 
             </div>
             <div class="card-body">
                 <div class="logo">
-                    <a href="/hktv/zh/"><img src="{{ url_for('static', filename='img/HKTVlogo.jpg') }}" class="round"
+                    <a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='img/HKTVlogo.jpg') }}" class="round"
                                              title="HKTVmalllogo_20171220.png" alt="HKTVmalllogo_20171220.png"></a>
                 </div>
             </div>
@@ -116,7 +84,11 @@
                                     {{ _('Login') }}
                                 </a>
                             </li>
-
+                            <li>
+                            <a href="{{ url_for('auth.register') }}">
+                                <span class="glyphicon glyphicon-pencil"></span>{{ _('Register') }}
+                            </a>
+                        </li>
                         {% else %}
                             <li>
 
@@ -132,11 +104,7 @@
                                 </a>
                             </li>
                         {% endif %}
-                        <li>
-                            <a href="{{ url_for('auth.register') }}">
-                                <span class="glyphicon glyphicon-pencil"></span>{{ _('Register') }}
-                            </a>
-                        </li>
+
                         <li>
                             <a href="{{ url_for('auth.login') }}">
                                 <span class="glyphicon glyphicon-bell"></span>{{ _('Notification') }}
