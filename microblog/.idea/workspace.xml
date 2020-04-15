@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="07eff1cc-9972-4978-a0fc-403aabd3552a" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
-=======
     <list default="true" id="07eff1cc-9972-4978-a0fc-403aabd3552a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
->>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +17,6 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/microblog$microblog.coverage" NAME="microblog Coverage Results" MODIFIED="1586876681080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
     <option name="GROUP_DATA_SOURCES" value="true" />
@@ -134,8 +131,6 @@
       </file>
     </leaf>
   </component>
-=======
->>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -153,7 +148,6 @@
       <replace>@bp.</replace>
     </replaceStrings>
   </component>
-<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -239,13 +233,11 @@
       <pane id="Scope" />
     </panes>
   </component>
-=======
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1Zq5qk5hx9quy7r7AotnPHrz5sw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
->>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -261,11 +253,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../microblog" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-<<<<<<< HEAD
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-=======
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
->>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -342,7 +331,6 @@
     </task>
     <servers />
   </component>
-<<<<<<< HEAD
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -380,8 +368,6 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
   </component>
-=======
->>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
