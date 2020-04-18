@@ -71,7 +71,6 @@ class User(UserMixin, db.Model):
             {'reset_password': self.id, 'exp': time() + expires_in},
             current_app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
 
-
     @staticmethod
     def verify_reset_password_token(token):
         try:
@@ -95,3 +94,47 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
+
+class Order(db.Model):
+    order_id = db.Column(db.Integer, primary_key=True)
+    shipping_cart_id = db.Column(db.Integer)#, db.ForeignKey('shipping_cart'))
+    qty = db.Column(db.Integer)
+    price = db.Column(db.Integer)
+    user_id = db.Column(db.Integer)#, db.ForeignKey('user_id'))
+    status_id = db.Column(db.String(255))#, db.ForeignKey('status_id'))
+    Create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+
+
+class Status(db.Model):
+    status_id = db.Column(db.Integer, primary_key=True)
+    status = db.Column(db.String(255))
+    shipment = db.Column(db.String(255))
+
+
+class Payment(db.Model):
+    payment_id = db.Column(db.Integer, primary_key=True)
+    cary_type = db.Column(db.Integer)
+    card_number = db.Column(db.String(255))
+    user_id = db.Column(db.Integer)#, db.ForeignKey('user_id'))
+
+
+class Customer_Services(db.Model):
+    services_id = db.Column(db.Integer, primary_key=True)
+    services = db.Column(db.String(255))
+    user_id = db.Column(db.Integer)#, db.ForeignKey('user_id'))
+
+
+class Voucher(db.Model):
+    v_id = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.String(255))
+    expiary = db.Column(db.DateTime)
+    status = db.Column(db.Boolean)
+
+
+class shopping_cart(db.Model):
+    user_id = db.Column(db.Integer, primary_key=True)
+    productid = db.Column(db.Integer)
+    qty = db.Column(db.Integer)
+    price = db.Column(db.Integer)
+    id = db.Column(db.Integer)#, db.ForeignKey('user_id'))
