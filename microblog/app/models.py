@@ -105,12 +105,16 @@ class Order(db.Model):
     status_id = db.Column(db.String(255))#, db.ForeignKey('status_id'))
     Create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
+    def __repr__(self):
+        return '<Order {}>'.format(self.order_id)
 
 class Status(db.Model):
     status_id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.String(255))
     shipment = db.Column(db.String(255))
 
+    def __repr__(self):
+        return '<Status {}>'.format(self.status_id)
 
 class Payment(db.Model):
     payment_id = db.Column(db.Integer, primary_key=True)
@@ -118,12 +122,16 @@ class Payment(db.Model):
     card_number = db.Column(db.String(255))
     user_id = db.Column(db.Integer)#, db.ForeignKey('user_id'))
 
+    def __repr__(self):
+        return '<Payment {}>'.format(self.payment_id)
 
 class Customer_Services(db.Model):
     services_id = db.Column(db.Integer, primary_key=True)
     services = db.Column(db.String(255))
     user_id = db.Column(db.Integer)#, db.ForeignKey('user_id'))
 
+    def __repr__(self):
+        return '<Services {}>'.format(self.services_id)
 
 class Voucher(db.Model):
     v_id = db.Column(db.Integer, primary_key=True)
@@ -131,6 +139,8 @@ class Voucher(db.Model):
     expiary = db.Column(db.DateTime)
     status = db.Column(db.Boolean)
 
+    def __repr__(self):
+        return '<Voucher {}>'.format(self.v_id)
 
 class shopping_cart(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
@@ -138,3 +148,6 @@ class shopping_cart(db.Model):
     qty = db.Column(db.Integer)
     price = db.Column(db.Integer)
     id = db.Column(db.Integer)#, db.ForeignKey('user_id'))
+
+    def __repr__(self):
+        return '<Post {}>'.format(self.user_id)
