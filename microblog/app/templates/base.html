@@ -21,8 +21,9 @@
             </div>
             <div class="card-body">
                 <div class="logo">
-                    <a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='img/HKTVlogo.jpg') }}" class="round"
-                                             title="HKTVmalllogo_20171220.png" alt="HKTVmalllogo_20171220.png"></a>
+                    <a href="{{ url_for('main.index') }}"><img
+                            src="{{ url_for('static', filename='img/HKTVlogo.jpg') }}" class="round"
+                            title="HKTVmalllogo_20171220.png" alt="HKTVmalllogo_20171220.png"></a>
                 </div>
             </div>
             <div class="card-footer text-muted">
@@ -49,7 +50,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="navbar-header" >
+                <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                             data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
@@ -85,10 +86,10 @@
                                 </a>
                             </li>
                             <li>
-                            <a href="{{ url_for('auth.register') }}">
-                                <span class="glyphicon glyphicon-pencil"></span>{{ _('Register') }}
-                            </a>
-                        </li>
+                                <a href="{{ url_for('auth.register') }}">
+                                    <span class="glyphicon glyphicon-pencil"></span>{{ _('Register') }}
+                                </a>
+                            </li>
                         {% else %}
                             <li>
 
@@ -124,16 +125,41 @@
                     </ul>
                 </div>
                 <div class="row" id="bs-example-navbar-collapse-2">
-
                     <div class="col-xs-1 col-auto" id="dropdown">
                         <div class="dropdown">
+                            <!--ul id='menu'>
+                                <li><a class='prett' href='#' title='Menu'>Menu</a>
+                                    <ul class='menus'>
+                                        <li class='has-submenu'><a class='prett' href='Dropdown 1' title='Dropdown 1'>Dropdown
+                                            1</a>
+                                            <ul class='submenu'>
+                                                <li><a href="#" title="Sub Menu">Sub Menu</a></li>
+                                                <li><a href="#" title="Sub Menu">Sub Menu 2</a></li>
+                                                <li><a href="#" title="Sub Menu">Sub Menu 3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href='#' title='Dropdown 2'>Dropdown 2</a></li>
+                                        <li><a href='#' title='Dropdown 3'>Dropdown 3</a></li>
+                                    </ul>
+                                </li>
+                            </ul-->
                             <button class="dropbtn btn btn-secondary">{{ _('Categories') }}</button>
                             <div class="dropdown-content">
-                                <a href="#">{{ _('Pets') }}</a>
-                                <a href="#">{{ _('Fashion') }}</a>
+                                <a href="#" class="ahover1">{{ _('Pets') }}</a>
+                                <a href="#" class="ahover2">{{ _('Fashion') }}</a>
+
                             </div>
+                            <!--div class="submenu1">
+                            <a href="#">{{ _('Pet1') }}</a>
+                            <a href="#">{{ _('Pet2') }}</a>
+                        </div>
+                        <div class="submenu2">
+                            <a href="#">{{ _('F1') }}</a>
+                            <a href="#">{{ _('F2') }}</a>
+                        </div-->
                         </div>
                     </div>
+
                     <div class="col-xs-11 " id="marquee">
                         <marquee direction="left" scrollamount="6" bgcolor="red" style="padding-top: 5px;">
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">

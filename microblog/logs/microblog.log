@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 2020-04-14 10:45:11,328 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:74]
 2020-04-14 10:46:09,771 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:74]
@@ -64,16 +62,14 @@
 2020-04-15 08:22:06,787 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:74]
 2020-04-15 08:27:06,366 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:74]
 
-=======
 2020-04-15 10:43:36,027 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924_EA/Website-Ea-Group-Project/microblog/app/__init__.py:75]
->>>>>>> bebc7fc80f9ba331b38458fd8455969262976b21
-=======
 2020-04-15 08:46:38,948 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-15 08:51:32,674 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-15 08:54:09,142 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-15 08:54:21,815 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-<<<<<<< HEAD
->>>>>>> 19779a49d1c4729275108466d1b2b120b4c7d6b9
-=======
->>>>>>> refs/remotes/origin/master
->>>>>>> bebc7fc80f9ba331b38458fd8455969262976b21
+
+2020-04-20 03:06:28,222 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-20 04:39:49,815 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-20 04:42:08,245 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-20 04:44:43,721 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+

@@ -1,4 +1,143 @@
-2020-03-30 03:45:49,197 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
+<<<<<<< HEAD
+2020-04-13 10:08:30,918 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:76]
+2020-04-13 10:10:27,527 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:76]
+2020-04-13 11:34:28,266 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:77]
+2020-04-13 11:36:24,446 ERROR: Exception on /auth/register [POST] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.phone
+=======
+2020-03-23 04:10:18,702 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
+2020-03-23 04:10:24,781 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
+2020-03-23 04:10:51,627 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
+2020-03-30 03:44:23,240 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
+2020-03-30 03:45:08,664 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 588, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+>>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+<<<<<<< HEAD
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/auth/routes.py", line 47, in register
+    db.session.commit()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 467, in commit
+    self._prepare_impl()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
+    self._flush(objects)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
+    flush_context.execute()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
+    uow
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.phone [SQL: 'INSERT INTO user (first_name, last_name, username, email, phone, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'] [parameters: ('df', 'df', 'sfc', 'samlam020613d@gmail.com', 97989954, 'pbkdf2:sha256:50000$KNXeSSkR$4c893efb0e9103d142b7ff2ee67866f4ffd18a6f109d14096cf2a06bc9813063', None, '2020-04-13 15:34:28.235807')] (Background on this error at: http://sqlalche.me/e/gkpj)
+2020-04-13 11:52:13,938 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-13 11:56:19,024 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-13 12:09:24,797 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+=======
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/microblog/app/auth/routes.py", line 19, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3287, in first
+    ret = list(self[0:1])
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3065, in __getitem__
+    return list(res)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3389, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3414, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 293, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1250, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 588, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('123456', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2020-03-30 03:45:17,336 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
     cursor, statement, parameters, context
@@ -56,61 +195,5 @@ WHERE user.username = ?
  LIMIT ? OFFSET ?]
 [parameters: ('12345', 1, 0)]
 (Background on this error at: http://sqlalche.me/e/e3q8)
-2020-03-30 03:48:41,873 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 588, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/osboxes/PycharmProjects/microblog/app/auth/routes.py", line 19, in login
-    user = User.query.filter_by(username=form.username.data).first()
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3287, in first
-    ret = list(self[0:1])
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3065, in __getitem__
-    return list(res)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3389, in __iter__
-    return self._execute_and_instances(context)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3414, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 982, in execute
-    return meth(self, multiparams, params)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 293, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1101, in _execute_clauseelement
-    distilled_params,
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1250, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1476, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
-    raise value.with_traceback(tb)
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 588, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user 
-WHERE user.username = ?
- LIMIT ? OFFSET ?]
-[parameters: ('12345', 1, 0)]
-(Background on this error at: http://sqlalche.me/e/e3q8)
+2020-03-30 03:45:41,569 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
+>>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
