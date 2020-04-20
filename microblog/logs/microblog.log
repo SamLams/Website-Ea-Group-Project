@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+2020-04-15 10:43:36,027 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924_EA/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+=======
 2020-04-15 08:46:38,948 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-15 08:51:32,674 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-15 08:54:09,142 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-15 08:54:21,815 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+>>>>>>> refs/remotes/origin/master
