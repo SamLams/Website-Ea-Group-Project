@@ -1,12 +1,4 @@
 #!/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/bin/python
-<<<<<<< HEAD
-# -*- coding: utf-8 -*-
-import re
-import sys
-from babel.messages.frontend import main
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-=======
 
 # -*- coding: utf-8 -*-
 import re
@@ -16,5 +8,4 @@ from babel.messages.frontend import main
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
->>>>>>> sam
     sys.exit(main())
