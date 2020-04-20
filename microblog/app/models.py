@@ -95,3 +95,40 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
+
+class Product(db.Model):
+    pid = db.Column(db.Integer, primary_key=True)
+    pname = db.Column(db.String(255))
+    qty = db.Column(db.Integer)
+    price = db.Column(db.Float)
+    mid = db.Column(db.Integer)
+    status = db.Column(db.String(255))
+    pc_id = db.Column(db.Integer)
+    ps_id = db.Column(db.Integer)
+
+
+class Category(db.Model):
+    pc_id = db.Column(db.Integer, primary_key=True)
+    pc_name = db.Column(db.String(255))
+    ps_id = db.Column(db.Integer)
+
+
+class Subcategory(db.Model):
+    ps_id = db.Column(db.Integer, primary_key=True)
+    ps_name = db.Column(db.String(255))
+
+
+class Pets(db.Model):
+    pet_id = db.Column(db.Integer, primary_key=True)
+    pid = db.Column(db.Integer)
+
+
+class Disney(db.Model):
+    disney_id = db.Column(db.Integer, primary_key=True)
+    pid = db.Column(db.Integer)
+
+
+class Merchant(db.Model):
+    mid = db.Column(db.Integer, primary_key=True)
+    pid = db.Column(db.Integer)
