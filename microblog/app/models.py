@@ -29,6 +29,7 @@ class User(UserMixin, db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     my_list = db.Column(db.String(120))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow())
+    product = db.relationship('Post', backref='author', lazy='dynamic')
 
     # followed = db.relationship(
     #     'User', secondary=followers,
@@ -100,6 +101,8 @@ class Post(db.Model):
 
 class Housewares(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120))
+    link = db.Column(db.String(255))
 
     def __repr__(self):
         return '<Housewares {}>'.format(self.id)
@@ -107,6 +110,8 @@ class Housewares(db.Model):
 
 class SportsAndTravel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name =db.column(db.String(120))
+    link = db.Column(db.String(120))
 
     def __repr__(self):
         return '<SportsAndTravel {}>'.format(self.id)
@@ -114,6 +119,17 @@ class SportsAndTravel(db.Model):
 
 class ToysAndBooks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.column(db.String(120))
+    link = db.Column(db.String(120))
 
     def __repr__(self):
         return '<ToysAndBooks {}>'.format(self.id)
+
+
+class UserProduct(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(120))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return '<UserProduct {}>'.format(self.id)
