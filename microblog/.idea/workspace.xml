@@ -10,6 +10,10 @@
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
     </list>
+<<<<<<< HEAD
+
+=======
+>>>>>>> refs/remotes/origin/master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,6 +139,7 @@
 
 
   </component>
+<<<<<<< HEAD
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
     <option name="GROUP_DATA_SOURCES" value="true" />
@@ -251,6 +256,8 @@
   </component>
 
 
+=======
+>>>>>>> bebc7fc80f9ba331b38458fd8455969262976b21
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -353,7 +360,10 @@
       <pane id="Scope" />
     </panes>
   </component>
+<<<<<<< HEAD
 
+=======
+>>>>>>> bebc7fc80f9ba331b38458fd8455969262976b21
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -396,6 +406,7 @@
   </component>
   <component name="ProjectId" id="1Zq5qk5hx9quy7r7AotnPHrz5sw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+<<<<<<< HEAD
 
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -445,6 +456,8 @@
     </panes>
   </component>
 
+=======
+>>>>>>> bebc7fc80f9ba331b38458fd8455969262976b21
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -462,10 +475,13 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+<<<<<<< HEAD
     &gt;&gt;&gt;&gt;&gt;&gt;&gt; 630c04eb0f79ede574641c9740029e24273f83c7
 
 
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+=======
+>>>>>>> bebc7fc80f9ba331b38458fd8455969262976b21
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1259,7 +1275,14 @@
         <state relative-caret-position="630">
           <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signatur
+
+
+                     e=
+
+
+
+                             "e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
