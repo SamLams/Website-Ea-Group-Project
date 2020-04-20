@@ -96,7 +96,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-<<<<<<< HEAD
+
         return '<Post {}>'.format(self.body)
 
 
