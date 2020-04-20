@@ -97,7 +97,7 @@ class Post(db.Model):
 
     def __repr__(self):
 
-        return '<Post {}>'.format(self.body)
+        return '<Post {}>'.format(self.reviews)
 
 
 class Product(db.Model):
@@ -143,7 +143,7 @@ class Order(db.Model):
     price = db.Column(db.Integer)
     user_id = db.Column(db.Integer)#, db.ForeignKey('user_id'))
     status_id = db.Column(db.String(255))#, db.ForeignKey('status_id'))
-    Create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
     def __repr__(self):
         return '<Order {}>'.format(self.order_id)
@@ -192,8 +192,6 @@ class shopping_cart(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.user_id)
 
-        return '<Post {}>'.format(self.reviews)
-
 
 class Housewares(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -206,7 +204,7 @@ class Housewares(db.Model):
 
 class SportsAndTravel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name =db.column(db.String(120))
+    name =db.Column(db.String(120))
     link = db.Column(db.String(120))
 
     def __repr__(self):
@@ -215,7 +213,7 @@ class SportsAndTravel(db.Model):
 
 class ToysAndBooks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.column(db.String(120))
+    name = db.Column(db.String(120))
     link = db.Column(db.String(120))
 
     def __repr__(self):
