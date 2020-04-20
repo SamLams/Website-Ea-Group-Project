@@ -191,7 +191,7 @@ class shopping_cart(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.user_id)
-=======
+
         return '<Post {}>'.format(self.reviews)
 
 
@@ -229,4 +229,4 @@ class UserProduct(db.Model):
 
     def __repr__(self):
         return '<UserProduct {}>'.format(self.id)
->>>>>>> sam
+
