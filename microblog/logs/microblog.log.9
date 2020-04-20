@@ -1,8 +1,5 @@
 <<<<<<< HEAD
-2020-04-13 10:08:30,918 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:76]
-2020-04-13 10:10:27,527 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:76]
-2020-04-13 11:34:28,266 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:77]
-2020-04-13 11:36:24,446 ERROR: Exception on /auth/register [POST] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+2020-04-13 12:10:22,400 ERROR: Exception on /auth/register [POST] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
     context)
@@ -10,11 +7,7 @@ Traceback (most recent call last):
     cursor.execute(statement, parameters)
 sqlite3.IntegrityError: UNIQUE constraint failed: user.phone
 =======
-2020-03-23 04:10:18,702 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
-2020-03-23 04:10:24,781 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
-2020-03-23 04:10:51,627 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
-2020-03-30 03:44:23,240 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
-2020-03-30 03:45:08,664 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
+2020-03-30 03:45:49,197 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
     cursor, statement, parameters, context
@@ -39,7 +32,7 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/auth/routes.py", line 47, in register
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/auth/routes.py", line 46, in register
     db.session.commit()
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
     return getattr(self.registry(), name)(*args, **kwargs)
@@ -85,10 +78,11 @@ Traceback (most recent call last):
     context)
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.phone [SQL: 'INSERT INTO user (first_name, last_name, username, email, phone, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'] [parameters: ('df', 'df', 'sfc', 'samlam020613d@gmail.com', 97989954, 'pbkdf2:sha256:50000$KNXeSSkR$4c893efb0e9103d142b7ff2ee67866f4ffd18a6f109d14096cf2a06bc9813063', None, '2020-04-13 15:34:28.235807')] (Background on this error at: http://sqlalche.me/e/gkpj)
-2020-04-13 11:52:13,938 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-13 11:56:19,024 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-13 12:09:24,797 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.phone [SQL: 'INSERT INTO user (first_name, last_name, username, email, phone, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'] [parameters: ('cv', 'cv', 'zx', 'samlam020613d@gmail.com', 85297989954, 'pbkdf2:sha256:50000$r5NrgWJq$f52dba084247040d12fc734161cff304f843702656d1ed05029b91c1b25077af', None, '2020-04-13 16:09:24.732219')] (Background on this error at: http://sqlalche.me/e/gkpj)
+2020-04-13 12:13:33,920 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-13 12:13:53,547 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-13 12:15:28,007 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-13 12:18:51,980 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 =======
   File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -135,9 +129,9 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
 FROM user 
 WHERE user.username = ?
  LIMIT ? OFFSET ?]
-[parameters: ('123456', 1, 0)]
+[parameters: ('12345', 1, 0)]
 (Background on this error at: http://sqlalche.me/e/e3q8)
-2020-03-30 03:45:17,336 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
+2020-03-30 03:48:41,873 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
     cursor, statement, parameters, context
@@ -195,5 +189,4 @@ WHERE user.username = ?
  LIMIT ? OFFSET ?]
 [parameters: ('12345', 1, 0)]
 (Background on this error at: http://sqlalche.me/e/e3q8)
-2020-03-30 03:45:41,569 INFO: Microblog startup [in /home/osboxes/PycharmProjects/microblog/app/__init__.py:74]
 >>>>>>> 630c04eb0f79ede574641c9740029e24273f83c7
