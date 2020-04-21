@@ -18,7 +18,7 @@
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.9" afterDir="false" />
     </list>
-=======
+
       <change afterPath="$PROJECT_DIR$/migrations/versions/071706495efc_userproduct_table.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/migrations/versions/32cf9e87668a_aad_housewares_table.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/migrations/versions/3e03b2ecbe85_add_toysandbooks_table.py" afterDir="false" />
@@ -33,7 +33,6 @@
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
->>>>>>> sam
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

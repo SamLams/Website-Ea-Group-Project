@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
+<<<<<<< HEAD
     <data-source name="app" uuid="07376e90-a4bf-48e1-9e4b-628cf4b4cdc8">
+=======
+    <data-source name="app" uuid="4a9b15ad-d6df-4c77-a8ad-3ac21c2c077d">
+>>>>>>> master
       <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+<<<<<<< HEAD
+=======
+      <introspection-schemas>*:main</introspection-schemas>
+>>>>>>> master
     </data-source>
   </component>
 </project>
