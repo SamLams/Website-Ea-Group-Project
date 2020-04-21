@@ -58,3 +58,4 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: follo
 2020-04-21 07:51:27,138 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-21 07:51:41,330 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-21 07:57:35,655 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-21 10:04:34,259 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
