@@ -4,7 +4,7 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm
-from app.models import User, Post
+from app.models import User, Post, Product
 from app.main import bp
 
 
@@ -112,33 +112,27 @@ def edit_profile():
                            form=form)
 
 
-# @bp.route('/follow/<username>')
+# @bp.route('/follow/<pname>')
 # @login_required
-# def follow(username):
-#     user = User.query.filter_by(username=username).first()
-#     if user is None:
-#         flash(_('User %(username)s not found.', username=username))
+# def follow(pname):
+#     name = Product.query.filter_by(pname=pname).first()
+#     if name is None:
+#         flash(_('User %(pname)s not found.', pname=pname))
 #         return redirect(url_for('main.index'))
-#     if user == current_user:
-#         flash(_('You cannot follow yourself!'))
-#         return redirect(url_for('main.user', username=username))
-#     current_user.follow(user)
+#     current_user.follow(name)
 #     db.session.commit()
-#     flash(_('You are following %(username)s!', username=username))
-#     return redirect(url_for('main.user', username=username))
+#     flash(_('You are following %(name)s!', pname=pname))
+#     #return redirect(url_for('main.user', username=productname))
 #
 #
-# @bp.route('/unfollow/<username>')
+# @bp.route('/unfollow/<pname>')
 # @login_required
-# def unfollow(username):
-#     user = User.query.filter_by(username=username).first()
-#     if user is None:
-#         flash(_('User %(username)s not found.', username=username))
+# def unfollow(pname):
+#     name = Product.query.filter_by(pname=pname).first()
+#     if name is None:
+#         flash(_('User %(pname)s not found.', pname=pname))
 #         return redirect(url_for('main.index'))
-#     if user == current_user:
-#         flash(_('You cannot unfollow yourself!'))
-#         return redirect(url_for('main.user', username=username))
-#     current_user.unfollow(user)
+#     current_user.unfollow(name)
 #     db.session.commit()
-#     flash(_('You are not following %(username)s.', username=username))
-#     return redirect(url_for('main.user', username=username))
+#     flash(_('You are not following %(username)s.', pname=pname))
+#     #return redirect(url_for('main.user', username=username))
