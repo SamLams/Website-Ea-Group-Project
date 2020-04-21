@@ -94,6 +94,9 @@ class Product(db.Model):
     status = db.Column(db.String(255))
     pc_id = db.Column(db.Integer)
     ps_id = db.Column(db.Integer)
+    # houseware = db.relationship('Housewares', backref=db.backref('Housewares', lazy='dynamic'), lazy='dynamic')
+    sportsandtravels = db.relationship('SportsAndTravel', backref='product', lazy='dynamic')
+    # ToysAndBook = db.relationship('ToysAndBooks', backref='author', lazy='dynamic')
 
     followed = db.relationship(
         'Product', secondary=followers,
@@ -111,8 +114,6 @@ class Product(db.Model):
     def is_following(self, product):
         return self.followed.filter(
             followers.c.followed_id == product.pid).count() > 0
-
-
 
 
 class Category(db.Model):
@@ -207,6 +208,7 @@ class Housewares(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
     link = db.Column(db.String(255))
+    #product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
     def __repr__(self):
         return '<Housewares {}>'.format(self.id)
@@ -216,6 +218,7 @@ class SportsAndTravel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
     link = db.Column(db.String(120))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
     def __repr__(self):
         return '<SportsAndTravel {}>'.format(self.id)
