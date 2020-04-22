@@ -1,0 +1,3 @@
+#ignore app.db and /venv
+microblog/app.db
+microblog/venv
