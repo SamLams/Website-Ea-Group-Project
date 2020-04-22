@@ -98,6 +98,7 @@ class Product(db.Model):
     pc_id = db.Column(db.Integer)
     ps_id = db.Column(db.Integer)
     cart = db.relationship('Shopping_cart', backref='product')
+
     followed = db.relationship(
         'Product', secondary=followers,
         primaryjoin=(followers.c.followed_id == pid),
@@ -152,7 +153,7 @@ class Order(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     status_id = db.Column(db.String(255), db.ForeignKey('status.status_id'))
     create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    card = db.relationship('Payment', backref='user')
+    card = db.relationship('Payment', backref='card')
 
     def __repr__(self):
         return '<Order {}>'.format(self.order_id)
@@ -170,7 +171,7 @@ class Status(db.Model):
 
 class Payment(db.Model):
     payment_id = db.Column(db.Integer, primary_key=True)
-    cary_type = db.Column(db.Integer)
+    card_type = db.Column(db.Integer, db.ForeignKey('order.order_id'))
     card_number = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -198,11 +199,11 @@ class Voucher(db.Model):
 
 
 class Shopping_cart(db.Model):
-    user_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
     qty = db.Column(db.Integer)
     price = db.Column(db.Integer)
-    id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    id = db.Column(db.Integer, primary_key=True)
     order_id = db.relationship('Order', backref='shopping_cart')
 
     def __repr__(self):
