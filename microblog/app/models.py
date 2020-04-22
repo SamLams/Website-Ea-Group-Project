@@ -29,6 +29,9 @@ class User(UserMixin, db.Model):
     my_list = db.Column(db.String(120))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow())
     product = db.relationship('UserProduct', backref='author', lazy='dynamic')
+    cs = db.relationship('Customer_Services', backref='user')
+    cart = db.relationship('Shopping_cart', backref='user')
+    order = db.relationship('Order', backref='user')
 
     followed = db.relationship(
         'User', secondary=followers,
@@ -94,7 +97,7 @@ class Product(db.Model):
     status = db.Column(db.String(255))
     pc_id = db.Column(db.Integer)
     ps_id = db.Column(db.Integer)
-
+    cart = db.relationship('Shopping_cart', backref='product')
     followed = db.relationship(
         'Product', secondary=followers,
         primaryjoin=(followers.c.followed_id == pid),
@@ -143,12 +146,13 @@ class Merchant(db.Model):
 
 class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
-    shipping_cart_id = db.Column(db.Integer)  # , db.ForeignKey('shipping_cart'))
+    shopping_cart_id = db.Column(db.Integer, db.ForeignKey('shopping_cart.id'))
     qty = db.Column(db.Integer)
     price = db.Column(db.Integer)
-    user_id = db.Column(db.Integer)  # , db.ForeignKey('user_id'))
-    status_id = db.Column(db.String(255))  # , db.ForeignKey('status_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    status_id = db.Column(db.String(255), db.ForeignKey('status.status_id'))
     create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    card = db.relationship('Payment', backref='user')
 
     def __repr__(self):
         return '<Order {}>'.format(self.order_id)
@@ -158,6 +162,7 @@ class Status(db.Model):
     status_id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.String(255))
     shipment = db.Column(db.String(255))
+    order_id = db.relationship('Order', backref='status')
 
     def __repr__(self):
         return '<Status {}>'.format(self.status_id)
@@ -167,7 +172,7 @@ class Payment(db.Model):
     payment_id = db.Column(db.Integer, primary_key=True)
     cary_type = db.Column(db.Integer)
     card_number = db.Column(db.String(255))
-    user_id = db.Column(db.Integer)  # , db.ForeignKey('user_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return '<Payment {}>'.format(self.payment_id)
@@ -176,7 +181,7 @@ class Payment(db.Model):
 class Customer_Services(db.Model):
     services_id = db.Column(db.Integer, primary_key=True)
     services = db.Column(db.String(255))
-    user_id = db.Column(db.Integer)  # , db.ForeignKey('user_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return '<Services {}>'.format(self.services_id)
@@ -192,12 +197,13 @@ class Voucher(db.Model):
         return '<Voucher {}>'.format(self.v_id)
 
 
-class shopping_cart(db.Model):
+class Shopping_cart(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
-    productid = db.Column(db.Integer)
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
     qty = db.Column(db.Integer)
     price = db.Column(db.Integer)
-    id = db.Column(db.Integer)  # , db.ForeignKey('user_id'))
+    id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    order_id = db.relationship('Order', backref='shopping_cart')
 
     def __repr__(self):
         return '<Post {}>'.format(self.user_id)
