@@ -22,6 +22,30 @@ def index():
     return render_template('index.html', title=_('Home'))
 
 
+
+@bp.route('/post', methods=['GET', 'POST'])
+@login_required
+def post():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(post=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash(_('Your post is now live!'))
+        return redirect(url_for('main.post'))
+    page = request.args.get('page', 1, type=int)
+    posts = current_user.followed_posts().paginate(
+        page, current_app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('main.post', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('main.post', page=posts.prev_num) \
+        if posts.has_prev else None
+    return render_template('post.html', title=_('Home'), form=form,
+                           posts=posts.items, next_url=next_url,
+                           prev_url=prev_url)
+
+
+
 @bp.route('/explore')
 @login_required
 def explore():
@@ -32,9 +56,25 @@ def explore():
         if posts.has_next else None
     prev_url = url_for('main.explore', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title=_('Explore'),
+    return render_template('post.html', title=_('Explore'),
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
+
+
+@bp.route('/delete/<int:id>')
+@login_required
+def delete(id):
+    post = Post.query.get(id)
+    if post is None:
+        flash('Post not found.')
+        return redirect(url_for('main.post'))
+    if post.author.id != g.user.id:
+        flash('You cannot delete this post.')
+        return redirect(url_for('main.post'))
+    db.session.delete(post)
+    db.session.commit()
+    flash('Your post has been deleted.')
+    return redirect(url_for('main.post'))
 
 
 @bp.route('/user/<username>')
@@ -124,6 +164,8 @@ def edit_delivery_address():
         form.delivery_address.data = current_user.delivery_address
     return render_template('edit_delivery_address.html', title=_('Edit Delivery Address'),
                            form=form)
+
+
 # @bp.route('/follow/<pname>')
 # @login_required
 # def follow(pname):
