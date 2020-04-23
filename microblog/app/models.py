@@ -99,10 +99,6 @@ class Product(db.Model):
     mid = db.Column(db.Integer, db.ForeignKey('merchant.mid'), nullable=False)
     status = db.Column(db.String(255))
 
-    # houseware = db.relationship('Housewares', backref=db.backref('Housewares', lazy='dynamic'), lazy='dynamic')
-    sportsandtravels = db.relationship('SportsAndTravel', backref='product', lazy='dynamic')
-    # ToysAndBook = db.relationship('ToysAndBooks', backref='author', lazy='dynamic')
-
     cart = db.relationship('Shopping_cart', backref='product')
     pc_id = db.Column(db.Integer, db.ForeignKey('category.pc_id'), nullable=False)
     ps_id = db.Column(db.Integer, db.ForeignKey('subcategory.ps_id'), nullable=False)
