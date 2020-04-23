@@ -29,8 +29,6 @@ class User(UserMixin, db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     my_list = db.Column(db.String(120))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow())
-
-    product = db.relationship('UserProduct', backref='author', lazy='dynamic')
     cs = db.relationship('Customer_Services', backref='user')
     cart = db.relationship('Shopping_cart', backref='user')
     order = db.relationship('Order', backref='user')
