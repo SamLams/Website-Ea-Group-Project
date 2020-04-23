@@ -31,17 +31,25 @@
 
         </div>
 
-        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: flex;">
             <label class="btn btn-secondary active" style="flex: 1;">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked>{{ _('Supermarket') }}
+                {{ _('Supermarket') }}
             </label>
             <label class="btn btn-secondary" style="flex: 1;">
-                <input type="radio" name="options" id="option2" autocomplete="off">{{ _('Personal Care') }}
+               {{ _('Personal Care') }}
             </label>
             <label class="btn btn-secondary" style="flex: 1;">
-                <input type="radio" name="options" id="option3" autocomplete="off">{{ _('Skincare & Makeup') }}
+                {{ _('Skincare & Makeup') }}
             </label>
-        </div>
+            <label class="btn btn-secondary" style="flex: 1;">
+                <a href="{{ url_for('main.housewares') }}">{{_('Housewares')}}</a>
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+                  <a href="{{ url_for('main.sportsntravel') }}">{{ _('Sports & Travel') }}</a>
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+               <a href="{{ url_for('main.toysnbooks') }}">{{ _('Toys & Books') }}</a>
+            </label>
+
     </div>
 
 

@@ -14,6 +14,7 @@ followers = db.Table(
 )
 
 
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(64), index=True, unique=True)
@@ -28,7 +29,6 @@ class User(UserMixin, db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     my_list = db.Column(db.String(120))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow())
-    product = db.relationship('UserProduct', backref='author', lazy='dynamic')
 
     followed = db.relationship(
         'User', secondary=followers,
@@ -82,9 +82,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-
         return '<Post {}>'.format(self.reviews)
-
 
 
 class Product(db.Model):
@@ -96,7 +94,9 @@ class Product(db.Model):
     status = db.Column(db.String(255))
     pc_id = db.Column(db.Integer)
     ps_id = db.Column(db.Integer)
-
+    houseware = db.relation('Housewares', backref='product', uselist=False)
+    SportsAndTravels = db.relation('SportsAndTravel', backref='product', uselist=False)
+    ToysAndBook = db.relation('ToysAndBooks', backref='product', uselist=False)
     followed = db.relationship(
         'Product', secondary=followers,
         primaryjoin=(followers.c.followed_id == pid),
@@ -113,8 +113,6 @@ class Product(db.Model):
     def is_following(self, product):
         return self.followed.filter(
             followers.c.followed_id == product.pid).count() > 0
-
-
 
 
 class Category(db.Model):
@@ -150,8 +148,6 @@ class Order(db.Model):
     price = db.Column(db.Integer)
     user_id = db.Column(db.Integer)  # , db.ForeignKey('user_id'))
     status_id = db.Column(db.String(255))  # , db.ForeignKey('status_id'))
-
-    Create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
     create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
@@ -212,6 +208,7 @@ class Housewares(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
     link = db.Column(db.String(255))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
     def __repr__(self):
         return '<Housewares {}>'.format(self.id)
@@ -219,12 +216,9 @@ class Housewares(db.Model):
 
 class SportsAndTravel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-
-    name = db.column(db.String(120))
-
     name = db.Column(db.String(120))
-
     link = db.Column(db.String(120))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
     def __repr__(self):
         return '<SportsAndTravel {}>'.format(self.id)
@@ -234,15 +228,8 @@ class ToysAndBooks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
     link = db.Column(db.String(120))
-
+    roduct_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
     def __repr__(self):
         return '<ToysAndBooks {}>'.format(self.id)
 
 
-class UserProduct(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(120))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    def __repr__(self):
-        return '<UserProduct {}>'.format(self.id)

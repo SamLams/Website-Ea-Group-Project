@@ -2,7 +2,10 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="app" uuid="4a9b15ad-d6df-4c77-a8ad-3ac21c2c077d">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
   </component>

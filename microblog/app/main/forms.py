@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, \
     TextAreaField, IntegerField
-from wtforms.validators import ValidationError, DataRequired, Length, Email
+from wtforms.validators import ValidationError, DataRequired, Email
 from flask_babel import _, lazy_gettext as _l
 from app.models import User
 
@@ -13,8 +13,6 @@ class EditProfileForm(FlaskForm):
     email = StringField(_l('Email Address'), validators=[DataRequired(), Email()])
     phone = IntegerField(_l('Phone Number'), validators=[DataRequired()])
     gender = StringField(_l('Gender'), validators=[DataRequired()])
-    about_me = TextAreaField(_l('About me'),
-                             validators=[Length(min=0, max=140)])
     submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, original_email, original_phone, original_first_name, original_last_name,
@@ -44,8 +42,21 @@ class EditProfileForm(FlaskForm):
             if user is not None:
                 raise ValidationError(_('Please use a different phone number.'))
 
-class DeliveryAddressForm(FlaskForm):
-    pass
+
+class EditDeliveryAddressForm(FlaskForm):
+    delivery_address = StringField(_l('Delivery Address'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))
+
+    def __init__(self, original_delivery_address, *args, **kwargs):
+        super(EditDeliveryAddressForm, self).__init__(*args, **kwargs)
+        self.original_delivery_address = original_delivery_address
+
+    def validate_delivery_address(self, delivery_address):
+        if delivery_address.data != self.original_delivery_address:
+            user = User.query.filter_by(delivery_address=self.delivery_address.data).first()
+            if user is not None:
+                raise ValidationError(_('Please use a different delivery address.'))
+
 
 class PostForm(FlaskForm):
     post = TextAreaField(_l('Say something'), validators=[DataRequired()])
