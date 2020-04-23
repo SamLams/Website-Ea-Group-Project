@@ -105,5 +105,5 @@
 #nav li li:hover ul {
     display: block; /* shows sub-sublist on hover */
     margin-left: 90px; /* this should be the same width as the parent list item */
-    margin-top: -35px; /* aligns top of sub menu with top of list item */
+    margin-top: -43px; /* aligns top of sub menu with top of list item */
 }
