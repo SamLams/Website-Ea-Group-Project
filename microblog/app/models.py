@@ -14,6 +14,7 @@ followers = db.Table(
 )
 
 
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(64), index=True, unique=True)
@@ -28,10 +29,12 @@ class User(UserMixin, db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     my_list = db.Column(db.String(120))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow())
+
     product = db.relationship('UserProduct', backref='author', lazy='dynamic')
     cs = db.relationship('Customer_Services', backref='user')
     cart = db.relationship('Shopping_cart', backref='user')
     order = db.relationship('Order', backref='user')
+
 
     followed = db.relationship(
         'User', secondary=followers,
@@ -80,7 +83,7 @@ def load_user(id):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    reviews = db.Column(db.String(140))
+    post = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -95,21 +98,24 @@ class Product(db.Model):
     price = db.Column(db.Float)
     mid = db.Column(db.Integer, db.ForeignKey('merchant.mid'), nullable=False)
     status = db.Column(db.String(255))
-    pc_id = db.Column(db.Integer)
-    ps_id = db.Column(db.Integer)
-<<<<<<< HEAD
+
     # houseware = db.relationship('Housewares', backref=db.backref('Housewares', lazy='dynamic'), lazy='dynamic')
     sportsandtravels = db.relationship('SportsAndTravel', backref='product', lazy='dynamic')
     # ToysAndBook = db.relationship('ToysAndBooks', backref='author', lazy='dynamic')
-=======
+
     cart = db.relationship('Shopping_cart', backref='product')
     pc_id = db.Column(db.Integer, db.ForeignKey('category.pc_id'), nullable=False)
     ps_id = db.Column(db.Integer, db.ForeignKey('subcategory.ps_id'), nullable=False)
->>>>>>> 01a63afacd24172c692edb21dec52f4d530ff18b
+
 
 
     pets = db.relationship('Pets', backref='Product', lazy=True)
     disney = db.relationship('Disney', backref='Product', lazy=True)
+
+    houseware = db.relation('Housewares', backref='product', uselist=False)
+    SportsAndTravels = db.relation('SportsAndTravel', backref='product', uselist=False)
+    ToysAndBook = db.relation('ToysAndBooks', backref='product', uselist=False)
+
     followed = db.relationship(
         'Product', secondary=followers,
         primaryjoin=(followers.c.followed_id == pid),
@@ -165,8 +171,12 @@ class Order(db.Model):
     shopping_cart_id = db.Column(db.Integer, db.ForeignKey('shopping_cart.id'))
     qty = db.Column(db.Integer)
     price = db.Column(db.Integer)
+
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     status_id = db.Column(db.String(255), db.ForeignKey('status.status_id'))
+
+
+
     create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     card = db.relationship('Payment', backref='card')
 
@@ -229,7 +239,9 @@ class Housewares(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
     link = db.Column(db.String(255))
-    #product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
+
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
+
 
     def __repr__(self):
         return '<Housewares {}>'.format(self.id)
@@ -249,15 +261,8 @@ class ToysAndBooks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
     link = db.Column(db.String(120))
-
+    roduct_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
     def __repr__(self):
         return '<ToysAndBooks {}>'.format(self.id)
 
 
-class UserProduct(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(120))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    def __repr__(self):
-        return '<UserProduct {}>'.format(self.id)

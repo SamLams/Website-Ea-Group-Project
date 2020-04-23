@@ -30,6 +30,7 @@
             </div>
 
         </div>
+<<<<<<< HEAD
         <div class="row" style="font-size: 16px;">
             <div class="col-sm-2">
                 <a href="{{ url_for('main.index') }}">{{ _('Supermarket') }}</a>
@@ -41,6 +42,28 @@
                 {{ _('Skincare & Makeup') }}
             </div>
         </div>
+=======
+
+            <label class="btn btn-secondary active" style="flex: 1;">
+                {{ _('Supermarket') }}
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+               {{ _('Personal Care') }}
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+                {{ _('Skincare & Makeup') }}
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+                <a href="{{ url_for('main.housewares') }}">{{_('Housewares')}}</a>
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+                  <a href="{{ url_for('main.sportsntravel') }}">{{ _('Sports & Travel') }}</a>
+            </label>
+            <label class="btn btn-secondary" style="flex: 1;">
+               <a href="{{ url_for('main.toysnbooks') }}">{{ _('Toys & Books') }}</a>
+            </label>
+
+>>>>>>> sam
     </div>
 
 
