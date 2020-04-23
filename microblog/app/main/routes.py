@@ -119,7 +119,7 @@ def edit_delivery_address():
         current_user.delivery_address = form.delivery_address.data
         db.session.commit()
         flash(_('Your changes have been saved.'))
-        return redirect(url_for('main.delivery_address'))
+        return redirect(url_for('main.edit_delivery_address'))
     elif request.method == 'GET':
         form.delivery_address.data = current_user.delivery_address
     return render_template('edit_delivery_address.html', title=_('Edit Delivery Address'),
