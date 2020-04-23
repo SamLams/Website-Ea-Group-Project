@@ -4,6 +4,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 {% block current_app_content %}
+    <div class="justify-content-center container">
     <div class="row">
 		<div class="col-md-3 ">
 		     <div class="list-group ">
@@ -17,7 +18,7 @@
               <a href="{{ url_for('main.delivery_address', username=current_user.username)}}" class="list-group-item list-group-item-action">Delivery Addresses</a>
               <a href="#" class="list-group-item list-group-item-action">My e-Wallet</a>
               <a href="#" class="list-group-item list-group-item-action">Notifications</a>
-              <a href="{{ url_for('main.index') }}" class="list-group-item list-group-item-action">My Product Reviews</a>
+              <a href="{{ url_for('main.post') }}" class="list-group-item list-group-item-action">My Product Reviews</a>
 
 
             </div>
@@ -36,34 +37,16 @@
                     {% if user == current_user %}
                         <p><a href="{{ url_for('main.edit_delivery_address') }}">{{ _('Edit your delivery address') }}</a></p>
                     {% endif %}
-                    {% if user.last_seen %}
-                        <p>{{ _('Last seen on') }}: {{ moment(user.last_seen).format('LLL') }}</p>
-                    {% endif %}
 
                 </td>
             </tr>
         </table>
-        <!--{% for post in posts %}
-            {% include '_post.html' %}
-        {% endfor %}
-        <nav aria-label="...">
-            <ul class="pager">
-                <li class="previous{% if not prev_url %} disabled{% endif %}">
-                    <a href="{{ prev_url or '#' }}">
-                        <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
-                    </a>
-                </li>
-                <li class="next{% if not next_url %} disabled{% endif %}">
-                    <a href="{{ next_url or '#' }}">
-                        {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>-->
+
                           </div>
 		            </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}
