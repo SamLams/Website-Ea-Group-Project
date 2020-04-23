@@ -93,12 +93,19 @@ class Product(db.Model):
     pname = db.Column(db.String(255))
     qty = db.Column(db.Integer)
     price = db.Column(db.Float)
-    mid = db.Column(db.Integer)
+    mid = db.Column(db.Integer, db.ForeignKey('merchant.mid'), nullable=False)
     status = db.Column(db.String(255))
+<<<<<<< HEAD
     pc_id = db.Column(db.Integer)
     ps_id = db.Column(db.Integer)
     cart = db.relationship('Shopping_cart', backref='product')
+=======
+    pc_id = db.Column(db.Integer, db.ForeignKey('category.pc_id'), nullable=False)
+    ps_id = db.Column(db.Integer, db.ForeignKey('subcategory.ps_id'), nullable=False)
+>>>>>>> 86784d31c4cbc8961d73e74b083c7d09e6b4eb8d
 
+    pets = db.relationship('Pets', backref='Product', lazy=True)
+    disney = db.relationship('Disney', backref='Product', lazy=True)
     followed = db.relationship(
         'Product', secondary=followers,
         primaryjoin=(followers.c.followed_id == pid),
@@ -117,32 +124,36 @@ class Product(db.Model):
             followers.c.followed_id == product.pid).count() > 0
 
 
-
-
 class Category(db.Model):
     pc_id = db.Column(db.Integer, primary_key=True)
     pc_name = db.Column(db.String(255))
-    ps_id = db.Column(db.Integer)
+
+    product = db.relationship('Product', backref='Category', lazy=True)
 
 
 class Subcategory(db.Model):
     ps_id = db.Column(db.Integer, primary_key=True)
     ps_name = db.Column(db.String(255))
+    product = db.relationship('Product', backref='Subcategory', lazy=True)
+    category = db.relationship('Category', backref='Subcategory', lazy=True)
 
 
 class Pets(db.Model):
     pet_id = db.Column(db.Integer, primary_key=True)
-    pid = db.Column(db.Integer)
+    pid = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
 
 class Disney(db.Model):
     disney_id = db.Column(db.Integer, primary_key=True)
-    pid = db.Column(db.Integer)
+    pid = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
 
 class Merchant(db.Model):
     mid = db.Column(db.Integer, primary_key=True)
-    pid = db.Column(db.Integer)
+    mname = db.Column(db.String(255))
+    description = db.Column(db.String(500))
+    rating = db.Column(db.Float)
+    product = db.relationship('Product', backref='Merchant', lazy=True)
 
 
 class Order(db.Model):

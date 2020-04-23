@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2020-04-23 04:48:13,890 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-23 04:50:15,750 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-23 05:23:47,551 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
@@ -25,3 +26,23 @@
 2020-04-23 06:29:37,492 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-23 07:12:08,182 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-23 07:30:20,840 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+=======
+2020-04-23 10:19:09,649 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:22:00,303 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:22:58,080 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:24:45,766 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:26:54,276 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:34:21,922 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:34:44,379 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:36:43,994 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:40:12,887 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:41:23,160 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:41:25,671 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:41:52,906 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:42:01,879 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:42:54,057 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:43:37,910 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:43:46,785 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:57:10,713 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-23 10:57:53,019 INFO: Microblog startup [in /home/osboxes/PycharmProjects/ITP_4924/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+>>>>>>> 86784d31c4cbc8961d73e74b083c7d09e6b4eb8d

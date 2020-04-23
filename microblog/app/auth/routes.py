@@ -10,6 +10,11 @@ from app.auth.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm
 from app.models import User
 
 
+@bp.route('/index')
+def index():
+    return render_template('templates/index.html')
+
+
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:

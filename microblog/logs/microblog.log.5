@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2020-04-22 10:40:17,293 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-22 10:40:25,837 ERROR: Exception on / [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
@@ -10,6 +11,51 @@ sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships betw
 
 During handling of the above exception, another exception occurred:
 
+=======
+2020-04-20 06:17:55,721 ERROR: Exception on /index [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 13, in before_request
+    if current_user.is_authenticated:
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/models.py", line 89, in load_user
+    return User.query.get(int(id))
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 512, in __get__
+    mapper = orm.class_mapper(type)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/base.py", line 421, in class_mapper
+    mapper = _inspect_mapped_class(class_, configure=configure)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/base.py", line 400, in _inspect_mapped_class
+    mapper._configure_all()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1272, in _configure_all
+    configure_mappers()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 3026, in configure_mappers
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper|User|user'. Original exception was: Error creating backref 'author' on relationship 'User.product': property of that name exists on mapper 'Mapper|Post|post'
+2020-04-20 06:19:38,110 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-20 06:19:44,732 ERROR: Exception on /index [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+>>>>>>> 86784d31c4cbc8961d73e74b083c7d09e6b4eb8d
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -53,6 +99,7 @@ Traceback (most recent call last):
     prop.init()
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/interfaces.py", line 184, in init
     self.do_init()
+<<<<<<< HEAD
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/relationships.py", line 1656, in do_init
     self._setup_join_conditions()
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/relationships.py", line 1731, in _setup_join_conditions
@@ -68,3 +115,11 @@ sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between pa
 2020-04-22 10:51:04,311 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-22 10:51:06,904 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
 2020-04-22 10:51:19,383 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+=======
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/relationships.py", line 1659, in do_init
+    self._generate_backref()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/relationships.py", line 1849, in _generate_backref
+    (backref_key, self, m))
+sqlalchemy.exc.ArgumentError: Error creating backref 'author' on relationship 'User.product': property of that name exists on mapper 'Mapper|Post|post'
+2020-04-20 06:22:14,332 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+>>>>>>> 86784d31c4cbc8961d73e74b083c7d09e6b4eb8d
