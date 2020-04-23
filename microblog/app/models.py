@@ -261,7 +261,7 @@ class ToysAndBooks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
     link = db.Column(db.String(120))
-    roduct_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
     def __repr__(self):
         return '<ToysAndBooks {}>'.format(self.id)
 
