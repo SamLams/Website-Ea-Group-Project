@@ -26,54 +26,6 @@
     text-align: center;
 }
 
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 92px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-
 @media only screen and (max-width: 1200px) {
     #dropdown {
         display: none;
@@ -100,143 +52,58 @@
     font-size: 16px;
 }
 
-#menu {
-    background: #343434;
-    color: #eee;
-    height: 35px;
-    border-bottom: 4px solid #eeeded
+#nav {
+    list-style: none inside;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-#menu ul,
-#menu li {
-    margin: 0 0;
-    padding: 0 0;
-    list-style: none
-}
-
-#menu ul {
-    height: 35px
-}
-
-#menu li {
+#nav li {
+    display: block;
+    position: relative;
     float: left;
-    display: inline;
-    position: relative;
-    font: bold 12px Arial;
-    text-shadow: 0 -1px 0 #000;
-    border-right: 1px solid #444;
-    border-left: 1px solid #111;
-    text-transform: uppercase
+    background: #24af15; /* menu background color */
 }
 
-#menu li:first-child {
-    border-left: none
-}
-
-#menu a {
+#nav li a {
     display: block;
-    line-height: 35px;
-    padding: 0 14px;
+    padding: 0;
     text-decoration: none;
-    color: #eee;
+    width: 90px; /* this is the width of the menu items */
+    line-height: 43px; /* this is the hieght of the menu items */
+    color: #fdfdfd; /* list item font color */
 }
 
-#menu li:hover > a,
-#menu li a:hover {
-    background: #111
+#nav li li a {
+    font-size: 80%;
 }
 
-#menu input {
-    display: none;
-    margin: 0 0;
-    padding: 0 0;
-    width: 80px;
-    height: 35px;
-    opacity: 0;
-    cursor: pointer
+/* smaller font size for sub menu items */
+#nav li:hover {
+    background: #003f20;
 }
 
-#menu label {
-    font: bold 30px Arial;
-    display: none;
-    width: 35px;
-    height: 36px;
-    line-height: 36px;
-    text-align: center
-}
-
-#menu label span {
-    font-size: 12px;
+/* highlights current hovered list item and the parent list items when hovering over sub menues */
+#nav ul {
     position: absolute;
-    left: 35px
+    padding: 0;
+    left: 0;
+    display: none; /* hides sublists */
 }
 
-#menu ul.menus {
-    height: auto;
-    width: 180px;
-    background: #111;
-    position: absolute;
-    z-index: 99;
+#nav li:hover ul ul {
     display: none;
-    border: 0;
 }
 
-#menu ul.menus li {
-    display: block;
-    width: 100%;
-    font: 12px Arial;
-    text-transform: none;
-}
-
-#menu li:hover ul.menus {
-    display: block
-}
-
-#menu a.home {
-    background: #c00;
-}
-
-#menu a.prett {
-    padding: 0 27px 0 14px
-}
-
-#menu a.prett::after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-width: 6px 5px;
-    border-style: solid;
-    border-color: #eee transparent transparent transparent;
-    position: absolute;
-}
-
-#menu ul.menus a:hover {
-    background: #333;
-}
-
-#menu ul.menus .submenu {
-    display: none;
-    position: absolute;
-    left: 180px;
-    background: #111;
-    top: 0;
-    width: 180px;
-}
-
-#menu ul.menus .submenu li {
-    background: #111;
-}
-
-#menu ul.menus .has-submenu:hover .submenu {
+/* hides sub-sublists */
+#nav li:hover ul {
     display: block;
 }
 
-.dropdown-submenu {
-    position: relative;
-}
-
-.dropdown-submenu .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -1px;
+/* shows sublist on hover */
+#nav li li:hover ul {
+    display: block; /* shows sub-sublist on hover */
+    margin-left: 90px; /* this should be the same width as the parent list item */
+    margin-top: -35px; /* aligns top of sub menu with top of list item */
 }
