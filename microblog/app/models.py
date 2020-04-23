@@ -137,7 +137,7 @@ class Product(db.Model):
 class Category(db.Model):
     pc_id = db.Column(db.Integer, primary_key=True)
     pc_name = db.Column(db.String(255))
-
+    ps_id = db.Column(db.Integer, db.ForeignKey('subcategory.ps_id'), nullable=False)
     product = db.relationship('Product', backref='Category', lazy=True)
 
 
