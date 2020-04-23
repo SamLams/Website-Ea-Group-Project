@@ -20,8 +20,7 @@ def before_request():
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template('index.html', title=_('Home'))
-<<<<<<< HEAD
-=======
+
 
 
 @bp.route('/post', methods=['GET', 'POST'])
@@ -44,7 +43,7 @@ def post():
     return render_template('post.html', title=_('Home'), form=form,
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
->>>>>>> sam
+
 
 
 @bp.route('/explore')
@@ -151,8 +150,6 @@ def edit_profile():
     return render_template('edit_profile.html', title=_('Edit Profile'),
                            form=form)
 
-<<<<<<< HEAD
-=======
 
 @bp.route('/edit_delivery_address', methods=['GET', 'POST'])
 @login_required
@@ -168,7 +165,7 @@ def edit_delivery_address():
     return render_template('edit_delivery_address.html', title=_('Edit Delivery Address'),
                            form=form)
 
->>>>>>> sam
+
 # @bp.route('/follow/<pname>')
 # @login_required
 # def follow(pname):
