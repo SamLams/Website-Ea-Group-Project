@@ -170,13 +170,14 @@ def edit_delivery_address():
 def cs(username):
     form = CsForm()
     user = User.query.filter_by(username=username).first_or_404()
+    messages = Customer_Services.query.filter_by(user_id=current_user.id).all()
     if form.validate_on_submit():
         services = Customer_Services(services=form.services.data, user_id=current_user.id)
         db.session.add(services)
         db.session.commit()
         flash(_('Your message sent! Thank you!'))
         return redirect(url_for('main.cs', username=current_user.username))
-    return render_template('cs.html', title=_('Customer Services'), form=form, user=user)
+    return render_template('cs.html', title=_('Customer Services'), form=form, user=user, messages=messages)
 
 
 

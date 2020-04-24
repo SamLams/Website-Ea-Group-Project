@@ -1,0 +1,10 @@
+<table class="table table-hover">
+    <tr>
+        <td>
+            {{ _('Message: ') }}
+            {{ message.services }}
+            {{ _(' said ') }}
+            {{ moment(message.timestamp).fromNow() }}
+        </td>
+    </tr>
+</table>
