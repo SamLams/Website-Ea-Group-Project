@@ -32,41 +32,46 @@
     <table id="22" parent="2" name="subcategory"/>
     <table id="23" parent="2" name="toys_and_books"/>
     <table id="24" parent="2" name="user"/>
-    <table id="25" parent="2" name="user_product"/>
-    <table id="26" parent="2" name="voucher"/>
-    <column id="27" parent="6" name="version_num">
+    <table id="25" parent="2" name="voucher"/>
+    <column id="26" parent="6" name="version_num">
       <Position>1</Position>
       <DataType>VARCHAR(32)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="28" parent="6" name="sqlite_autoindex_alembic_version_1">
+    <index id="27" parent="6" name="sqlite_autoindex_alembic_version_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version_num</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="29" parent="6" name="alembic_version_pkc">
+    <key id="28" parent="6" name="alembic_version_pkc">
       <ColNames>version_num</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_alembic_version_1</UnderlyingIndexName>
     </key>
-    <column id="30" parent="7" name="pc_id">
+    <column id="29" parent="7" name="pc_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="31" parent="7" name="pc_name">
+    <column id="30" parent="7" name="pc_name">
       <Position>2</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="32" parent="7" name="ps_id">
+    <column id="31" parent="7" name="ps_id">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="33" parent="7">
+    <key id="32" parent="7">
       <ColNames>pc_id</ColNames>
       <Primary>1</Primary>
     </key>
+    <foreign-key id="33" parent="7">
+      <ColNames>ps_id</ColNames>
+      <RefTableName>subcategory</RefTableName>
+      <RefColNames>ps_id</RefColNames>
+    </foreign-key>
     <column id="34" parent="8" name="services_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
@@ -84,440 +89,521 @@
       <ColNames>services_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="38" parent="9" name="disney_id">
+    <foreign-key id="38" parent="8">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="39" parent="9" name="disney_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="39" parent="9" name="pid">
+    <column id="40" parent="9" name="pid">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <key id="40" parent="9">
+    <key id="41" parent="9">
       <ColNames>disney_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="41" parent="10" name="follower_id">
+    <foreign-key id="42" parent="9">
+      <ColNames>pid</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefColNames>pid</RefColNames>
+    </foreign-key>
+    <column id="43" parent="10" name="follower_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="42" parent="10" name="followed_id">
+    <column id="44" parent="10" name="followed_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <foreign-key id="43" parent="10">
+    <foreign-key id="45" parent="10">
       <ColNames>follower_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="44" parent="10">
+    <foreign-key id="46" parent="10">
       <ColNames>followed_id</ColNames>
       <RefTableName>product</RefTableName>
       <RefColNames>pid</RefColNames>
     </foreign-key>
-    <column id="45" parent="11" name="id">
+    <column id="47" parent="11" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="46" parent="11" name="link">
+    <column id="48" parent="11" name="name">
       <Position>2</Position>
-      <DataType>VARCHAR(255)|0s</DataType>
-    </column>
-    <column id="47" parent="11" name="name">
-      <Position>3</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <key id="48" parent="11">
+    <column id="49" parent="11" name="link">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+    </column>
+    <column id="50" parent="11" name="product_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="51" parent="11">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="49" parent="12" name="mid">
+    <foreign-key id="52" parent="11">
+      <ColNames>product_id</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefColNames>pid</RefColNames>
+    </foreign-key>
+    <column id="53" parent="12" name="mid">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="50" parent="12" name="pid">
+    <column id="54" parent="12" name="mname">
       <Position>2</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <key id="51" parent="12">
+    <column id="55" parent="12" name="description">
+      <Position>3</Position>
+      <DataType>VARCHAR(500)|0s</DataType>
+    </column>
+    <column id="56" parent="12" name="rating">
+      <Position>4</Position>
+      <DataType>FLOAT|0s</DataType>
+    </column>
+    <key id="57" parent="12">
       <ColNames>mid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="52" parent="13" name="order_id">
+    <column id="58" parent="13" name="order_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="53" parent="13" name="shipping_cart_id">
+    <column id="59" parent="13" name="shopping_cart_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="54" parent="13" name="qty">
+    <column id="60" parent="13" name="qty">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="55" parent="13" name="price">
+    <column id="61" parent="13" name="price">
       <Position>4</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="56" parent="13" name="user_id">
+    <column id="62" parent="13" name="user_id">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="57" parent="13" name="status_id">
+    <column id="63" parent="13" name="status_id">
       <Position>6</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="58" parent="13" name="create_at">
+    <column id="64" parent="13" name="create_at">
       <Position>7</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <index id="59" parent="13" name="ix_order_create_at">
+    <index id="65" parent="13" name="ix_order_create_at">
       <ColNames>create_at</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="60" parent="13">
+    <key id="66" parent="13">
       <ColNames>order_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="61" parent="14" name="payment_id">
-      <Position>1</Position>
-      <DataType>INTEGER|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="62" parent="14" name="cary_type">
-      <Position>2</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <column id="63" parent="14" name="card_number">
-      <Position>3</Position>
-      <DataType>VARCHAR(255)|0s</DataType>
-    </column>
-    <column id="64" parent="14" name="user_id">
-      <Position>4</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <key id="65" parent="14">
-      <ColNames>payment_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="66" parent="15" name="pet_id">
-      <Position>1</Position>
-      <DataType>INTEGER|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="67" parent="15" name="pid">
-      <Position>2</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <key id="68" parent="15">
-      <ColNames>pet_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="69" parent="16" name="id">
-      <Position>1</Position>
-      <DataType>INTEGER|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="70" parent="16" name="reviews">
-      <Position>2</Position>
-      <DataType>VARCHAR(140)|0s</DataType>
-    </column>
-    <column id="71" parent="16" name="timestamp">
-      <Position>3</Position>
-      <DataType>DATETIME|0s</DataType>
-    </column>
-    <column id="72" parent="16" name="user_id">
-      <Position>4</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <index id="73" parent="16" name="ix_post_timestamp">
-      <ColNames>timestamp</ColNames>
-      <ColumnCollations></ColumnCollations>
-    </index>
-    <key id="74" parent="16">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="75" parent="16">
+    <foreign-key id="67" parent="13">
+      <ColNames>shopping_cart_id</ColNames>
+      <RefTableName>shopping_cart</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="68" parent="13">
       <ColNames>user_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="76" parent="17" name="pid">
+    <foreign-key id="69" parent="13">
+      <ColNames>status_id</ColNames>
+      <RefTableName>status</RefTableName>
+      <RefColNames>status_id</RefColNames>
+    </foreign-key>
+    <column id="70" parent="14" name="payment_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="77" parent="17" name="pname">
+    <column id="71" parent="14" name="card_type">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="72" parent="14" name="card_number">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+    </column>
+    <column id="73" parent="14" name="user_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="74" parent="14">
+      <ColNames>payment_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="14">
+      <ColNames>card_type</ColNames>
+      <RefTableName>order</RefTableName>
+      <RefColNames>order_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="76" parent="14">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="77" parent="15" name="pet_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="15" name="pid">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="79" parent="15">
+      <ColNames>pet_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="80" parent="15">
+      <ColNames>pid</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefColNames>pid</RefColNames>
+    </foreign-key>
+    <column id="81" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="16" name="post">
+      <Position>2</Position>
+      <DataType>VARCHAR(140)|0s</DataType>
+    </column>
+    <column id="83" parent="16" name="timestamp">
+      <Position>3</Position>
+      <DataType>DATETIME|0s</DataType>
+    </column>
+    <column id="84" parent="16" name="user_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="85" parent="16" name="ix_post_timestamp">
+      <ColNames>timestamp</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="86" parent="16">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="87" parent="16">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="88" parent="17" name="pid">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="17" name="pname">
       <Position>2</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="78" parent="17" name="qty">
+    <column id="90" parent="17" name="qty">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="79" parent="17" name="price">
+    <column id="91" parent="17" name="price">
       <Position>4</Position>
       <DataType>FLOAT|0s</DataType>
     </column>
-    <column id="80" parent="17" name="mid">
+    <column id="92" parent="17" name="mid">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="81" parent="17" name="status">
+    <column id="93" parent="17" name="status">
       <Position>6</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="82" parent="17" name="pc_id">
+    <column id="94" parent="17" name="pc_id">
       <Position>7</Position>
       <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="83" parent="17" name="ps_id">
+    <column id="95" parent="17" name="ps_id">
       <Position>8</Position>
       <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="84" parent="17">
+    <key id="96" parent="17">
       <ColNames>pid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="85" parent="18" name="user_id">
+    <foreign-key id="97" parent="17">
+      <ColNames>mid</ColNames>
+      <RefTableName>merchant</RefTableName>
+      <RefColNames>mid</RefColNames>
+    </foreign-key>
+    <foreign-key id="98" parent="17">
+      <ColNames>pc_id</ColNames>
+      <RefTableName>category</RefTableName>
+      <RefColNames>pc_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="99" parent="17">
+      <ColNames>ps_id</ColNames>
+      <RefTableName>subcategory</RefTableName>
+      <RefColNames>ps_id</RefColNames>
+    </foreign-key>
+    <column id="100" parent="18" name="user_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
-    <column id="86" parent="18" name="productid">
+    <column id="101" parent="18" name="product_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="87" parent="18" name="qty">
+    <column id="102" parent="18" name="qty">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="88" parent="18" name="price">
+    <column id="103" parent="18" name="price">
       <Position>4</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="89" parent="18" name="id">
+    <column id="104" parent="18" name="id">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="90" parent="18">
-      <ColNames>user_id</ColNames>
+    <key id="105" parent="18">
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="91" parent="19" name="id">
+    <foreign-key id="106" parent="18">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="107" parent="18">
+      <ColNames>product_id</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefColNames>pid</RefColNames>
+    </foreign-key>
+    <column id="108" parent="19" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="92" parent="19" name="link">
+    <column id="109" parent="19" name="name">
       <Position>2</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <column id="93" parent="19" name="name">
+    <column id="110" parent="19" name="link">
       <Position>3</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <key id="94" parent="19">
+    <column id="111" parent="19" name="product_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="112" parent="19">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="95" parent="20" name="type">
+    <foreign-key id="113" parent="19">
+      <ColNames>product_id</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefColNames>pid</RefColNames>
+    </foreign-key>
+    <column id="114" parent="20" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="96" parent="20" name="name">
+    <column id="115" parent="20" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="97" parent="20" name="tbl_name">
+    <column id="116" parent="20" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="98" parent="20" name="rootpage">
+    <column id="117" parent="20" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="99" parent="20" name="sql">
+    <column id="118" parent="20" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="100" parent="21" name="status_id">
+    <column id="119" parent="21" name="status_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="101" parent="21" name="status">
+    <column id="120" parent="21" name="status">
       <Position>2</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="102" parent="21" name="shipment">
+    <column id="121" parent="21" name="shipment">
       <Position>3</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <key id="103" parent="21">
+    <key id="122" parent="21">
       <ColNames>status_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="104" parent="22" name="ps_id">
+    <column id="123" parent="22" name="ps_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="105" parent="22" name="ps_name">
+    <column id="124" parent="22" name="ps_name">
       <Position>2</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <key id="106" parent="22">
+    <key id="125" parent="22">
       <ColNames>ps_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="107" parent="23" name="id">
+    <column id="126" parent="23" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="108" parent="23" name="link">
+    <column id="127" parent="23" name="name">
       <Position>2</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <column id="109" parent="23" name="name">
+    <column id="128" parent="23" name="link">
       <Position>3</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <key id="110" parent="23">
+    <column id="129" parent="23" name="product_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="130" parent="23">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="111" parent="24" name="id">
+    <foreign-key id="131" parent="23">
+      <ColNames>product_id</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefColNames>pid</RefColNames>
+    </foreign-key>
+    <column id="132" parent="24" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="112" parent="24" name="first_name">
+    <column id="133" parent="24" name="first_name">
       <Position>2</Position>
       <DataType>VARCHAR(64)|0s</DataType>
     </column>
-    <column id="113" parent="24" name="last_name">
+    <column id="134" parent="24" name="last_name">
       <Position>3</Position>
       <DataType>VARCHAR(64)|0s</DataType>
     </column>
-    <column id="114" parent="24" name="username">
+    <column id="135" parent="24" name="username">
       <Position>4</Position>
       <DataType>VARCHAR(64)|0s</DataType>
     </column>
-    <column id="115" parent="24" name="email">
+    <column id="136" parent="24" name="email">
       <Position>5</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <column id="116" parent="24" name="phone">
+    <column id="137" parent="24" name="phone">
       <Position>6</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="117" parent="24" name="password_hash">
+    <column id="138" parent="24" name="password_hash">
       <Position>7</Position>
       <DataType>VARCHAR(128)|0s</DataType>
     </column>
-    <column id="118" parent="24" name="gender">
+    <column id="139" parent="24" name="gender">
       <Position>8</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <column id="119" parent="24" name="delivery_address">
+    <column id="140" parent="24" name="delivery_address">
       <Position>9</Position>
       <DataType>VARCHAR(240)|0s</DataType>
     </column>
-    <column id="120" parent="24" name="timestamp">
+    <column id="141" parent="24" name="timestamp">
       <Position>10</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <column id="121" parent="24" name="my_list">
+    <column id="142" parent="24" name="my_list">
       <Position>11</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <column id="122" parent="24" name="last_seen">
+    <column id="143" parent="24" name="last_seen">
       <Position>12</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <index id="123" parent="24" name="ix_user_first_name">
+    <index id="144" parent="24" name="ix_user_first_name">
       <ColNames>first_name</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="124" parent="24" name="ix_user_last_name">
+    <index id="145" parent="24" name="ix_user_last_name">
       <ColNames>last_name</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="125" parent="24" name="ix_user_username">
+    <index id="146" parent="24" name="ix_user_username">
       <ColNames>username</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="126" parent="24" name="ix_user_email">
+    <index id="147" parent="24" name="ix_user_email">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="127" parent="24" name="ix_user_phone">
+    <index id="148" parent="24" name="ix_user_phone">
       <ColNames>phone</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="128" parent="24" name="ix_user_timestamp">
+    <index id="149" parent="24" name="ix_user_timestamp">
       <ColNames>timestamp</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="129" parent="24">
+    <key id="150" parent="24">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="130" parent="25" name="id">
+    <column id="151" parent="25" name="v_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="131" parent="25" name="username">
-      <Position>2</Position>
-      <DataType>VARCHAR(120)|0s</DataType>
-    </column>
-    <column id="132" parent="25" name="user_id">
-      <Position>3</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <key id="133" parent="25">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="134" parent="25">
-      <ColNames>user_id</ColNames>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="135" parent="26" name="v_id">
-      <Position>1</Position>
-      <DataType>INTEGER|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="136" parent="26" name="code">
+    <column id="152" parent="25" name="code">
       <Position>2</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="137" parent="26" name="expiary">
+    <column id="153" parent="25" name="expiary">
       <Position>3</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <column id="138" parent="26" name="status">
+    <column id="154" parent="25" name="status">
       <Position>4</Position>
       <DataType>BOOLEAN|0s</DataType>
     </column>
-    <key id="139" parent="26">
+    <key id="155" parent="25">
       <ColNames>v_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <check id="140" parent="26">
+    <check id="156" parent="25">
       <Predicate>status IN (0, 1)</Predicate>
     </check>
   </database-model>

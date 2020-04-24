@@ -33,11 +33,13 @@ class User(UserMixin, db.Model):
     cart = db.relationship('Shopping_cart', backref='user')
     order = db.relationship('Order', backref='user')
 
-
     followed = db.relationship(
         'User', secondary=followers,
         primaryjoin=(followers.c.follower_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+
+
+
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -115,10 +117,6 @@ class Product(db.Model):
         primaryjoin=(followers.c.followed_id == pid),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
-    def follow(self, product):
-        if not self.is_following(product):
-            self.followed.append(product)
-
     def unfollow(self, product):
         if self.is_following(product):
             self.followed.remove(product)
@@ -126,6 +124,10 @@ class Product(db.Model):
     def is_following(self, product):
         return self.followed.filter(
             followers.c.followed_id == product.pid).count() > 0
+
+    def follow(self, product):
+        if not self.is_following(product):
+            self.followed.append(product)
 
 
 class Category(db.Model):

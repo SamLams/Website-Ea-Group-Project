@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm
+from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, DeliveryAddressForm
 from app.models import User, Post, Product
 from app.main import bp
 
@@ -20,7 +20,6 @@ def before_request():
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template('index.html', title=_('Home'))
-
 
 
 @bp.route('/post', methods=['GET', 'POST'])
@@ -40,10 +39,9 @@ def post():
         if posts.has_next else None
     prev_url = url_for('main.post', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('post.html', title=_('Home'), form=form,
+    return render_template('post.html', title=_('Post'), form=form,
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
-
 
 
 @bp.route('/explore')
@@ -64,17 +62,11 @@ def explore():
 @bp.route('/delete/<int:id>')
 @login_required
 def delete(id):
-    post = Post.query.get(id)
-    if post is None:
-        flash('Post not found.')
-        return redirect(url_for('main.post'))
-    if post.author.id != g.user.id:
-        flash('You cannot delete this post.')
-        return redirect(url_for('main.post'))
-    db.session.delete(post)
+    del_post = Post.query.get_or_404(id)
+    db.session.delete(del_post)
     db.session.commit()
-    flash('Your post has been deleted.')
     return redirect(url_for('main.post'))
+
 
 
 @bp.route('/user/<username>')
@@ -93,27 +85,33 @@ def user(username):
 
 
 @bp.route('/', methods=['GET', 'POST'])
-@bp.route('/housewares', methods=['GET', 'POST'])
+@bp.route('/housewares/', methods=['GET', 'POST'])
 def housewares():
-    return render_template('index.html', title=_('Home'))
+    return render_template('housewares.html', title=_('Home'))
 
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/sportsntravel', methods=['GET', 'POST'])
 def sportsntravel():
-    return render_template('index.html', title=_('Home'))
+    return render_template('sportsntravel.html', title=_('Home'))
 
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/toysnbooks', methods=['GET', 'POST'])
 def toysnbooks():
-    return render_template('index.html', title=_('Home'))
+    return render_template('toysnbooks.html', title=_('Home'))
 
 
-@bp.route('/delivery_address/<username>')
+@bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
 @login_required
 def delivery_address(username):
+    form = DeliveryAddressForm()
     user = User.query.filter_by(username=username).first_or_404()
+    if form.validate_on_submit():
+        address = User(delivery_address=form.delivery_address.data, author=current_user)
+        db.session.add(address)
+        db.session.commit()
+        return redirect(url_for('main.delivery_address', username = current_user.username))
     page = request.args.get('page', 1, type=int)
     posts = user.posts.order_by(Post.timestamp.desc()).paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
@@ -166,19 +164,18 @@ def edit_delivery_address():
                            form=form)
 
 
-# @bp.route('/follow/<pname>')
-# @login_required
-# def follow(pname):
-#     name = Product.query.filter_by(pname=pname).first()
-#     if name is None:
-#         flash(_('User %(pname)s not found.', pname=pname))
-#         return redirect(url_for('main.index'))
-#     current_user.follow(name)
-#     db.session.commit()
-#     flash(_('You are following %(name)s!', pname=pname))
-#     #return redirect(url_for('main.user', username=productname))
-#
-#
+@bp.route('/follow/<username>')
+@login_required
+def follow(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        flash(_('User %(user)s not found.', username=username))
+        return redirect(url_for('main.housewares'))
+    current_user.follow(user)
+    db.session.commit()
+    flash(_('You are following %(user)s!', username=username))
+    return redirect(url_for('main.housewares'))
+
 # @bp.route('/unfollow/<pname>')
 # @login_required
 # def unfollow(pname):

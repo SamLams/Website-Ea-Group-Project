@@ -59,5 +59,9 @@ class EditDeliveryAddressForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField(_l('Say something'), validators=[DataRequired()])
+    post = TextAreaField(_l('Say something'))
+    submit = SubmitField(_l('Submit'))
+
+class DeliveryAddressForm(FlaskForm):
+    delivery_address = StringField(_l('Delivery Address'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
