@@ -3,8 +3,8 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm
-from app.models import User, Post, Product
+from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm
+from app.models import User, Post, Product, Customer_Services
 from app.main import bp
 
 
@@ -20,7 +20,6 @@ def before_request():
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template('index.html', title=_('Home'))
-
 
 
 @bp.route('/post', methods=['GET', 'POST'])
@@ -43,7 +42,6 @@ def post():
     return render_template('post.html', title=_('Home'), form=form,
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
-
 
 
 @bp.route('/explore')
@@ -164,6 +162,22 @@ def edit_delivery_address():
         form.delivery_address.data = current_user.delivery_address
     return render_template('edit_delivery_address.html', title=_('Edit Delivery Address'),
                            form=form)
+
+
+@bp.route('/cs/')
+@bp.route('/cs/<username>', methods=['GET', 'POST'])
+@login_required
+def cs(username):
+    form = CsForm()
+    user = User.query.filter_by(username=username).first_or_404()
+    if form.validate_on_submit():
+        services = Customer_Services(services=form.services.data, user_id=current_user.id)
+        db.session.add(services)
+        db.session.commit()
+        flash(_('Your message sent! Thank you!'))
+        return redirect(url_for('main.cs', username=current_user.username))
+    return render_template('cs.html', title=_('Customer Services'), form=form, user=user)
+
 
 
 # @bp.route('/follow/<pname>')
