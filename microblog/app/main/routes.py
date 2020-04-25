@@ -3,14 +3,14 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-<<<<<<< HEAD
+
 
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, DeliveryAddressForm
 from app.models import User, Post, Product, Shopping_cart, Delivery_Address
-=======
+
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
 from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart
->>>>>>> 919d6f348cee30b096d584f45b534643e1d32e2b
+
 
 from app.main import bp
 
