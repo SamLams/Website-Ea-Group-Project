@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="app" uuid="f7aceffc-b83b-44fc-b799-8fc34efb20dc">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    <data-source name="app.db" uuid="92b78e28-a75d-4410-8ab3-76c0d1b071c2">
+      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
   </component>

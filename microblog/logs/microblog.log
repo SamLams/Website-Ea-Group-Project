@@ -1,10 +1,67 @@
-2020-04-23 13:25:55,758 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-23 13:26:04,178 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-23 13:26:07,346 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-23 13:26:09,221 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-23 13:26:13,463 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-23 13:26:28,203 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-23 13:26:51,208 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-23 13:27:01,128 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-23 13:28:30,038 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
-2020-04-23 13:30:08,480 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+2020-04-25 10:13:07,866 ERROR: Exception on /add_to_cart/997 [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 41, in add_to_cart
+    qty=1, price=Product.query.filter_by(pid=prod_id).get('price'))
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 887, in get
+    ident, loading.load_on_pk_identity)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 962, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/loading.py", line 200, in load_on_pk_identity
+    q._get_condition()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 387, in _get_condition
+    "get", order_by=False, distinct=False)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 405, in _no_criterion_condition
+    self._no_criterion_assertion(meth, order_by, distinct)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 402, in _no_criterion_assertion
+    "Query with existing criterion. " % meth)
+sqlalchemy.exc.InvalidRequestError: Query.get() being called on a Query with existing criterion. 
+2020-04-25 10:20:19,907 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 10:20:47,833 ERROR: Exception on /add_to_cart/997 [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 41, in add_to_cart
+    qty=1, price=Product.query.filter_by(pid=prod_id).column.price)
+AttributeError: 'BaseQuery' object has no attribute 'column'
+2020-04-25 10:21:00,457 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 10:21:01,989 ERROR: Exception on /add_to_cart/997 [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 41, in add_to_cart
+    qty=1, price=Product.query.filter_by(pid=prod_id).price)
+AttributeError: 'BaseQuery' object has no attribute 'price'
+2020-04-25 10:25:01,638 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 10:31:21,575 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]

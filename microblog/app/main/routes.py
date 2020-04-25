@@ -4,8 +4,13 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm
-from app.models import User, Post, Product
+from app.models import User, Post, Product, Shopping_cart
 from app.main import bp
+from flask import make_response, session, Flask
+
+
+
+
 
 
 @bp.before_request
@@ -19,8 +24,19 @@ def before_request():
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html', title=_('Home'))
+    prod = Product.query.all()
+    return render_template('index.html', title=_('Home'), prod=prod)
 
+
+@login_required
+@bp.route('/add_to_cart/<int:prod_id>', methods=['GET', 'POST'])
+def add_to_cart(prod_id):
+    p = Product.query.filter_by(pid=prod_id).first()
+    cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=999, product_id=prod_id,
+                                qty=1, price=p.price)
+    db.session.add(cart_item)
+    db.session.commit()
+    return redirect(url_for('main.index'))
 
 
 @bp.route('/post', methods=['GET', 'POST'])
@@ -108,6 +124,12 @@ def sportsntravel():
 @bp.route('/toysnbooks', methods=['GET', 'POST'])
 def toysnbooks():
     return render_template('index.html', title=_('Home'))
+
+
+@bp.route('/', methods=['GET', 'POST'])
+@bp.route('/cart', methods=['GET', 'POST'])
+def cart():
+    return render_template('cart.html', title=_('Cart'))
 
 
 @bp.route('/delivery_address/<username>')
