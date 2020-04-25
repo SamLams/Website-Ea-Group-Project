@@ -181,7 +181,7 @@
         </div>
     </nav>
 
-    <button id="Salesforce-cshelp" onclick="location.href='/hktv/en/cs-help';">
+    <button id="Salesforce-cshelp" onclick="location.href='{{ url_for('main.cs', username=current_user.username) }}';">
         <span>{{ _('Customer Services') }}</span>
     </button>
 

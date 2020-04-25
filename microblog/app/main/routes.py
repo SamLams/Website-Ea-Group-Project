@@ -3,15 +3,16 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
+<<<<<<< HEAD
 
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, DeliveryAddressForm
 from app.models import User, Post, Product, Shopping_cart, Delivery_Address
+=======
+from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
+from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart
+>>>>>>> 919d6f348cee30b096d584f45b534643e1d32e2b
 
 from app.main import bp
-from flask import make_response, session, Flask
-
-
-
 
 
 
@@ -40,7 +41,6 @@ def add_to_cart(prod_id):
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.index'))
-
 
 
 @bp.route('/post', methods=['GET', 'POST'])
@@ -205,6 +205,46 @@ def edit_delivery_address(id):
     return render_template('edit_delivery_address.html', title=_('Edit Delivery Address'),
                            form=form)
 
+
+@bp.route('/cs/')
+@bp.route('/cs/<username>', methods=['GET', 'POST'])
+@login_required
+def cs(username):
+    form = CsForm()
+    user = User.query.filter_by(username=username).first_or_404()
+    messages = Customer_Services.query.filter_by(user_id=current_user.id).all()
+    if form.validate_on_submit():
+        services = Customer_Services(services=form.services.data, user_id=current_user.id)
+        db.session.add(services)
+        db.session.commit()
+        flash(_('Your message sent! Thank you!'))
+        return redirect(url_for('main.cs', username=current_user.username))
+    return render_template('cs.html', title=_('Customer Services'), form=form, user=user, messages=messages)
+
+
+@bp.route('/edit_message/<services_id>', methods=[' GET', 'POST'])
+@login_required
+def edit_message(services_id):
+    form = EditMessage()
+    if form.validate_on_submit():
+        mes = Customer_Services.query.get(services_id)
+        mes.services = form.message.data
+        db.session.commit()
+        flash(_('Your message have been updated.'))
+        return redirect(url_for('main.cs', username=current_user.username))
+    elif request.method == 'GET':
+        mes = Customer_Services.query.get(services_id)
+        form.message.data = mes.services
+    return render_template('edit_message.html', title=_('Edit Message'), form=form)
+
+@bp.route('/delete_message/<services_id>', methods=['GET', 'POST'])
+@login_required
+def delete_message(services_id):
+    del_m = Customer_Services.query.get_or_404(services_id)
+    db.session.delete(del_m)
+    db.session.commit()
+    flash(_('Your message have been deleted.'))
+    return redirect(url_for('main.cs', username=current_user.username))
 
 @bp.route('/add_list/<int:pid>', methods=['GET'])
 @login_required

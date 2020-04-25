@@ -233,6 +233,7 @@ class Customer_Services(db.Model):
     services_id = db.Column(db.Integer, primary_key=True)
     services = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
     def __repr__(self):
         return '<Services {}>'.format(self.services_id)

@@ -1,0 +1,19 @@
+<table class="table table-hover">
+    <tr>
+        <td>
+            {{ _('Message: ') }}
+            {{ message.services }}
+            {{ _(' said ') }}
+            {{ moment(message.timestamp).fromNow() }}
+        </td>
+        <td align="right">
+            <button onclick="location.href='{{ url_for('main.edit_message', services_id=message.services_id) }}';">
+                <span>{{ _('Edit') }}</span>
+            </button>
+
+            <button onclick="location.href='{{ url_for('main.delete_message', services_id=message.services_id) }}';">
+                <span>{{ _('Delete') }}</span>
+            </button>
+        </td>
+    </tr>
+</table>

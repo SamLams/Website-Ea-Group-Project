@@ -3,7 +3,7 @@ from wtforms import StringField, SubmitField, \
     TextAreaField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, Email
 from flask_babel import _, lazy_gettext as _l
-from app.models import User, Delivery_Address
+from app.models import User, Delivery_Address, Customer_Services
 
 
 class EditProfileForm(FlaskForm):
@@ -66,3 +66,14 @@ class PostForm(FlaskForm):
 class DeliveryAddressForm(FlaskForm):
     delivery_address = StringField(_l('Delivery Address'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
+
+
+class CsForm(FlaskForm):
+    services = TextAreaField(_l('Send message to admin'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))
+
+
+class EditMessage(FlaskForm):
+    message = StringField(_l('Message'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))
+
