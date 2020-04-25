@@ -3,7 +3,7 @@ from wtforms import StringField, SubmitField, \
     TextAreaField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, Email
 from flask_babel import _, lazy_gettext as _l
-from app.models import User
+from app.models import User, Delivery_Address
 
 
 class EditProfileForm(FlaskForm):
@@ -53,14 +53,15 @@ class EditDeliveryAddressForm(FlaskForm):
 
     def validate_delivery_address(self, delivery_address):
         if delivery_address.data != self.original_delivery_address:
-            user = User.query.filter_by(delivery_address=self.delivery_address.data).first()
-            if user is not None:
+            address = Delivery_Address.query.filter_by(address=self.delivery_address.data).first()
+            if address is not None:
                 raise ValidationError(_('Please use a different delivery address.'))
 
 
 class PostForm(FlaskForm):
     post = TextAreaField(_l('Say something'))
     submit = SubmitField(_l('Submit'))
+
 
 class DeliveryAddressForm(FlaskForm):
     delivery_address = StringField(_l('Delivery Address'), validators=[DataRequired()])

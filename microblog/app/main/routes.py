@@ -4,7 +4,7 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, DeliveryAddressForm
-from app.models import User, Post, Product
+from app.models import User, Post, Product, Delivery_Address
 from app.main import bp
 
 
@@ -68,6 +68,14 @@ def delete(id):
     return redirect(url_for('main.post'))
 
 
+@bp.route('/del_address/<int:id>')
+@login_required
+def del_address(id):
+    del_address = Delivery_Address.query.get_or_404(id)
+    db.session.delete(del_address)
+    db.session.commit()
+    return redirect(url_for('main.delivery_address', username=current_user.username))
+
 
 @bp.route('/user/<username>')
 @login_required
@@ -85,9 +93,10 @@ def user(username):
 
 
 @bp.route('/', methods=['GET', 'POST'])
-@bp.route('/housewares/', methods=['GET', 'POST'])
+@bp.route('/housewares', methods=['GET', 'POST'])
 def housewares():
-    return render_template('housewares.html', title=_('Home'))
+    product = Product.query.all()
+    return render_template('housewares.html', title=_('Home'), product=product)
 
 
 @bp.route('/', methods=['GET', 'POST'])
@@ -105,22 +114,23 @@ def toysnbooks():
 @bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
 @login_required
 def delivery_address(username):
-    form = DeliveryAddressForm()
     user = User.query.filter_by(username=username).first_or_404()
+    form = DeliveryAddressForm()
     if form.validate_on_submit():
-        address = User(delivery_address=form.delivery_address.data, author=current_user)
+        address = Delivery_Address(address=form.delivery_address.data, user=current_user)
         db.session.add(address)
         db.session.commit()
-        return redirect(url_for('main.delivery_address', username = current_user.username))
+        return redirect(url_for('main.delivery_address', username=current_user.username))
     page = request.args.get('page', 1, type=int)
-    posts = user.posts.order_by(Post.timestamp.desc()).paginate(
+    posts = current_user.followed_address().paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
-    next_url = url_for('main.delivery_address', username=user.username, page=posts.next_num) \
+    next_url = url_for('main.delivery_address', user=user, page=posts.next_num) \
         if posts.has_next else None
-    prev_url = url_for('main.delivery_address', username=user.username, page=posts.prev_num) \
+    prev_url = url_for('main.delivery_address', user=user, page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('delivery_address.html', user=user, posts=posts.items,
-                           next_url=next_url, prev_url=prev_url)
+    return render_template('delivery_address.html', user=user, title=_('Post'), form=form,
+                           posts=posts.items, next_url=next_url,
+                           prev_url=prev_url)
 
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])
@@ -149,32 +159,52 @@ def edit_profile():
                            form=form)
 
 
-@bp.route('/edit_delivery_address', methods=['GET', 'POST'])
+@bp.route('/edit_delivery_address/<int:id>', methods=['GET', 'POST'])
 @login_required
-def edit_delivery_address():
-    form = EditDeliveryAddressForm(current_user.delivery_address)
+def edit_delivery_address(id):
+    form = EditDeliveryAddressForm(id)
     if form.validate_on_submit():
-        current_user.delivery_address = form.delivery_address.data
+        update_address = Delivery_Address.query.get_or_404(id)
+        update_address.address = form.delivery_address.data
         db.session.commit()
-        flash(_('Your changes have been saved.'))
-        return redirect(url_for('main.edit_delivery_address'))
+        return redirect(url_for('main.delivery_address', username=current_user.username))
     elif request.method == 'GET':
-        form.delivery_address.data = current_user.delivery_address
+        update_address = Delivery_Address.query.get_or_404(id)
+        form.delivery_address.data = update_address.address
     return render_template('edit_delivery_address.html', title=_('Edit Delivery Address'),
                            form=form)
 
 
-@bp.route('/follow/<username>')
+@bp.route('/add_list/<int:pid>', methods=['GET'])
 @login_required
-def follow(username):
-    user = User.query.filter_by(username=username).first()
-    if user is None:
-        flash(_('User %(user)s not found.', username=username))
-        return redirect(url_for('main.housewares'))
-    current_user.follow(user)
+def add_list(pid):
+    list = Product.query.get_or_404(pid)
+    db.session.add(list)
     db.session.commit()
-    flash(_('You are following %(user)s!', username=username))
-    return redirect(url_for('main.housewares'))
+    return redirect(url_for('main.mylist'))
+
+
+@bp.route('/mylist')
+@login_required
+def mylist():
+    return render_template('mylist.html', title=_('Post'))
+
+# @bp.route('/follow/<username>')
+# @login_required
+# def follow(username):
+#     user = User.query.filter_by(username=username).first()
+#     if user is None:
+#         flash(_('User %(user)s not found.', username=username))
+#         return redirect(url_for('main.housewares'))
+#     current_user.follow(user)
+#     db.session.commit()
+#     flash(_('You are following %(user)s!', username=username))
+#     return redirect(url_for('main.housewares'))
+# @bp.route('/complete/<id>')
+# def complete(id):
+#     product = Product.query.filter_by(pid = int(id)).first()
+#     product.complete = True
+#     return redirect(url_for('main.housewares'))
 
 # @bp.route('/unfollow/<pname>')
 # @login_required

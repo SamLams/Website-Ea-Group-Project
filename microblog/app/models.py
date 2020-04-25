@@ -10,9 +10,8 @@ import jwt
 followers = db.Table(
     'followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('followed_id', db.Integer, db.ForeignKey('product.pid'))
+    db.Column('product_id', db.Integer, db.ForeignKey('product.pid'))
 )
-
 
 
 class User(UserMixin, db.Model):
@@ -24,21 +23,13 @@ class User(UserMixin, db.Model):
     phone = db.Column(db.Integer, index=True, unique=True)
     password_hash = db.Column(db.String(128))
     gender = db.Column(db.String(120))
-    delivery_address = db.Column(db.String(240))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    delivery_addresses = db.relationship('Delivery_Address', backref='user')
     posts = db.relationship('Post', backref='author', lazy='dynamic')
-    my_list = db.Column(db.String(120))
+    my_list = db.relationship('MyList', backref='user', lazy='dynamic')
     last_seen = db.Column(db.DateTime, default=datetime.utcnow())
     cs = db.relationship('Customer_Services', backref='user')
     cart = db.relationship('Shopping_cart', backref='user')
     order = db.relationship('Order', backref='user')
-
-    followed = db.relationship(
-        'User', secondary=followers,
-        primaryjoin=(followers.c.follower_id == id),
-        backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
-
-
 
 
     def __repr__(self):
@@ -60,6 +51,13 @@ class User(UserMixin, db.Model):
             followers.c.follower_id == self.id)
         own = Post.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Post.timestamp.desc())
+
+    def followed_address(self):
+        followed = Delivery_Address.query.join(
+            followers, (followers.c.followed_id == Delivery_Address.user_id)).filter(
+            followers.c.follower_id == self.id)
+        own = Delivery_Address.query.filter_by(user_id=self.id)
+        return followed.union(own).order_by(Delivery_Address.timestamp.desc())
 
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
@@ -90,32 +88,38 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.reviews)
 
+class MyList(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(140))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
+
+
+class Delivery_Address(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    address = db.Column(db.String(240))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
 
 class Product(db.Model):
     pid = db.Column(db.Integer, primary_key=True)
     pname = db.Column(db.String(255))
+    url =db.Column(db.String(500))
     qty = db.Column(db.Integer)
     price = db.Column(db.Float)
     mid = db.Column(db.Integer, db.ForeignKey('merchant.mid'), nullable=False)
-    status = db.Column(db.String(255))
-
+    complete = db.Column(db.Boolean)
     cart = db.relationship('Shopping_cart', backref='product')
     pc_id = db.Column(db.Integer, db.ForeignKey('category.pc_id'), nullable=False)
     ps_id = db.Column(db.Integer, db.ForeignKey('subcategory.ps_id'), nullable=False)
-
-
-
     pets = db.relationship('Pets', backref='Product', lazy=True)
     disney = db.relationship('Disney', backref='Product', lazy=True)
-
     houseware = db.relation('Housewares', backref='product', uselist=False)
     SportsAndTravels = db.relation('SportsAndTravel', backref='product', uselist=False)
     ToysAndBook = db.relation('ToysAndBooks', backref='product', uselist=False)
-
-    followed = db.relationship(
-        'Product', secondary=followers,
-        primaryjoin=(followers.c.followed_id == pid),
-        backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+    #follower = db.relationship('followers', secondary=followers, backref=db.backref('product', lazy='dynamic'))
+    list = db.relationship('MyList', backref='product', lazy='dynamic')
 
     def unfollow(self, product):
         if self.is_following(product):
@@ -170,8 +174,6 @@ class Order(db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     status_id = db.Column(db.String(255), db.ForeignKey('status.status_id'))
-
-
 
     create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     card = db.relationship('Payment', backref='card')
@@ -238,7 +240,6 @@ class Housewares(db.Model):
 
     product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
-
     def __repr__(self):
         return '<Housewares {}>'.format(self.id)
 
@@ -258,7 +259,6 @@ class ToysAndBooks(db.Model):
     name = db.Column(db.String(120))
     link = db.Column(db.String(120))
     product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
+
     def __repr__(self):
         return '<ToysAndBooks {}>'.format(self.id)
-
-
