@@ -5,10 +5,7 @@ from flask_babel import _, get_locale
 from app import current_app, db
 
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, DeliveryAddressForm
-from app.models import User, Post, Product, Delivery_Address
-
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm
-from app.models import User, Post, Product, Shopping_cart
+from app.models import User, Post, Product, Shopping_cart, Delivery_Address
 
 from app.main import bp
 from flask import make_response, session, Flask
