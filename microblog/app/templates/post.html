@@ -35,9 +35,8 @@
                             {% endif %}
                             {% for post in posts %}
                                 {% include '_post.html' %}
+                                <a href = "/delete/{{post.id}}"> Delete </a>
                             {% endfor %}
-
-                            <nav aria-label="...">
                                 <ul class="pager">
                                     <li class="previous{% if not prev_url %} disabled{% endif %}">
                                          <a href="{{ prev_url or '#' }}">

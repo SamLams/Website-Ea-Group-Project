@@ -2,7 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block current_app_content %}
-     <div class="justify-content-center container">
+
     <head>
     <link rel="stylesheet" href="index.css">
     </head>
@@ -176,6 +176,7 @@
                 <img src="https://picsum.photos/273/190" class="figure-img img-fluid rounded" alt=""/>
                 <figcaption class="figure-caption">
                     <h3>Product Name</h3><br/>
+
                     <h5>Original Price</h5><br/>
                     <h2>Discounted Price</h2>
                 </figcaption>
@@ -186,6 +187,7 @@
                 <img src="https://picsum.photos/273/190" class="figure-img img-fluid rounded" alt=""/>
                 <figcaption class="figure-caption">
                     <h3>Product Name</h3><br/>
+                     <p><a href="/add_list/{{ product.pid }}">{{ _('follow') }}</a></p>
                     <h5>Original Price</h5><br/>
                     <h2>Discounted Price</h2>
                 </figcaption>
@@ -278,5 +280,5 @@
 
 
 
-</div>
+
 {% endblock %}

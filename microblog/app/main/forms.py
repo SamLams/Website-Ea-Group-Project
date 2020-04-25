@@ -3,7 +3,7 @@ from wtforms import StringField, SubmitField, \
     TextAreaField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, Email
 from flask_babel import _, lazy_gettext as _l
-from app.models import User, Customer_Services
+from app.models import User, Delivery_Address, Customer_Services
 
 
 class EditProfileForm(FlaskForm):
@@ -53,13 +53,18 @@ class EditDeliveryAddressForm(FlaskForm):
 
     def validate_delivery_address(self, delivery_address):
         if delivery_address.data != self.original_delivery_address:
-            user = User.query.filter_by(delivery_address=self.delivery_address.data).first()
-            if user is not None:
+            address = Delivery_Address.query.filter_by(address=self.delivery_address.data).first()
+            if address is not None:
                 raise ValidationError(_('Please use a different delivery address.'))
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField(_l('Say something'), validators=[DataRequired()])
+    post = TextAreaField(_l('Say something'))
+    submit = SubmitField(_l('Submit'))
+
+
+class DeliveryAddressForm(FlaskForm):
+    delivery_address = StringField(_l('Delivery Address'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
 
@@ -72,12 +77,3 @@ class EditMessage(FlaskForm):
     message = StringField(_l('Message'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
-    #def __init__(self, original_message, *args, **kwargs):
-        #super(EditMessage, self).__init__(*args, **kwargs)
-        #self.original_message = original_message
-
-    #def validate_message(self, message):
-        #if message.data != self.original_message:
-            #message = Customer_Services.query.filter_by(services_id=self.services_id).first()
-            #if message is not None:
-                #raise ValidationError(_('Please update your message.'))
