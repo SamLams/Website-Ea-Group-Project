@@ -127,7 +127,7 @@ def toysnbooks():
 
 
 
-@bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
+
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/cart', methods=['GET', 'POST'])
@@ -136,7 +136,7 @@ def cart():
 
 
 @bp.route('/delivery_address/<username>')
-
+@bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
 @login_required
 def delivery_address(username):
     user = User.query.filter_by(username=username).first_or_404()

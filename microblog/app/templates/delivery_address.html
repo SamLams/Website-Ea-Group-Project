@@ -42,12 +42,6 @@
 
                                             <h1>{{ _('Delivery Address') }}:</h1>
                                             <p> {{ user.delivery_address }}</p>
-                                            {% if user == current_user %}
-                                                <p>
-                                                    <a href="{{ url_for('main.edit_delivery_address') }}">{{ _('Edit your delivery address') }}</a>
-                                                </p>
-                                                <p></p>
-                                            {% endif %}
                                             {% for delivery_address in posts %}
                                                 {% include '_delivery_address.html' %}
                                                 <a href="/del_address/{{ delivery_address.id }}"> Delete </a>
