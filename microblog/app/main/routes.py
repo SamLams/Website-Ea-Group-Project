@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm
+from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage
 from app.models import User, Post, Product, Customer_Services
 from app.main import bp
 
@@ -180,6 +180,29 @@ def cs(username):
     return render_template('cs.html', title=_('Customer Services'), form=form, user=user, messages=messages)
 
 
+@bp.route('/edit_message/<services_id>', methods=['GET', 'POST'])
+@login_required
+def edit_message(services_id):
+    form = EditMessage()
+    if form.validate_on_submit():
+        mes = Customer_Services.query.get(services_id)
+        mes.services = form.message.data
+        db.session.commit()
+        flash(_('Your message have been updated.'))
+        return redirect(url_for('main.cs', username=current_user.username))
+    elif request.method == 'GET':
+        mes = Customer_Services.query.get(services_id)
+        form.message.data = mes.services
+    return render_template('edit_message.html', title=_('Edit Message'), form=form)
+
+@bp.route('/delete_message/<services_id>', methods=['GET', 'POST'])
+@login_required
+def delete_message(services_id):
+    del_m = Customer_Services.query.get_or_404(services_id)
+    db.session.delete(del_m)
+    db.session.commit()
+    flash(_('Your message have been deleted.'))
+    return redirect(url_for('main.cs', username=current_user.username))
 
 # @bp.route('/follow/<pname>')
 # @login_required

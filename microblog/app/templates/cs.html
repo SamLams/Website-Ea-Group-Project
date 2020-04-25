@@ -37,6 +37,7 @@
                     {% if user == current_user %}
                         {{ wtf.quick_form(form) }}
                     {% endif %}
+                <br>
                     {% for message in messages %}
                         {% include 'message.html' %}
                     {% endfor %}

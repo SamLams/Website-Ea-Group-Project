@@ -3,7 +3,7 @@ from wtforms import StringField, SubmitField, \
     TextAreaField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, Email
 from flask_babel import _, lazy_gettext as _l
-from app.models import User
+from app.models import User, Customer_Services
 
 
 class EditProfileForm(FlaskForm):
@@ -62,8 +62,22 @@ class PostForm(FlaskForm):
     post = TextAreaField(_l('Say something'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
+
 class CsForm(FlaskForm):
     services = TextAreaField(_l('Send message to admin'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
 
+class EditMessage(FlaskForm):
+    message = StringField(_l('Message'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))
+
+    #def __init__(self, original_message, *args, **kwargs):
+        #super(EditMessage, self).__init__(*args, **kwargs)
+        #self.original_message = original_message
+
+    #def validate_message(self, message):
+        #if message.data != self.original_message:
+            #message = Customer_Services.query.filter_by(services_id=self.services_id).first()
+            #if message is not None:
+                #raise ValidationError(_('Please update your message.'))
