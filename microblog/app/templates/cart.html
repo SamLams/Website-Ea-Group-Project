@@ -1,0 +1,19 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+{% block current_app_content %}
+    <div class="container">
+        <div class="card-body justify-content-center">
+            <div class="logo">
+                <a href="{{ url_for('main.index') }}"><img
+                        src="{{ url_for('static', filename='img/cart/HKTVlogo.png') }}" class="round"
+                        title="HKTVmalllogo_20171220.png" alt="HKTVmalllogo_20171220.png"></a>
+            </div>
+        </div>
+        <h1>Shopping Cart 0 items</h1><br/>
+        <h2>Your shopping cart is empty. Shop Your Favourites Now</h2><br/>
+    <a class="btn btn-success btn-lg" href="{{ url_for('main.index') }}" role="button">Shop now</a>
+    </div>
+
+{% endblock %}

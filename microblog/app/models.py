@@ -129,9 +129,21 @@ class Product(db.Model):
         return self.followed.filter(
             followers.c.followed_id == product.pid).count() > 0
 
+
     def follow(self, product):
         if not self.is_following(product):
             self.followed.append(product)
+
+    def __init__(self, pid, pname, pty, price, mid, status, pc_id, ps_id):
+        self.pid = pid
+        self.pname = pname
+        self.pty = pty
+        self.price = price
+        self.mid = mid
+        self.status = status
+        self.pc_id = pc_id
+        self.ps_id = ps_id
+
 
 
 class Category(db.Model):
@@ -140,12 +152,21 @@ class Category(db.Model):
     ps_id = db.Column(db.Integer, db.ForeignKey('subcategory.ps_id'), nullable=False)
     product = db.relationship('Product', backref='Category', lazy=True)
 
+    def __init__(self, pc_id, pc_name, ps_id):
+        self.pc_id = pc_id
+        self.pc_name = pc_name
+        self.ps_id = ps_id
+
 
 class Subcategory(db.Model):
     ps_id = db.Column(db.Integer, primary_key=True)
     ps_name = db.Column(db.String(255))
     product = db.relationship('Product', backref='Subcategory', lazy=True)
     category = db.relationship('Category', backref='Subcategory', lazy=True)
+
+    def __init__(self, ps_id, ps_name):
+        self.ps_id = ps_id
+        self.ps_name = ps_name
 
 
 class Pets(db.Model):
@@ -164,6 +185,12 @@ class Merchant(db.Model):
     description = db.Column(db.String(500))
     rating = db.Column(db.Float)
     product = db.relationship('Product', backref='Merchant', lazy=True)
+
+    def __init__(self, mid, mname, description, rating):
+        self.mid = mid
+        self.mname = mname
+        self.description = description
+        self.rating = rating
 
 
 class Order(db.Model):
@@ -228,6 +255,13 @@ class Shopping_cart(db.Model):
     price = db.Column(db.Integer)
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.relationship('Order', backref='shopping_cart')
+
+    def __init__(self, user_id, product_id, qty, price, id):
+        self.user_id = user_id
+        self.product_id = product_id
+        self.qty = qty
+        self.price = price
+        self.id = id
 
     def __repr__(self):
         return '<Post {}>'.format(self.user_id)
