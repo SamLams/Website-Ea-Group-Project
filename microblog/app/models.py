@@ -134,10 +134,10 @@ class Product(db.Model):
         if not self.is_following(product):
             self.followed.append(product)
 
-    def __init__(self, pid, pname, pty, price, mid, status, pc_id, ps_id):
+    def __init__(self, pid, pname, qty, price, mid, status, pc_id, ps_id):
         self.pid = pid
         self.pname = pname
-        self.pty = pty
+        self.qty = qty
         self.price = price
         self.mid = mid
         self.status = status

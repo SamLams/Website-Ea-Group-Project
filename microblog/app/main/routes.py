@@ -216,7 +216,7 @@ def cs(username):
     return render_template('cs.html', title=_('Customer Services'), form=form, user=user, messages=messages)
 
 
-@bp.route('/edit_message/<services_id>', methods=[' GET', 'POST'])
+@bp.route('/edit_message/<services_id>', methods=['GET', 'POST'])
 @login_required
 def edit_message(services_id):
     form = EditMessage()

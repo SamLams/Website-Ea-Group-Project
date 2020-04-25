@@ -32,7 +32,12 @@ class UserModelCase(unittest.TestCase):
         p1 = Product(pid=999, pname='Testing Product1', qty=1, price=45, mid=999,
                      status="Good", pc_id=999, ps_id=999)
 
-
+        #pending = [mer1, sc1, c1, p1]
+        db.session.add(mer1)
+        db.session.add(sc1)
+        db.session.add(c1)
+        db.session.add(p1)
+        db.session.commit()
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
