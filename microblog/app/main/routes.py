@@ -7,10 +7,6 @@ from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, C
 from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart
 
 from app.main import bp
-from flask import make_response, session, Flask
-
-
-
 
 
 
