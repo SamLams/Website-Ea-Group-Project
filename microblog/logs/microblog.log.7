@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2020-04-26 04:41:39,501 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-26 04:42:13,674 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-26 04:42:33,577 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
@@ -6,6 +7,21 @@
 2020-04-26 04:46:06,257 ERROR: Exception on /mylist [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+=======
+<<<<<<< HEAD
+2020-04-24 13:41:55,925 ERROR: Exception on /cs/a [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+=======
+<<<<<<< HEAD
+2020-04-25 09:58:48,530 ERROR: Exception on / [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+=======
+2020-04-25 09:09:44,117 ERROR: Exception on /add_to_cart/990 [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+>>>>>>> cfee90a850f1bed481829aaac84ea91529c97674
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+>>>>>>> c51c1ba643311fc355a5fdfec207e75cd2dba334
+>>>>>>> 1879e19499852b354468ff0c6a1adbfda1680a6b
     response = self.full_dispatch_request()
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
@@ -14,6 +30,113 @@ Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 13, in before_request
+    if current_user.is_authenticated:
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 353, in _load_user
+    return self._load_from_cookie(request.cookies[cookie_name])
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 392, in _load_from_cookie
+    self.reload_user()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/models.py", line 79, in load_user
+    return User.query.get(int(id))
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 512, in __get__
+    mapper = orm.class_mapper(type)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/base.py", line 421, in class_mapper
+    mapper = _inspect_mapped_class(class_, configure=configure)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/base.py", line 400, in _inspect_mapped_class
+    mapper._configure_all()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1272, in _configure_all
+    configure_mappers()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 3029, in configure_mappers
+    mapper._post_configure_properties()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1828, in _post_configure_properties
+    prop.init()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/interfaces.py", line 184, in init
+    self.do_init()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/relationships.py", line 1655, in do_init
+    self._process_dependent_arguments()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/relationships.py", line 1712, in _process_dependent_arguments
+    self.target = self.mapper.mapped_table
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 767, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/relationships.py", line 1641, in mapper
+    % (self.key, type(argument)))
+sqlalchemy.exc.ArgumentError: relationship 'follower' expects a class or a mapper argument (received: <class 'sqlalchemy.sql.schema.Table'>)
+2020-04-25 09:58:58,760 ERROR: Exception on / [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+=======
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 42, in add_to_cart
+    db.Session.add(cart_item)
+TypeError: add() missing 1 required positional argument: 'instance'
+2020-04-25 09:14:08,188 ERROR: Exception on /add_to_cart/990 [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+>>>>>>> c51c1ba643311fc355a5fdfec207e75cd2dba334
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+<<<<<<< HEAD
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 13, in before_request
+    if current_user.is_authenticated:
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 353, in _load_user
+    return self._load_from_cookie(request.cookies[cookie_name])
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 392, in _load_from_cookie
+    self.reload_user()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/models.py", line 79, in load_user
+    return User.query.get(int(id))
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py", line 512, in __get__
+    mapper = orm.class_mapper(type)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/base.py", line 421, in class_mapper
+    mapper = _inspect_mapped_class(class_, configure=configure)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/base.py", line 400, in _inspect_mapped_class
+    mapper._configure_all()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 1272, in _configure_all
+    configure_mappers()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/mapper.py", line 3026, in configure_mappers
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper|Product|product'. Original exception was: relationship 'follower' expects a class or a mapper argument (received: <class 'sqlalchemy.sql.schema.Table'>)
+=======
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+>>>>>>> cfee90a850f1bed481829aaac84ea91529c97674
+>>>>>>> 1879e19499852b354468ff0c6a1adbfda1680a6b
     rv = self.dispatch_request()
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
@@ -47,6 +170,7 @@ Traceback (most recent call last):
     {% block content -%}
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/base.html", line 201, in block "content"
     {% block current_app_content %}{% endblock %}
+<<<<<<< HEAD
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/mylist.html", line 13, in block "current_app_content"
     <p>{{ int(item) }}{{ _("product name" ) }}: {{ mylist.name }}<a href="/del_list/{{ mylist.id }}"> Delete </a></p>
 jinja2.exceptions.UndefinedError: 'int' is undefined
@@ -67,3 +191,85 @@ jinja2.exceptions.UndefinedError: 'int' is undefined
 2020-04-26 05:13:00,993 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-26 05:15:02,583 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-26 05:16:23,940 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+=======
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/cs.html", line 41, in block "current_app_content"
+    {% include 'message.html' %}
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/message.html", line 4, in top-level template code
+    {{ _('Message: %(services)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/ext.py", line 134, in _gettext_alias
+    return __context.call(__context.resolve('gettext'), *args, **kwargs)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/ext.py", line 143, in gettext
+    return rv % variables
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/markupsafe/__init__.py", line 102, in __mod__
+    return self.__class__(text_type.__mod__(self, arg))
+ValueError: unsupported format character '?' (0xa) at index 20
+2020-04-24 13:42:29,120 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:75]
+=======
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 42, in add_to_cart
+    db.Session.add(cart_item)
+TypeError: add() missing 1 required positional argument: 'instance'
+2020-04-25 09:16:21,670 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:16:28,629 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:16:35,797 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:16:41,637 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:18:59,269 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:19:01,385 ERROR: Exception on / [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: product
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 27, in index
+    prod = Product.query.all()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2783, in all
+    return list(self)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2935, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2958, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: product [SQL: 'SELECT product.pid AS product_pid, product.pname AS product_pname, product.qty AS product_qty, product.price AS product_price, product.mid AS product_mid, product.status AS product_status, product.pc_id AS product_pc_id, product.ps_id AS product_ps_id \nFROM product'] (Background on this error at: http://sqlalche.me/e/e3q8)
+2020-04-25 09:20:32,231 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:21:24,464 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:33:37,093 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:33:45,319 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:34:28,571 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:34:52,212 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-25 09:41:46,104 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+>>>>>>> c51c1ba643311fc355a5fdfec207e75cd2dba334
+>>>>>>> cfee90a850f1bed481829aaac84ea91529c97674
+>>>>>>> 1879e19499852b354468ff0c6a1adbfda1680a6b

@@ -66,7 +66,12 @@ class UserModelCase(unittest.TestCase):
         db.session.add(t1)
         db.session.commit()
 
-
+        #pending = [mer1, sc1, c1, p1]
+        db.session.add(mer1)
+        db.session.add(sc1)
+        db.session.add(c1)
+        db.session.add(p1)
+        db.session.commit()
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

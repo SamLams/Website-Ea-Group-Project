@@ -137,11 +137,21 @@ def toysnbooks():
     return render_template('toysnbooks.html', title=_('Home'), products=products)
 
 
+<<<<<<< HEAD
+=======
+
+
+@bp.route('/', methods=['GET', 'POST'])
+>>>>>>> 1879e19499852b354468ff0c6a1adbfda1680a6b
 @bp.route('/cart', methods=['GET', 'POST'])
 def cart():
     return render_template('cart.html', title=_('Cart'))
 
 
+<<<<<<< HEAD
+=======
+@bp.route('/delivery_address/<username>')
+>>>>>>> 1879e19499852b354468ff0c6a1adbfda1680a6b
 @bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
 @login_required
 def delivery_address(username):
