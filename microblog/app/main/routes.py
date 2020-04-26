@@ -81,6 +81,10 @@ def delete(id):
 
 @bp.route('/del_list/<int:id>')
 @login_required
+
+
+
+
 def del_list(id):
     del_list = MyList.query.get_or_404(id)
     db.session.delete(del_list)
@@ -250,7 +254,7 @@ def delete_message(services_id):
 @login_required
 def add_list(pid):
     p = Product.query.filter_by(pid=pid).first()
-    cart_item = MyList(id=MyList.query.count() + 1, name=p.pname, user_id=999, product_id=pid)
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.pname, user_id=current_user.id, product_id=pid)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.index'))
@@ -260,7 +264,7 @@ def add_list(pid):
 @login_required
 def add_list1(id):
     p = Housewares.query.filter_by(id=id).first()
-    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=998, product_id=id)
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=current_user.id, product_id=id)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.housewares'))
@@ -270,7 +274,7 @@ def add_list1(id):
 @login_required
 def add_list2(id):
     p = SportsAndTravel.query.filter_by(id=id).first()
-    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=998, product_id=id)
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=current_user.id, product_id=id)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.sportsntravel'))
@@ -280,7 +284,7 @@ def add_list2(id):
 @login_required
 def add_list3(id):
     p = ToysAndBooks.query.filter_by(id=id).first()
-    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=998, product_id=id)
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=current_user.id, product_id=id)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.toysnbooks'))
@@ -289,7 +293,7 @@ def add_list3(id):
 @bp.route('/mylist')
 @login_required
 def mylist():
-    item = db.session.query(MyList.user_id, MyList.name, Product.price).outerjoin(Product,MyList.product_id == Product.pid).filter(MyList.user_id == current_user.id).all()
-    return render_template('mylist.html', title=_('My List'), item =item)
+    item = db.session.query(MyList.user_id, MyList.name, Product.price, MyList.id).outerjoin(Product, MyList.product_id == Product.pid).filter(MyList.user_id == current_user.id).all()
+    return render_template('mylist.html', title=_('My List'), item=item)
 
 

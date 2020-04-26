@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <data-source name="app" uuid="769d9955-4925-4bbd-9618-08c05891f11c">
-      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1">
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <introspection-schemas>*:main</introspection-schemas>
-=======
-    <data-source name="app" uuid="0ebe6aef-11cf-47b8-97c2-2154dbeeade6">
-      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1" dbms="SQLITE" exact-version="3.25.1" exact-driver-version="3.25">
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <auth-provider>no-auth</auth-provider>
-      <schema-mapping>
-        <introspection-scope>
-          <node kind="schema" qname="@" />
-        </introspection-scope>
-      </schema-mapping>
->>>>>>> 1879e19499852b354468ff0c6a1adbfda1680a6b
-=======
-    <data-source name="app.db" uuid="afb06d55-20e4-4516-85c3-c772c3fa7ddd">
+    <data-source name="app.db" uuid="48651fa0-afee-438c-89ab-d3de828ae95f">
       <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -31,7 +9,6 @@
       <secret-storage>master_key</secret-storage>
       <auth-required>false</auth-required>
       <introspection-schemas>*:main</introspection-schemas>
->>>>>>> BC
     </data-source>
   </component>
 </project>
