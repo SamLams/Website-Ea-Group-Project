@@ -4,7 +4,7 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
-from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart
+from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Order
 
 from app.main import bp
 
@@ -253,6 +253,15 @@ def add_list(pid):
 @login_required
 def mylist():
     return render_template('mylist.html', title=_('Post'))
+
+@bp.route('/order_history/<username>', methods=['GET', 'POST'])
+@login_required
+def order_history(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    order = Order.query.filter_by(user_id=current_user.id).all()
+    return render_template('order/order_history.html', title=_('order'), user=user, order=order)
+
+
 
 # @bp.route('/follow/<username>')
 # @login_required
