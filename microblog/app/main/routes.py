@@ -5,9 +5,7 @@ from flask_babel import _, get_locale
 from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
 from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart
-
 from app.main import bp
-
 
 
 @bp.before_request
@@ -25,12 +23,11 @@ def index():
     return render_template('index.html', title=_('Home'), prod=prod)
 
 
-
 @login_required
 @bp.route('/add_to_cart/<int:prod_id>', methods=['GET', 'POST'])
 def add_to_cart(prod_id):
     p = Product.query.filter_by(pid=prod_id).first()
-    cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=999, product_id=prod_id,
+    cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=current_user.id, product_id=prod_id,
                                 qty=1, price=p.price)
     db.session.add(cart_item)
     db.session.commit()
@@ -126,13 +123,11 @@ def toysnbooks():
     return render_template('toysnbooks.html', title=_('Home'))
 
 
-
-
-
-@bp.route('/', methods=['GET', 'POST'])
 @bp.route('/cart', methods=['GET', 'POST'])
 def cart():
-    return render_template('cart.html', title=_('Cart'))
+    ccart = db.session.query(Shopping_cart.user_id, Product.pname, Product.price, Product.pid).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(Shopping_cart.user_id == current_user.id).all()
+    count = Shopping_cart.query.filter_by(user_id=current_user.id).count()
+    return render_template('cart.html', title=_('Shopping Cart'), ccart=ccart, count=count)
 
 
 @bp.route('/delivery_address/<username>')
