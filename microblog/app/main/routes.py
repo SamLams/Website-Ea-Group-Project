@@ -4,16 +4,11 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
 
-
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, DeliveryAddressForm
-from app.models import User, Post, Product, Shopping_cart, Delivery_Address
-
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
-from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart
-
+from app.main.forms import EditProfileForm, PostForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
+from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, MyList, Housewares, \
+    SportsAndTravel, ToysAndBooks
 
 from app.main import bp
-
 
 
 @bp.before_request
@@ -31,13 +26,12 @@ def index():
     return render_template('index.html', title=_('Home'), prod=prod)
 
 
-
 @login_required
 @bp.route('/add_to_cart/<int:prod_id>', methods=['GET', 'POST'])
 def add_to_cart(prod_id):
     p = Product.query.filter_by(pid=prod_id).first()
     cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=999, product_id=prod_id,
-                                qty=1, price=p.price)
+                              qty=1, price=p.price)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.index'))
@@ -89,6 +83,15 @@ def delete(id):
     return redirect(url_for('main.post'))
 
 
+@bp.route('/del_list/<int:id>')
+@login_required
+def del_list(id):
+    del_list = MyList.query.get_or_404(id)
+    db.session.delete(del_list)
+    db.session.commit()
+    return redirect(url_for('main.mylist'))
+
+
 @bp.route('/del_address/<int:id>')
 @login_required
 def del_address(id):
@@ -116,33 +119,30 @@ def user(username):
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/housewares', methods=['GET', 'POST'])
 def housewares():
-    product = Product.query.all()
-    return render_template('housewares.html', title=_('Home'), product=product)
+    products = Housewares.query.all()
+    return render_template('housewares.html', title=_('Home'), products=products)
 
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/sportsntravel', methods=['GET', 'POST'])
 def sportsntravel():
-    return render_template('sportsntravel.html', title=_('Home'))
+    products = SportsAndTravel.query.all()
+    return render_template('sportsntravel.html', title=_('Home'), products=products)
 
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/toysnbooks', methods=['GET', 'POST'])
 def toysnbooks():
-    return render_template('toysnbooks.html', title=_('Home'))
+    products = ToysAndBooks.query.all()
+    return render_template('toysnbooks.html', title=_('Home'), products=products)
 
 
-
-@bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
-
-@bp.route('/', methods=['GET', 'POST'])
 @bp.route('/cart', methods=['GET', 'POST'])
 def cart():
     return render_template('cart.html', title=_('Cart'))
 
 
-@bp.route('/delivery_address/<username>')
-
+@bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
 @login_required
 def delivery_address(username):
     user = User.query.filter_by(username=username).first_or_404()
@@ -222,7 +222,7 @@ def cs(username):
     return render_template('cs.html', title=_('Customer Services'), form=form, user=user, messages=messages)
 
 
-@bp.route('/edit_message/<services_id>', methods=[' GET', 'POST'])
+@bp.route('/edit_message/<services_id>', methods=['GET', 'POST'])
 @login_required
 def edit_message(services_id):
     form = EditMessage()
@@ -237,6 +237,7 @@ def edit_message(services_id):
         form.message.data = mes.services
     return render_template('edit_message.html', title=_('Edit Message'), form=form)
 
+
 @bp.route('/delete_message/<services_id>', methods=['GET', 'POST'])
 @login_required
 def delete_message(services_id):
@@ -246,45 +247,51 @@ def delete_message(services_id):
     flash(_('Your message have been deleted.'))
     return redirect(url_for('main.cs', username=current_user.username))
 
+
 @bp.route('/add_list/<int:pid>', methods=['GET'])
 @login_required
 def add_list(pid):
-    list = Product.query.get_or_404(pid)
-    db.session.add(list)
+    p = Product.query.filter_by(pid=pid).first()
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.pname, user_id=999, product_id=pid)
+    db.session.add(cart_item)
     db.session.commit()
-    return redirect(url_for('main.mylist'))
+    return redirect(url_for('main.index'))
+
+
+@bp.route('/add_list1/<int:id>', methods=['GET'])
+@login_required
+def add_list1(id):
+    p = Housewares.query.filter_by(id=id).first()
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=998, product_id=id)
+    db.session.add(cart_item)
+    db.session.commit()
+    return redirect(url_for('main.housewares'))
+
+
+@bp.route('/add_list2/<int:id>', methods=['GET'])
+@login_required
+def add_list2(id):
+    p = SportsAndTravel.query.filter_by(id=id).first()
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=998, product_id=id)
+    db.session.add(cart_item)
+    db.session.commit()
+    return redirect(url_for('main.sportsntravel'))
+
+
+@bp.route('/add_list3/<int:id>', methods=['GET'])
+@login_required
+def add_list3(id):
+    p = ToysAndBooks.query.filter_by(id=id).first()
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=998, product_id=id)
+    db.session.add(cart_item)
+    db.session.commit()
+    return redirect(url_for('main.toysnbooks'))
 
 
 @bp.route('/mylist')
 @login_required
 def mylist():
-    return render_template('mylist.html', title=_('Post'))
+    item = db.session.query(MyList.user_id, MyList.name, Product.price).outerjoin(Product,MyList.product_id == Product.pid).filter(MyList.user_id == current_user.id).all()
+    return render_template('mylist.html', title=_('My List'), item =item)
 
-# @bp.route('/follow/<username>')
-# @login_required
-# def follow(username):
-#     user = User.query.filter_by(username=username).first()
-#     if user is None:
-#         flash(_('User %(user)s not found.', username=username))
-#         return redirect(url_for('main.housewares'))
-#     current_user.follow(user)
-#     db.session.commit()
-#     flash(_('You are following %(user)s!', username=username))
-#     return redirect(url_for('main.housewares'))
-# @bp.route('/complete/<id>')
-# def complete(id):
-#     product = Product.query.filter_by(pid = int(id)).first()
-#     product.complete = True
-#     return redirect(url_for('main.housewares'))
 
-# @bp.route('/unfollow/<pname>')
-# @login_required
-# def unfollow(pname):
-#     name = Product.query.filter_by(pname=pname).first()
-#     if name is None:
-#         flash(_('User %(pname)s not found.', pname=pname))
-#         return redirect(url_for('main.index'))
-#     current_user.unfollow(name)
-#     db.session.commit()
-#     flash(_('You are not following %(username)s.', pname=pname))
-#     #return redirect(url_for('main.user', username=username))

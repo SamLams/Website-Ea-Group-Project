@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-<<<<<<< HEAD
-    <data-source source="LOCAL" name="app.db" uuid="54414062-e784-42c4-8cde-33f4aa5d78a2">
-=======
-    <data-source source="LOCAL" name="app.db" uuid="92b78e28-a75d-4410-8ab3-76c0d1b071c2">
->>>>>>> cfee90a850f1bed481829aaac84ea91529c97674
+    <data-source source="LOCAL" name="app" uuid="769d9955-4925-4bbd-9618-08c05891f11c">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>SQLite</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/app.db</jdbc-url>
-<<<<<<< HEAD
-=======
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
->>>>>>> cfee90a850f1bed481829aaac84ea91529c97674
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.25.1/sqlite-jdbc-3.25.1.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.25.1/license.txt</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

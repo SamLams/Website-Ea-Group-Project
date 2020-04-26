@@ -9,20 +9,20 @@
         <div class="row">
             <div class="col-md-3 ">
                 <div class="list-group ">
-                    <a href="#" class="list-group-item list-group-item-action active">About VIP Program</a>
-                    <a href="#" class="list-group-item list-group-item-action">Order History</a>
-                    <a href="#" class="list-group-item list-group-item-action">Insurance Order</a>
-                    <a href="#" class="list-group-item list-group-item-action">e-Gift Vouchers</a>
-                    <a href="#" class="list-group-item list-group-item-action">e-Coupons</a>
-                    <a href="#" class="list-group-item list-group-item-action">My Mall Dollar</a>
+                    <a href="#" class="list-group-item list-group-item-action active">{{ _('About VIP Program')}}</a>
+                    <a href="#" class="list-group-item list-group-item-action">{{ _('Order History')}}</a>
+                    <a href="#" class="list-group-item list-group-item-action">{{ _('Insurance Order')}}</a>
+                    <a href="#" class="list-group-item list-group-item-action">{{ _('e-Gift Vouchers')}}</a>
+                    <a href="#" class="list-group-item list-group-item-action">{{ _('e-Coupons')}}</a>
+                    <a href="#" class="list-group-item list-group-item-action">{{ _('My Mall Dollar')}}</a>
                     <a href="{{ url_for('main.user', username=current_user.username) }}"
-                       class="list-group-item list-group-item-action">Account Profile</a>
+                       class="list-group-item list-group-item-action">{{ _('Account Profile')}}</a>
                     <a href="{{ url_for('main.delivery_address', username=current_user.username) }}"
-                       class="list-group-item list-group-item-action">Delivery Addresses</a>
-                    <a href="#" class="list-group-item list-group-item-action">My e-Wallet</a>
-                    <a href="#" class="list-group-item list-group-item-action">Notifications</a>
-                    <a href="{{ url_for('main.post') }}" class="list-group-item list-group-item-action">My Product
-                        Reviews</a>
+                       class="list-group-item list-group-item-action">{{ _('Delivery Addresses')}}</a>
+                    <a href="#" class="list-group-item list-group-item-action">{{ _('My e-Wallet')}}</a>
+                    <a href="#" class="list-group-item list-group-item-action">{{ _('Notifications')}}</a>
+                    <a href="{{ url_for('main.post') }}" class="list-group-item list-group-item-action">{{ _('My Product
+                        Reviews')}}</a>
 
 
                 </div>
@@ -40,14 +40,8 @@
                                         {% endif %}
                                         <td>
 
-                                            <h1>{{ _('Delivery Address') }}:</h1>
+                                            <p>{{ _('Delivery Address') }}:</p>
                                             <p> {{ user.delivery_address }}</p>
-                                            {% if user == current_user %}
-                                                <p>
-                                                    <a href="{{ url_for('main.edit_delivery_address') }}">{{ _('Edit your delivery address') }}</a>
-                                                </p>
-                                                <p></p>
-                                            {% endif %}
                                             {% for delivery_address in posts %}
                                                 {% include '_delivery_address.html' %}
                                                 <a href="/del_address/{{ delivery_address.id }}"> Delete </a>

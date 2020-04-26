@@ -1,12 +1,42 @@
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 {% block current_app_content %}
+    <div class="justify-content-center container">
+        <div class="row">
+            <div class="col-md-3 ">
+                <div class="list-group ">
+                    <a href="{{ url_for('main.mylist') }}" class="list-group-item list-group-item-action active">Wishlist</a>
+                    <a href="#" class="list-group-item list-group-item-action">Purchased items</a>
+                    <a href="#" class="list-group-item list-group-item-action">Recently view</a>
 
-    <tr>
-        <td width="70px">
-            <h>h2</h>
-        </td>
-    </tr>
 
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <p>{{ _('Wishlist') }}</p>
+
+
+                                {% for mylist in item %}
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">{{ _("product name" ) }}: {{ mylist.name }} {{ mylist.price }} <a
+                                                href="/del_list/{{ mylist.id }}"> Delete </a></li>
+                                    </ul>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

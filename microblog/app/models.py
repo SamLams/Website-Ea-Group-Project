@@ -10,7 +10,7 @@ import jwt
 followers = db.Table(
     'followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('product_id', db.Integer, db.ForeignKey('product.pid'))
+    db.Column('followed_id', db.Integer, db.ForeignKey('product.pid'))
 )
 
 
@@ -105,19 +105,17 @@ class Delivery_Address(db.Model):
 class Product(db.Model):
     pid = db.Column(db.Integer, primary_key=True)
     pname = db.Column(db.String(255))
-    url =db.Column(db.String(500))
     qty = db.Column(db.Integer)
     price = db.Column(db.Float)
     mid = db.Column(db.Integer, db.ForeignKey('merchant.mid'), nullable=False)
-    complete = db.Column(db.Boolean)
+    status = db.Column(db.String(255))
     cart = db.relationship('Shopping_cart', backref='product')
     pc_id = db.Column(db.Integer, db.ForeignKey('category.pc_id'), nullable=False)
     ps_id = db.Column(db.Integer, db.ForeignKey('subcategory.ps_id'), nullable=False)
     pets = db.relationship('Pets', backref='Product', lazy=True)
     disney = db.relationship('Disney', backref='Product', lazy=True)
-    houseware = db.relation('Housewares', backref='product', uselist=False)
-    SportsAndTravels = db.relation('SportsAndTravel', backref='product', uselist=False)
-    ToysAndBook = db.relation('ToysAndBooks', backref='product', uselist=False)
+    SportsAndTravels = db.relationship('SportsAndTravel', backref='product', uselist=False)
+    ToysAndBook = db.relationship('ToysAndBooks', backref='product', uselist=False)
     #follower = db.relationship('followers', secondary=followers, backref=db.backref('product', lazy='dynamic'))
     list = db.relationship('MyList', backref='product', lazy='dynamic')
 
@@ -134,10 +132,10 @@ class Product(db.Model):
         if not self.is_following(product):
             self.followed.append(product)
 
-    def __init__(self, pid, pname, pty, price, mid, status, pc_id, ps_id):
+    def __init__(self, pid, pname, qty, price, mid, status, pc_id, ps_id):
         self.pid = pid
         self.pname = pname
-        self.pty = pty
+        self.qty = qty
         self.price = price
         self.mid = mid
         self.status = status
@@ -272,7 +270,7 @@ class Housewares(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
     link = db.Column(db.String(255))
-
+    price = db.Column(db.Float)
     product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
     def __repr__(self):
@@ -282,6 +280,7 @@ class Housewares(db.Model):
 class SportsAndTravel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
+    price = db.Column(db.Float)
     link = db.Column(db.String(120))
     product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
@@ -292,6 +291,7 @@ class SportsAndTravel(db.Model):
 class ToysAndBooks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
+    price = db.Column(db.Float)
     link = db.Column(db.String(120))
     product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 

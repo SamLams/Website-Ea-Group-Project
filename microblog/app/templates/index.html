@@ -162,6 +162,7 @@
                             <h2>HKD ${{ product.price - 20 }}</h2>
                             <input type="hidden" name="pid" value="{{ product.pid }}" />
                             <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=product.pid ) }}" role="button">Add to Cart</a>
+                            <a class="btn btn-success" href="{{ url_for('main.add_list', pid=product.pid ) }}" role="button">follow</a>
                         </figcaption>
                     </figure>
                 </div>

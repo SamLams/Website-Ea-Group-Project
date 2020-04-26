@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-<<<<<<< HEAD
-    <data-source name="app.db" uuid="92b78e28-a75d-4410-8ab3-76c0d1b071c2">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
-=======
-    <data-source name="app.db" uuid="54414062-e784-42c4-8cde-33f4aa5d78a2">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <schema-mapping />
->>>>>>> 919d6f348cee30b096d584f45b534643e1d32e2b
+    <data-source name="app" uuid="769d9955-4925-4bbd-9618-08c05891f11c">
+      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <introspection-schemas>*:main</introspection-schemas>
     </data-source>
   </component>
 </project>
