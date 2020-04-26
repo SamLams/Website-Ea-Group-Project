@@ -9,23 +9,16 @@ from app import db
 
 
 class TestConfig(Config):
-    TESTING = True
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 
 class UserModelCase(unittest.TestCase):
-    def setUp(self):
-        self.app = create_app(TestConfig)
-        self.app_context = self.app.app_context()
-        self.app_context.push()
-        db.create_all()
-
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
-        self.app_context.pop()
 
     def testData(self):
+        app = create_app(TestConfig)
+        app_context = app.app_context()
+        app_context.push()
+        db.create_all()
         mer1 = Merchant(999, 'Test Company', 'Testing', 5.0)
         mer2 = Merchant(998, 'Test Company2', 'Testing', 5.2)
         mer3 = Merchant(997, 'Test Company3', 'Testing', 5.3)

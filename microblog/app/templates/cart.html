@@ -3,7 +3,16 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+    function price_by_item(){
+        var quantity = parseInt(document.order.quantity.value);
+        var pprice = document.cart.sub
+    }
+
+</script>
+
 {% block current_app_content %}
+    <form name="cart" >
     <div class="container">
         <div class="card-body justify-content-center">
             <div class="logo">
@@ -12,9 +21,44 @@
                         title="HKTVmalllogo_20171220.png" alt="HKTVmalllogo_20171220.png"></a>
             </div>
         </div>
-        <h1>Shopping Cart 0 items</h1><br/>
-        <h2>Your shopping cart is empty. Shop Your Favourites Now</h2><br/>
-    <a class="btn btn-success btn-lg" href="{{ url_for('main.index') }}" role="button">Shop now</a>
+        {% if count == 0 %}
+            <h1>Shopping Cart 0 items</h1><br/>
+            <h2>Your shopping cart is empty. Shop Your Favourites Now</h2><br/>
+            <a class="btn btn-success btn-lg" href="{{ url_for('main.index') }}" role="button">Shop now</a>
+        {% else %}
+            <div class="container row">
+                <div class="col-md-8 justify-content-start">
+                {% for item in ccart %}
+                    <div class="row">
+                        <div class="col-md-2"><a href="#"><img src="https://picsum.photos/70/70"/></a></div>
+                        <div class="col-md-2">{{ item.pname }}</div>
+                        <div class="col"></div>
+                        <div class="col-md-2 justify-content-end"><input type="text" name="sub{{ item.pid }}" size="15" value="{{ item.price }}" disabled=""></div>
+                        <div class="col-md-2 justify-content-end">
+                            <select name="quantity" onchange="price_by_item();">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 justify-content-end">{{ item.price }}</div>
+
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="col-md-4 justify-content-end">
+                    Hey
+                </div>
+            </div>
+        {% endif %}
     </div>
+    </form>
 
 {% endblock %}

@@ -20,3 +20,7 @@ Updated index.html
 
 #22-4-2020 190274404
 Add .gitignore to ignore add.db and venv
+
+#26-4-2020
+Add Cart
+

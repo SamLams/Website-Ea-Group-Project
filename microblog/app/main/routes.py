@@ -3,13 +3,9 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-
-from app.main.forms import EditProfileForm, PostForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
-from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, MyList, Housewares, \
-    SportsAndTravel, ToysAndBooks
-
+from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
+from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Housewares, ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant
 from app.main import bp
-
 
 @bp.before_request
 def before_request():
@@ -30,8 +26,8 @@ def index():
 @bp.route('/add_to_cart/<int:prod_id>', methods=['GET', 'POST'])
 def add_to_cart(prod_id):
     p = Product.query.filter_by(pid=prod_id).first()
-    cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=999, product_id=prod_id,
-                              qty=1, price=p.price)
+    cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=current_user.id, product_id=prod_id,
+                                qty=1, price=p.price)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.index'))
@@ -137,21 +133,13 @@ def toysnbooks():
     return render_template('toysnbooks.html', title=_('Home'), products=products)
 
 
-<<<<<<< HEAD
-=======
-
-
-@bp.route('/', methods=['GET', 'POST'])
->>>>>>> 1879e19499852b354468ff0c6a1adbfda1680a6b
 @bp.route('/cart', methods=['GET', 'POST'])
 def cart():
-    return render_template('cart.html', title=_('Cart'))
+    ccart = db.session.query(Shopping_cart.user_id, Product.pname, Product.price, Product.pid).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(Shopping_cart.user_id == current_user.id).all()
+    count = Shopping_cart.query.filter_by(user_id=current_user.id).count()
+    return render_template('cart.html', title=_('Shopping Cart'), ccart=ccart, count=count)
 
 
-<<<<<<< HEAD
-=======
-@bp.route('/delivery_address/<username>')
->>>>>>> 1879e19499852b354468ff0c6a1adbfda1680a6b
 @bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
 @login_required
 def delivery_address(username):
