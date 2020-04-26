@@ -10,10 +10,8 @@
 		<div class="col-md-3 ">
 		     <div class="list-group ">
               <a href="#" class="list-group-item list-group-item-action active">About VIP Program</a>
-              <a href="#" class="list-group-item list-group-item-action">Order History</a>
-              <a href="#" class="list-group-item list-group-item-action">Insurance Order</a>
-              <a href="#" class="list-group-item list-group-item-action">e-Gift Vouchers</a>
-              <a href="#" class="list-group-item list-group-item-action">e-Coupons</a>
+              <a href="{{ url_for('main.order_history', username=current_user.username) }}" class="list-group-item list-group-item-action">Order History</a>
+              <a href="{{ url_for('main.voucher') }}" class="list-group-item list-group-item-action">e-Gift Vouchers</a>
               <a href="#" class="list-group-item list-group-item-action">My Mall Dollar</a>
               <a href="{{ url_for('main.user', username=current_user.username)}}" class="list-group-item list-group-item-action">Account Profile</a>
               <a href="{{ url_for('main.delivery_address', username=current_user.username)}}" class="list-group-item list-group-item-action">Delivery Addresses</a>
@@ -33,15 +31,13 @@
             <tr>
 
                 <td>
-                    <h1>{{ _('E Vouchers') }}:</h1>
+                    <h1>{{ _('Test Vouchers') }}:</h1>
+                    {{ wtf.quick_form(form) }}
                     {% if user == current_user %}
-                        {{ wtf.quick_form(form) }}
+
                     {% endif %}
-                <br>
-                    {% for message in messages %}
-                        {% include 'message.html' %}
-                    {% endfor %}
-                    </td>
+
+                </td>
             </tr>
         </table>
 
