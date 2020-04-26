@@ -267,7 +267,6 @@ def voucher():
     form = AddVoucher()
     if form.validate_on_submit():
         result = Voucher.query.filter_by(code=form.voucher.data).all()
-        print(result)
         if result:
             flash(_('Voucher is able'))
         else:
