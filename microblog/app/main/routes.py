@@ -3,11 +3,11 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
-from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Order
+from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage, DeliveryAddressForm, \
+    EditDeliveryAddressForm, AddVoucher
+from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Order, Voucher
 
 from app.main import bp
-
 
 
 @bp.before_request
@@ -25,13 +25,12 @@ def index():
     return render_template('index.html', title=_('Home'), prod=prod)
 
 
-
 @login_required
 @bp.route('/add_to_cart/<int:prod_id>', methods=['GET', 'POST'])
 def add_to_cart(prod_id):
     p = Product.query.filter_by(pid=prod_id).first()
     cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=999, product_id=prod_id,
-                                qty=1, price=p.price)
+                              qty=1, price=p.price)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.index'))
@@ -124,9 +123,6 @@ def sportsntravel():
 @bp.route('/toysnbooks', methods=['GET', 'POST'])
 def toysnbooks():
     return render_template('toysnbooks.html', title=_('Home'))
-
-
-
 
 
 @bp.route('/', methods=['GET', 'POST'])
@@ -231,6 +227,7 @@ def edit_message(services_id):
         form.message.data = mes.services
     return render_template('edit_message.html', title=_('Edit Message'), form=form)
 
+
 @bp.route('/delete_message/<services_id>', methods=['GET', 'POST'])
 @login_required
 def delete_message(services_id):
@@ -239,6 +236,7 @@ def delete_message(services_id):
     db.session.commit()
     flash(_('Your message have been deleted.'))
     return redirect(url_for('main.cs', username=current_user.username))
+
 
 @bp.route('/add_list/<int:pid>', methods=['GET'])
 @login_required
@@ -254,6 +252,7 @@ def add_list(pid):
 def mylist():
     return render_template('mylist.html', title=_('Post'))
 
+
 @bp.route('/order_history/<username>', methods=['GET', 'POST'])
 @login_required
 def order_history(username):
@@ -262,6 +261,19 @@ def order_history(username):
     return render_template('order/order_history.html', title=_('order'), user=user, order=order)
 
 
+@bp.route('/voucher', methods=['GET', 'POST'])
+@login_required
+def voucher():
+    form = AddVoucher()
+    if form.validate_on_submit():
+        result = Voucher.query.filter_by(code=form.voucher.data).all()
+        print(result)
+        if result:
+            flash(_('Voucher is able'))
+        else:
+            flash(_('Voucher is disable'))
+        return redirect(url_for('main.voucher'))
+    return render_template('vouchers/voucher.html', title=_('Voucher'), form=form)
 
 # @bp.route('/follow/<username>')
 # @login_required

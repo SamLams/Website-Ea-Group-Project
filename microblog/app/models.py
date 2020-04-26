@@ -244,6 +244,7 @@ class Voucher(db.Model):
     code = db.Column(db.String(255))
     expiary = db.Column(db.DateTime)
     status = db.Column(db.Boolean)
+    discount = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Voucher {}>'.format(self.v_id)

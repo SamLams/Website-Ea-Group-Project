@@ -10,9 +10,10 @@
             <div class="col-md-3 ">
                 <div class="list-group ">
                     <a href="#" class="list-group-item list-group-item-action active">About VIP Program</a>
-                    <a href="{{ url_for('main.order_history', username=current_user.username) }}" class="list-group-item list-group-item-action">Order History</a>
-                    <a href="#" class="list-group-item list-group-item-action">e-Gift Vouchers</a>
-                    <a href="#" class="list-group-item list-group-item-action">e-Coupons</a>
+                    <a href="{{ url_for('main.order_history', username=current_user.username) }}"
+                       class="list-group-item list-group-item-action">Order History</a>
+                    <a href="{{ url_for('main.voucher') }}" class="list-group-item list-group-item-action">e-Gift Vouchers</a>
+
                     <a href="#" class="list-group-item list-group-item-action">My Mall Dollar</a>
                     <a href="{{ url_for('main.user', username=current_user.username) }}"
                        class="list-group-item list-group-item-action">Account Profile</a>
