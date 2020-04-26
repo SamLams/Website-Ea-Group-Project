@@ -2,3 +2,4 @@
 microblog/app.db
 microblog/venv
 microblog/migrations
+microblog/flask_sessions

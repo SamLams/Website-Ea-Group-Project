@@ -3,8 +3,10 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, EditMessage, DeliveryAddressForm, EditDeliveryAddressForm
-from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Housewares, ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant
+from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, \
+    EditMessage, DeliveryAddressForm, EditDeliveryAddressForm, AddVoucher
+from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Housewares, \
+    ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant, Order, Voucher
 from app.main import bp
 
 @bp.before_request
@@ -296,4 +298,26 @@ def mylist():
     item = db.session.query(MyList.user_id, MyList.name, Product.price, MyList.id).outerjoin(Product, MyList.product_id == Product.pid).filter(MyList.user_id == current_user.id).all()
     return render_template('mylist.html', title=_('My List'), item=item)
 
+
+
+@bp.route('/order_history/<username>', methods=['GET', 'POST'])
+@login_required
+def order_history(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    order = Order.query.filter_by(user_id=current_user.id).all()
+    return render_template('order/order_history.html', title=_('order'), user=user, order=order)
+
+
+@bp.route('/voucher', methods=['GET', 'POST'])
+@login_required
+def voucher():
+    form = AddVoucher()
+    if form.validate_on_submit():
+        result = Voucher.query.filter_by(code=form.voucher.data).all()
+        if result:
+            flash(_('Voucher is able'))
+        else:
+            flash(_('Voucher is disable'))
+        return redirect(url_for('main.voucher'))
+    return render_template('vouchers/voucher.html', title=_('Voucher'), form=form)
 
