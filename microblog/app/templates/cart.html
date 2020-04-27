@@ -11,7 +11,7 @@
 </script>
 
 {% block current_app_content %}
-    <form name="cart" >
+    <form name="cart" oninput="total.value=parseFloat(a.value)+parseFloat(b.value)">
     <div class="container">
         <div class="card-body justify-content-center">
             <div class="logo">
@@ -53,6 +53,7 @@
                 </div>
                 <div class="col-md-4 justify-content-end">
                     <input type="text" name="total" id="total" size="32" value="0.00" disabled="">
+                    =<output name="total" for="a b"/>
                 </div>
             </div>
         {% endif %}

@@ -2,7 +2,8 @@
 from datetime import datetime, timedelta
 import unittest
 from app import create_app, db
-from app.models import User, Post, Merchant, Category, Subcategory, Product, Housewares, SportsAndTravel, ToysAndBooks, MyList
+from app.models import User, Post, Merchant, Category, Subcategory, Product, Housewares, SportsAndTravel, ToysAndBooks, \
+    MyList
 from config import Config
 from app.models import *
 from app import db
@@ -19,6 +20,8 @@ class UserModelCase(unittest.TestCase):
         app_context = app.app_context()
         app_context.push()
         db.create_all()
+
+
 mer1 = Merchant(999, 'Test Company', 'Testing', 5.0)
 mer2 = Merchant(998, 'Test Company2', 'Testing', 5.2)
 mer3 = Merchant(997, 'Test Company3', 'Testing', 5.3)
@@ -32,12 +35,21 @@ c2 = Category(pc_id=998, pc_name="c2", ps_id=998)
 c3 = Category(pc_id=997, pc_name="c3", ps_id=997)
 c4 = Category(pc_id=996, pc_name="c4", ps_id=996)
 p1 = Product(pid=999, pname='Testing Product1', qty=1, price=45, mid=999, status="Good", pc_id=999, ps_id=999)
-p2 = Product(pid= 998, pname= "TW Disposable Mask Protective Pad", qty = 1, price=55, mid= 998, status= "Good", pc_id= 998, ps_id=998)
-p3 = Product(pid= 997, pname= "FitBoxx - Everlast Evercool Gloves Bag", qty = 1, price=56, mid= 997, status= "Good", pc_id= 997, ps_id=997)
-p4 = Product(pid= 996, pname= "HKQgamers - Switch Game - Pokemon Sword", qty = 2, price=44, mid= 996, status= "no", pc_id= 996, ps_id=996)
-h1 = Housewares(id = 995, name = "TW Disposable Mask Protective Pad", link= "https://images.hktv-img.com/images/HKTV/10787/MIT-001A_main_35311815_20200310182421_01_1200.jpg", price= 55,product_id=998)
-s1 = SportsAndTravel(id=995, name="FitBoxx - Everlast Evercool Gloves Bag",link="https://images.hktvmall.com/h0395001/m/photos/8831465193522_1_1200.jpg",price=65, product_id=997)
-t1 = ToysAndBooks(id=995, name="HKQgamers - Switch Game - Pokemon Sword",link="https://images.hktv-img.com/images/HKTV/10823/GA20191104A08_main_31312491_20191112141038_01_1200.jpg",price=44, product_id=996)
+p2 = Product(pid=998, pname="TW Disposable Mask Protective Pad", qty=1, price=55, mid=998, status="Good", pc_id=998,
+             ps_id=998)
+p3 = Product(pid=997, pname="FitBoxx - Everlast Evercool Gloves Bag", qty=1, price=56, mid=997, status="Good",
+             pc_id=997, ps_id=997)
+p4 = Product(pid=996, pname="HKQgamers - Switch Game - Pokemon Sword", qty=2, price=44, mid=996, status="no", pc_id=996,
+             ps_id=996)
+h1 = Housewares(id=995, name="TW Disposable Mask Protective Pad",
+                link="https://images.hktv-img.com/images/HKTV/10787/MIT-001A_main_35311815_20200310182421_01_1200.jpg",
+                price=55, product_id=998)
+s1 = SportsAndTravel(id=995, name="FitBoxx - Everlast Evercool Gloves Bag",
+                     link="https://images.hktvmall.com/h0395001/m/photos/8831465193522_1_1200.jpg", price=65,
+                     product_id=997)
+t1 = ToysAndBooks(id=995, name="HKQgamers - Switch Game - Pokemon Sword",
+                  link="https://images.hktv-img.com/images/HKTV/10823/GA20191104A08_main_31312491_20191112141038_01_1200.jpg",
+                  price=44, product_id=996)
 db.session.add(mer1)
 db.session.add(sc1)
 db.session.add(c1)
@@ -58,13 +70,6 @@ db.session.add(c4)
 db.session.add(p4)
 db.session.add(t1)
 db.session.commit()
-
-        #pending = [mer1, sc1, c1, p1]
-        db.session.add(mer1)
-        db.session.add(sc1)
-        db.session.add(c1)
-        db.session.add(p1)
-        db.session.commit()
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
