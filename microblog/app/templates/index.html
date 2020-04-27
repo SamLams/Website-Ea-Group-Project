@@ -2,24 +2,21 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block current_app_content %}
-
-    <head>
-    <link rel="stylesheet" href="index.css">
-    </head>
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
     <!-- Slider1 -->
     <div class="justify-content-center container">
-            <div class="col-sm-12">
-                <div id="slider1" class="carousel slide" data-ride="carousel">
+            <div class="col-sm-12 bg_change">
+                <div id="slider1" class="carousel slide" data-ride="carousel" style="width: 100vw; margin-left: -51vh; overflow: hidden">
                     <!-- nav indicator -->
                     <ol class="carousel-indicators">
                         <li data-target="#slider1" data-slide-to="0" class="active"></li>
                         <li data-target="#slider1" data-slide-to="1"></li>
                     </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
+                    <div class="carousel-inner" role="listbox" id="main_slider">
+                        <div class="item active" style="background-color: rgb(253,194,93);">
                             <img src="{{ url_for('static', filename='img/index/slider1p1.jpg') }}" alt="" class="center-block"/>
                         </div>
-                        <div class="item">
+                        <div class="item" style="background-color: rgb(189,218,57);">
                             <img src="{{ url_for('static', filename='img/index/slider1p2.jpg') }}" alt="" class="center-block"/>
                         </div>
                     </div>
@@ -37,7 +34,7 @@
     <!-- Banner - fight together with you -->
     <div class="justify-content-center " style="background-color: rgb(254, 195, 93);">
         <div class="col-8 container">
-            <a href="#"><img src="https://picsum.photos/1188/222" alt="" style="width: 100%; height: auto" class="center-block"/></a>
+            <a href="#"><img src="https://images.hktvmall.com/banner/banneren_200414091824.jpg" alt="" style="width: 100%; height: auto" class="center-block"/></a>
         </div>
     </div>
     <!-- Slider2 - Slogan -->
@@ -83,7 +80,7 @@
     <!-- Banner - holiday -->
     <div class="justify-content-center container">
         <div class="col-8">
-            <a href="#"><img src="https://picsum.photos/1188/95" alt="" class="center-block"/></a>
+            <a href="#"><img src="https://images.hktvmall.com/store_content/bannerpcen_200408101128.jpg" alt="" class="center-block" style="max-width:1188px; height:auto;"/></a>
         </div>
     </div>
     <!-- Slider3 - Small -->
@@ -150,7 +147,7 @@
             </div>
         </div>
     <!-- Catalogue - Health Product -->
-    <div class="row justify-content-center container center-block" style="background-color: white;">
+    <div class="row justify-content-center container center-block" style="background-color: white; display: flex">
         {% for product in prod %}
             {% if loop.index <= 4 %}
                 <div class="col-md-3" style="background-color: rgb(255, 216, 175);">

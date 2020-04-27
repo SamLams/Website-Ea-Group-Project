@@ -1,10 +1,37 @@
 #navbar_style {
     position: sticky;
     position: -webkit-sticky;
-    background-color: #b7f655;
+    background-color: #bddb4d;
     top: 0;
     padding: 10px;
     z-index: 1000;
+}
+
+.topbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: #36b449;
+  font-size: 12px;
+}
+.topbar ul li {
+  float: left;
+}
+.topbar ul li a {
+    display: block;
+    text-align: center;
+    padding: 10px 5px;
+    text-decoration: none;
+    color:inherit;
+}
+
+.topbar li:not(:first-child):before {
+    position: absolute;
+    padding-top: 9px;
+    padding-right: 20px;
+    content: "|";
+    color: black;
 }
 
 #Salesforce-cshelp {
@@ -63,7 +90,7 @@
     display: block;
     position: relative;
     float: left;
-    background: #24af15; /* menu background color */
+    background-color: #629a4d; /* menu background color */
 }
 
 #nav li a {
@@ -106,4 +133,11 @@
     display: block; /* shows sub-sublist on hover */
     margin-left: 90px; /* this should be the same width as the parent list item */
     margin-top: -43px; /* aligns top of sub menu with top of list item */
+}
+
+.nav-tabs > li > a:hover{
+  background-color: #bdda39 !important;
+  border: medium none;
+  border-radius: 25px 25px 0 0;
+  color:#fff;
 }

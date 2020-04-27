@@ -6,22 +6,36 @@
 
 {% block header %}
 
-
 {% endblock %}
 
-
 {% block navbar %}
+    <script>
+
+    </script>
     <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
 
     <div class="top container">
-
+        <div class="topbar">
+            <ul>
+                <li><a href="#">Quick Start Guide</a></li>
+                <li><a href="#">VIP Program</a></li>
+                <li><a href="#">All Categories</a></li>
+                <li><a href="#">Store Directory</a></li>
+                <li><a href="#">Product Reviews</a></li>
+                <li style="float: right"><a href="#">O2O Shops</a></li>
+                <li style="float: right"><a href="#">Pickup Points</a></li>
+                <li style="float: right"><a href="#">FAQ</a></li>
+                <li style="float: right"><a href="#">Careers</a></li>
+                <li style="float: right"><a href="#">Merchants Recruitment</a></li>
+            </ul>
+        </div>
         <div class="card text-center">
             <div class="card-header">
 
             </div>
             <div class="card-body">
                 <div class="logo">
-                    <a href="{{ url_for('main.index') }}"><img
+                    <a href="{{ url_for('main.index') }}"><img style="max-width:184px; height:auto; margin-top:-17px; margin-bottom:15px;"
                             src="{{ url_for('static', filename='img/HKTVlogo.jpg') }}" class="round"
                             title="HKTVmalllogo_20171220.png" alt="HKTVmalllogo_20171220.png"></a>
                 </div>
@@ -31,29 +45,29 @@
 
         </div>
 
-        <div class="row" style="font-size: 16px;">
-            <div class="col-sm-2">
+        <ul class="row nav nav-tabs" style="font-size: 13px;">
+            <li class="col-sm-2 nav-item">
                 <a href="{{ url_for('main.index') }}">{{ _('Supermarket') }}</a>
-            </div>
-            <div class="col-sm-2">
-                {{ _('Personal Care') }}
-            </div>
-            <div class="col-sm-2">
-                {{ _('Skincare & Makeup') }}
-            </div>
-            <div class="col-sm-2">
+            </li>
+            <li class="col-sm-2 nav-pills">
+                <a href="#">{{ _('Personal Care') }}</a>
+            </li>
+            <li class="col-sm-2 nav-pills">
+                <a href="#">{{ _('Skincare & Makeup') }}</a>
+            </li>
+            <li class="col-sm-2 nav-pills">
                 <a href="{{ url_for('main.housewares') }}">{{_('Housewares')}}</a>
-            </div>
+            </li>
         
-            <div class="col-sm-2">
+            <li class="col-sm-2 nav-pills">
                 <a href="{{ url_for('main.sportsntravel') }}">{{ _('Sports & Travel') }}</a>
-            </div>
+            </li>
         
-            <div class="col-sm-2">
+            <li class="col-sm-2 nav-pills">
                 <a href="{{ url_for('main.toysnbooks') }}">{{ _('Toys & Books') }}</a>
-            </div>
+            </li>
         
-        </div>
+        </ul>
 
     </div>
 
@@ -71,12 +85,35 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ url_for('main.index') }}">HKTVmall</a>
+                    <div class="col-md-4 col-auto" id="dropdown">
+                        <div class="dropdown">
+                            <ul id="nav">
+                                <li><a href="#">{{ _('Categories') }}</a>
+                                    <ul>
+                                        <li><a href="#">{{ _('Pets') }}</a>
+                                            <ul>
+                                                <li><a href="#">Sub Sub Item 1</a>
+                                                <li><a href="#">Sub Sub Item 2</a>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">{{ _('Fashion') }}</a>
+                                            <ul>
+                                                <li><a href="#">Sub Sub Item 1</a>
+                                                <li><a href="#">Sub Sub Item 2</a>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <a class="navbar-brand" href="{{ url_for('main.index') }}">HKTVmall</a> -->
 
                 </div>
 
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
 
                     <ul class="nav navbar-nav" style="margin-top: 8px; margin-left: 4px;" id="search_bar">
                         <li>
@@ -137,32 +174,12 @@
                         </li>
                     </ul>
                 </div>
-
+            </div>
+        </div>
                 <div class="row" id="bs-example-navbar-collapse-2">
-                    <div class="col-xs-1 col-auto" id="dropdown">
-                        <div class="dropdown">
-                            <ul id="nav">
-                                <li><a href="#">{{ _('Categories') }}</a>
-                                    <ul>
-                                        <li><a href="#">{{ _('Pets') }}</a>
-                                            <ul>
-                                                <li><a href="#">Sub Sub Item 1</a>
-                                                <li><a href="#">Sub Sub Item 2</a>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">{{ _('Fashion') }}</a>
-                                            <ul>
-                                                <li><a href="#">Sub Sub Item 1</a>
-                                                <li><a href="#">Sub Sub Item 2</a>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xs-11 " id="marquee">
-                        <marquee direction="left" scrollamount="6" bgcolor="red" style="padding-top: 5px;">
+
+                    <div class="col-md-12" id="marquee">
+                        <marquee direction="left" scrollamount="6" bgcolor="#e61e28" style="padding-top: 5px;">
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-3" role="group" aria-label="First group">
                                     <button type="button" class="btn btn-secondary">{{ _('top1') }}</button>
@@ -176,9 +193,10 @@
                             </div>
                         </marquee>
                     </div>
+                    <div class="col-md-12" style="background-color: #115b54; color:white">
+                        HKTV Mall
+                    </div>
                 </div>
-            </div>
-        </div>
     </nav>
 
     <button id="Salesforce-cshelp" onclick="location.href='{{ url_for('main.cs', username=current_user.username) }}';">
