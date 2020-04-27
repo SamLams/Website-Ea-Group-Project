@@ -45,8 +45,12 @@
                                             <p> {{ user.delivery_address }}</p>
                                             {% for delivery_address in posts %}
                                                 {% include '_delivery_address.html' %}
-                                                <a href="/del_address/{{ delivery_address.id }}"> Delete </a>
-                                                <a href="/edit_delivery_address/{{ delivery_address.id }}">Edit</a>
+                                                <button onclick="location.href='{{ url_for('main.del_address', id=delivery_address.id) }}';">
+                                                    <span>{{ _('Delete') }}</span>
+                                                </button>
+                                                <button onclick="location.href='{{ url_for('main.edit_delivery_address', id=delivery_address.id) }}';">
+                                                    <span>{{ _('Edit') }}</span>
+                                                </button>
                                             {% endfor %}
 
 

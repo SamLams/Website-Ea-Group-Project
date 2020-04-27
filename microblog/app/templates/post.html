@@ -39,7 +39,9 @@
                                 {% endif %}
                                 {% for post in posts %}
                                     {% include '_post.html' %}
-                                    <a href="/delete/{{ post.id }}"> Delete </a>
+                                    <button onclick="location.href='{{ url_for('main.delete', id=post.id) }}';">
+                                        <span>{{ _('Delete') }}</span>
+                                    </button>
                                 {% endfor %}
                                 <ul class="pager">
                                     <li class="previous{% if not prev_url %} disabled{% endif %}">

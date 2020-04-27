@@ -28,10 +28,14 @@ def index():
 @bp.route('/add_to_cart/<int:prod_id>', methods=['GET', 'POST'])
 def add_to_cart(prod_id):
     p = Product.query.filter_by(pid=prod_id).first()
-    cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=current_user.id, product_id=prod_id,
+    if current_user.is_authenticated:
+        cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=current_user.id, product_id=prod_id,
                                 qty=1, price=p.price)
-    db.session.add(cart_item)
-    db.session.commit()
+        db.session.add(cart_item)
+        db.session.commit()
+    else:
+        flash(_('Please login first.'))
+        return redirect(url_for('auth.login'))
     return redirect(url_for('main.index'))
 
 
@@ -121,21 +125,21 @@ def user(username):
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/housewares', methods=['GET', 'POST'])
 def housewares():
-    products = Housewares.query.all()
+    products = db.session.query(Housewares.name, Product.price, Housewares.id, Housewares.link, Housewares.product_id).outerjoin(Product, Housewares.product_id == Product.pid).filter().all()
     return render_template('housewares.html', title=_('Home'), products=products)
 
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/sportsntravel', methods=['GET', 'POST'])
 def sportsntravel():
-    products = SportsAndTravel.query.all()
+    products = db.session.query(SportsAndTravel.name, Product.price, SportsAndTravel.id, SportsAndTravel.link, SportsAndTravel.product_id).outerjoin(Product, SportsAndTravel.product_id == Product.pid).filter().all()
     return render_template('sportsntravel.html', title=_('Home'), products=products)
 
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/toysnbooks', methods=['GET', 'POST'])
 def toysnbooks():
-    products = ToysAndBooks.query.all()
+    products = db.session.query(ToysAndBooks.name, Product.price, ToysAndBooks.id, ToysAndBooks.link, ToysAndBooks.product_id).outerjoin(Product, ToysAndBooks.product_id == Product.pid).filter().all()
     return render_template('toysnbooks.html', title=_('Home'), products=products)
 
 
@@ -274,8 +278,8 @@ def add_list(pid):
 @bp.route('/add_list1/<int:id>', methods=['GET'])
 @login_required
 def add_list1(id):
-    p = Housewares.query.filter_by(id=id).first()
-    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=current_user.id, product_id=id)
+    p = Product.query.filter_by(pid=id).first()
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.pname, user_id=current_user.id, product_id=id)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.housewares'))
@@ -284,8 +288,8 @@ def add_list1(id):
 @bp.route('/add_list2/<int:id>', methods=['GET'])
 @login_required
 def add_list2(id):
-    p = SportsAndTravel.query.filter_by(id=id).first()
-    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=current_user.id, product_id=id)
+    p = Product.query.filter_by(pid=id).first()
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.pname, user_id=current_user.id, product_id=id)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.sportsntravel'))
@@ -294,8 +298,8 @@ def add_list2(id):
 @bp.route('/add_list3/<int:id>', methods=['GET'])
 @login_required
 def add_list3(id):
-    p = ToysAndBooks.query.filter_by(id=id).first()
-    cart_item = MyList(id=MyList.query.count() + 1, name=p.name, user_id=current_user.id, product_id=id)
+    p = Product.query.filter_by(pid=id).first()
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.pname, user_id=current_user.id, product_id=id)
     db.session.add(cart_item)
     db.session.commit()
     return redirect(url_for('main.toysnbooks'))
@@ -304,7 +308,7 @@ def add_list3(id):
 @bp.route('/mylist')
 @login_required
 def mylist():
-    item = db.session.query(MyList.user_id, MyList.name, Product.price, MyList.id).outerjoin(Product, MyList.product_id == Product.pid).filter(MyList.user_id == current_user.id).all()
+    item = db.session.query(MyList.user_id, MyList.name, Product.price, MyList.id, Product.link).outerjoin(Product, MyList.product_id == Product.pid).filter(MyList.user_id == current_user.id).all()
     return render_template('mylist.html', title=_('My List'), item=item)
 
 
