@@ -94,17 +94,6 @@ class EditProduct(FlaskForm):
     ps_id = IntegerField(_l('ps_id'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
-class InsertProduct(FlaskForm):
-    pid = IntegerField(_l('ProductID'), validators=[DataRequired()])
-    pname = StringField(_l('Product Name'), validators=[DataRequired()])
-    qty = IntegerField(_l('QTY'), validators=[DataRequired()])
-    price = FloatField(_l('Price'), validators=[DataRequired()])
-    mid = IntegerField(_l('MID'), validators=[DataRequired()])
-    status = StringField(_l('Status'), validators=[DataRequired()])
-    link = StringField(_l('Link'), validators=[DataRequired()])
-    pc_id = IntegerField(_l('pc_id'), validators=[DataRequired()])
-    ps_id = IntegerField(_l('ps_id'), validators=[DataRequired()])
-    submit = SubmitField(_l('Submit'))
 
 
 

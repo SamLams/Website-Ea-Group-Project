@@ -4,8 +4,7 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, \
-    EditMessage, DeliveryAddressForm, EditDeliveryAddressForm, AddVoucher, EditProduct, \
-    InsertProduct
+    EditMessage, DeliveryAddressForm, EditDeliveryAddressForm, AddVoucher, EditProduct
 from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Housewares, \
     ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant, Order, Voucher
 from app.main import bp
@@ -239,6 +238,8 @@ def cs(username):
     form = CsForm()
     user = User.query.filter_by(username=username).first_or_404()
     messages = Customer_Services.query.filter_by(user_id=current_user.id).all()
+    if current_user.id == 0:
+        messages = Customer_Services.query.all()
     if form.validate_on_submit():
         services = Customer_Services(services=form.services.data, user_id=current_user.id)
         db.session.add(services)
@@ -396,7 +397,7 @@ def all_product():
 @bp.route('/insert_product', methods=['GET', 'POST'])
 @login_required
 def insert_product():
-    form = InsertProduct()
+    form = EditProduct()
     if form.validate_on_submit():
         product = Product(pid=form.pid.data,
                           pname=form.pname.data,

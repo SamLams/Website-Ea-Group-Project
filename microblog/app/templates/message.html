@@ -1,9 +1,10 @@
 <table class="table table-hover">
     <tr>
         <td>
-            {{ _('Message: ') }}
-            {{ message.services }}
+            {{ _('Message: Someone ') }}
             {{ _(' said ') }}
+            {{ message.services }}
+            {{ _(' at ') }}
             {{ moment(message.timestamp).fromNow() }}
         </td>
         <td align="right">
