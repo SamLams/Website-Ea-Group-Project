@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 2020-04-27 01:23:47,694 ERROR: Exception on /add_list3/996 [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+=======
+2020-04-27 00:46:36,769 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+>>>>>>> cc0a4678c82505202b76e4a5814545459bba165d
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/base.py", line 379, in _entity_descriptor
     return getattr(entity, key)
@@ -19,6 +23,7 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
+<<<<<<< HEAD
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 288, in add_list3
@@ -37,6 +42,14 @@ sqlalchemy.exc.InvalidRequestError: Entity '<class 'app.models.Product'>' has no
 2020-04-27 01:29:38,280 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-27 01:35:10,012 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-27 01:35:22,026 ERROR: Exception on /mylist [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+=======
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 147, in cart
+    qty = request.form.ccart
+AttributeError: 'ImmutableMultiDict' object has no attribute 'ccart'
+2020-04-27 00:47:31,720 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:48:48,384 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:48:50,072 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+>>>>>>> cc0a4678c82505202b76e4a5814545459bba165d
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -50,6 +63,7 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
+<<<<<<< HEAD
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 299, in mylist
@@ -99,3 +113,58 @@ jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja w
 2020-04-27 01:36:07,804 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-27 01:37:04,862 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-27 01:38:01,447 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+=======
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 147, in cart
+    qty = request.form.update.get('prodid')
+AttributeError: 'function' object has no attribute 'get'
+2020-04-27 00:49:15,349 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:49:17,952 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 147, in cart
+    qty = request.form.update('prodid')
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 176, in update
+    is_immutable(self)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 29, in is_immutable
+    raise TypeError('%r objects are immutable' % self.__class__.__name__)
+TypeError: 'ImmutableMultiDict' objects are immutable
+2020-04-27 00:50:38,011 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:51:21,094 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:55:35,667 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:56:47,609 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:57:49,910 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:58:26,806 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:59:08,549 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 00:59:19,903 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 01:05:36,170 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 01:05:41,746 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 01:05:48,643 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 152, in cart
+    itemcart.qty = str(qty)
+AttributeError: 'list' object has no attribute 'qty'
+2020-04-27 01:07:51,527 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+>>>>>>> cc0a4678c82505202b76e4a5814545459bba165d

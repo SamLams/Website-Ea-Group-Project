@@ -141,8 +141,17 @@ def toysnbooks():
 
 @bp.route('/cart', methods=['GET', 'POST'])
 def cart():
-    ccart = db.session.query(Shopping_cart.user_id, Product.pname, Product.price, Product.pid).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(Shopping_cart.user_id == current_user.id).all()
+    ccart = db.session.query(Shopping_cart.user_id, Product.pname, Product.price, Product.pid, Shopping_cart.qty).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(Shopping_cart.user_id == current_user.id).all()
     count = Shopping_cart.query.filter_by(user_id=current_user.id).count()
+    if request.method == "POST":
+        qty = request.form.get('quantity')
+        prodid = request.form.get('prodid')
+        prodprice = request.form.get('prodprice')
+        itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update({'qty': qty})
+        itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update({'price': float(prodprice) * int(qty)})
+        db.session.commit()
+        redirect(url_for('main.cart'))
+
     return render_template('cart.html', title=_('Shopping Cart'), ccart=ccart, count=count)
 
 

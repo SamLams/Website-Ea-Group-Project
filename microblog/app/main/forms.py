@@ -77,6 +77,7 @@ class EditMessage(FlaskForm):
     message = StringField(_l('Message'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
+
 class AddVoucher(FlaskForm):
     voucher = StringField(_l('Voucher Code'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
