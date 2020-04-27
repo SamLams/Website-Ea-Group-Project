@@ -158,10 +158,10 @@
                         <img src="{{toys_and_books.link}}" class="figure-img img-fluid rounded" alt="", width="250px", height="200px" />
                         <figcaption class="figure-caption">
                             <h3>{{ toys_and_books.name }}</h3>
-                            <h5>{{ toys_and_books.price }}</h5>
-                            <h2>HKD ${{ toys_and_books.price - 20 }}</h2>
+                            <!--h5>{{ toys_and_books.price }}</h5-->
+                            <h2>HKD ${{ toys_and_books.price }}</h2>
                             <input type="hidden" name="id" value="{{ toys_and_books.id }}" />
-                            <a class="btn btn-success" href="{{ url_for('main.add_list3', id=toys_and_books.id ) }}" role="button">follow</a>
+                            <a class="btn btn-success" href="{{ url_for('main.add_list3', id=toys_and_books.product_id ) }}" role="button">follow</a>
                         </figcaption>
                     </figure>
                 </div>
