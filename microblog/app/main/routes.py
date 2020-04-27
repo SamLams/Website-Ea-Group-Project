@@ -4,10 +4,12 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, \
-    EditMessage, DeliveryAddressForm, EditDeliveryAddressForm, AddVoucher
+    EditMessage, DeliveryAddressForm, EditDeliveryAddressForm, AddVoucher, EditProduct, \
+    InsertProduct
 from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Housewares, \
     ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant, Order, Voucher
 from app.main import bp
+
 
 @bp.before_request
 def before_request():
@@ -30,7 +32,7 @@ def add_to_cart(prod_id):
     p = Product.query.filter_by(pid=prod_id).first()
     if current_user.is_authenticated:
         cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=current_user.id, product_id=prod_id,
-                                qty=1, price=p.price)
+                                  qty=1, price=p.price)
         db.session.add(cart_item)
         db.session.commit()
     else:
@@ -87,10 +89,6 @@ def delete(id):
 
 @bp.route('/del_list/<int:id>')
 @login_required
-
-
-
-
 def del_list(id):
     del_list = MyList.query.get_or_404(id)
     db.session.delete(del_list)
@@ -125,35 +123,45 @@ def user(username):
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/housewares', methods=['GET', 'POST'])
 def housewares():
-    products = db.session.query(Housewares.name, Product.price, Housewares.id, Housewares.link, Housewares.product_id).outerjoin(Product, Housewares.product_id == Product.pid).filter().all()
+    products = db.session.query(Housewares.name, Product.price, Housewares.id, Housewares.link,
+                                Housewares.product_id).outerjoin(Product,
+                                                                 Housewares.product_id == Product.pid).filter().all()
     return render_template('housewares.html', title=_('Home'), products=products)
 
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/sportsntravel', methods=['GET', 'POST'])
 def sportsntravel():
-    products = db.session.query(SportsAndTravel.name, Product.price, SportsAndTravel.id, SportsAndTravel.link, SportsAndTravel.product_id).outerjoin(Product, SportsAndTravel.product_id == Product.pid).filter().all()
+    products = db.session.query(SportsAndTravel.name, Product.price, SportsAndTravel.id, SportsAndTravel.link,
+                                SportsAndTravel.product_id).outerjoin(Product,
+                                                                      SportsAndTravel.product_id == Product.pid).filter().all()
     return render_template('sportsntravel.html', title=_('Home'), products=products)
 
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/toysnbooks', methods=['GET', 'POST'])
 def toysnbooks():
-    products = db.session.query(ToysAndBooks.name, Product.price, ToysAndBooks.id, ToysAndBooks.link, ToysAndBooks.product_id).outerjoin(Product, ToysAndBooks.product_id == Product.pid).filter().all()
+    products = db.session.query(ToysAndBooks.name, Product.price, ToysAndBooks.id, ToysAndBooks.link,
+                                ToysAndBooks.product_id).outerjoin(Product,
+                                                                   ToysAndBooks.product_id == Product.pid).filter().all()
     return render_template('toysnbooks.html', title=_('Home'), products=products)
 
 
 @bp.route('/cart', methods=['GET', 'POST'])
 @login_required
 def cart():
-    ccart = db.session.query(Shopping_cart.user_id, Product.pname, Product.price, Product.pid, Shopping_cart.qty).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(Shopping_cart.user_id == current_user.id).all()
+    ccart = db.session.query(Shopping_cart.user_id, Product.pname, Product.price, Product.pid,
+                             Shopping_cart.qty).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(
+        Shopping_cart.user_id == current_user.id).all()
     count = Shopping_cart.query.filter_by(user_id=current_user.id).count()
     if request.method == "POST":
         qty = request.form.get('quantity')
         prodid = request.form.get('prodid')
         prodprice = request.form.get('prodprice')
-        itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update({'qty': qty})
-        itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update({'price': float(prodprice) * int(qty)})
+        itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update(
+            {'qty': qty})
+        itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update(
+            {'price': float(prodprice) * int(qty)})
         db.session.commit()
         redirect(url_for('main.cart'))
 
@@ -309,9 +317,10 @@ def add_list3(id):
 @bp.route('/mylist')
 @login_required
 def mylist():
-    item = db.session.query(MyList.user_id, MyList.name, Product.price, MyList.id, Product.link).outerjoin(Product, MyList.product_id == Product.pid).filter(MyList.user_id == current_user.id).all()
+    item = db.session.query(MyList.user_id, MyList.name, Product.price, MyList.id, Product.link).outerjoin(Product,
+                                                                                                           MyList.product_id == Product.pid).filter(
+        MyList.user_id == current_user.id).all()
     return render_template('mylist.html', title=_('My List'), item=item)
-
 
 
 @bp.route('/order_history/<username>', methods=['GET', 'POST'])
@@ -335,3 +344,71 @@ def voucher():
         return redirect(url_for('main.voucher'))
     return render_template('vouchers/voucher.html', title=_('Voucher'), form=form)
 
+
+@bp.route('/edit_product/<pid>', methods=['GET', 'POST'])
+@login_required
+def edit_product(pid):
+    form = EditProduct()
+    if form.validate_on_submit():
+        product = Product.query.get(pid)
+        product.pid = form.pid.data
+        product.pname = form.pname.data
+        product.qty = form.qty.data
+        product.price = form.price.data
+        product.mid = form.mid.data
+        product.status = form.status.data
+        product.link = form.link.data
+        product.pc_id = form.pc_id.data
+        product.ps_id = form.ps_id.data
+        db.session.commit()
+        flash(_('Product have been updated.'))
+        return redirect(url_for('main.all_product'))
+    elif request.method == 'GET':
+        product = Product.query.get(pid)
+        form.pid.data = product.pid
+        form.pname.data = product.pname
+        form.qty.data = product.qty
+        form.price.data = product.price
+        form.mid.data = product.mid
+        form.status.data = product.status
+        form.link.data = product.link
+        form.pc_id.data = product.pc_id
+        form.ps_id.data = product.ps_id
+    return render_template('product/edit.html', title=_('Edit Product'), form=form)
+
+
+@bp.route('/delete_product/<pid>', methods=['GET', 'POST'])
+@login_required
+def delete_product(pid):
+    del_product = Product.query.get_or_404(pid)
+    db.session.delete(del_product)
+    db.session.commit()
+    flash(_('Prdouct have been deleted.'))
+    return redirect(url_for('main.all_product'))
+
+
+@bp.route('/all_product', methods=['GET', 'POST'])
+def all_product():
+    products = Product.query.all()
+    return render_template('product/all_product.html', title=_('All Product'), products=products)
+
+
+@bp.route('/insert_product', methods=['GET', 'POST'])
+@login_required
+def insert_product():
+    form = InsertProduct()
+    if form.validate_on_submit():
+        product = Product(pid=form.pid.data,
+                          pname=form.pname.data,
+                          qty=form.qty.data,
+                          price=form.price.data,
+                          mid=form.mid.data,
+                          status=form.status.data,
+                          link=form.link.data,
+                          pc_id=form.pc_id.data,
+                          ps_id=form.ps_id.data)
+        db.session.add(product)
+        db.session.commit()
+        flash(_('Product have been inserted.'))
+        return redirect(url_for('main.all_product'))
+    return render_template('product/insert_product.html', title=_('Insert Product'), form=form)
