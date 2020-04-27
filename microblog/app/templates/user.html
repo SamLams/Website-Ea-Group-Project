@@ -51,7 +51,9 @@
                                             {% if user.last_seen %}
                                                 <p>{{ _('Last seen on') }}: {{ moment(user.last_seen).format('LLL') }}</p>
                                             {% endif %}
-
+                                            {% if user.id == 0 %}
+                                                <p>{{ _('You are admin now') }}</p>
+                                            {% endif %}
                                         </td>
                                     </tr>
                                 </table>
