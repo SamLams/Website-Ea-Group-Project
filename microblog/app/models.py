@@ -110,6 +110,7 @@ class Product(db.Model):
     mid = db.Column(db.Integer, db.ForeignKey('merchant.mid'), nullable=False)
     status = db.Column(db.String(255))
     cart = db.relationship('Shopping_cart', backref='product')
+    link = db.Column(db.String(500))
     pc_id = db.Column(db.Integer, db.ForeignKey('category.pc_id'), nullable=False)
     ps_id = db.Column(db.Integer, db.ForeignKey('subcategory.ps_id'), nullable=False)
     pets = db.relationship('Pets', backref='Product', lazy=True)
@@ -132,7 +133,7 @@ class Product(db.Model):
         if not self.is_following(product):
             self.followed.append(product)
 
-    def __init__(self, pid, pname, qty, price, mid, status, pc_id, ps_id):
+    def __init__(self, pid, pname, qty, price, mid, status, pc_id, ps_id, link):
         self.pid = pid
         self.pname = pname
         self.qty = qty
@@ -141,6 +142,7 @@ class Product(db.Model):
         self.status = status
         self.pc_id = pc_id
         self.ps_id = ps_id
+        self.link = link
 
 
 

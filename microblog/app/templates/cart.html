@@ -5,13 +5,16 @@
 <script type="text/javascript">
     function price_by_item(price,id){
         var quantity = parseInt(document.cart.write(eval(id)).value);
-        document.getElementById("total").value = quantity * price;
+        document.getElementById("total").value = parseFloat(quantity * price);
     }
 
 </script>
 
 {% block current_app_content %}
+<<<<<<< HEAD
     <form name="cart" oninput="total.value=parseFloat(a.value)+parseFloat(b.value)">
+=======
+>>>>>>> 85026f294119d9cb852117746e2a60c2ff97d81a
     <div class="container">
         <div class="card-body justify-content-center">
             <div class="logo">
@@ -28,36 +31,46 @@
             <div class="container row">
                 <div class="col-md-8 justify-content-start">
                 {% for item in ccart %}
+                    <form name="update" method="post">
+                    <input type="hidden" id="prodid" name="prodid" value="{{ item.pid }}">
+                    <input type="hidden" id="prodprice" name="prodprice" value="{{ item.price }}">
                     <div class="row">
                         <div class="col-md-2"><a href="#"><img src="https://picsum.photos/70/70"/></a></div>
                         <div class="col-md-4">{{ item.pname }}</div>
                         <div class="col"></div>
                         <div class="col-md-2 justify-content-end">{{ item.price }}</div>
                         <div class="col-md-2 justify-content-end">
-                            <select name="{{ item.pid }}" onchange="price_by_item({{ item.price }}, {{ item.pid }});">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
+                            <select name="quantity" onchange="this.form.submit()">
+                                <option value="1"{% if item.qty==1 %}selected="selected"{% endif %}>1</option>
+                                <option value="2"{% if item.qty==2 %}selected="selected"{% endif %}>2</option>
+                                <option value="3"{% if item.qty==3 %}selected="selected"{% endif %}>3</option>
+                                <option value="4"{% if item.qty==4 %}selected="selected"{% endif %}>4</option>
+                                <option value="5"{% if item.qty==5 %}selected="selected"{% endif %}>5</option>
+                                <option value="6"{% if item.qty==6 %}selected="selected"{% endif %}>6</option>
+                                <option value="7"{% if item.qty==7 %}selected="selected"{% endif %}>7</option>
+                                <option value="8"{% if item.qty==8 %}selected="selected"{% endif %}>8</option>
+                                <option value="9"{% if item.qty==9 %}selected="selected"{% endif %}>9</option>
+                                <option value="10"{% if item.qty==10 %}selected="selected"{% endif %}>10</option>
                             </select>
                         </div>
-
                     </div>
+                    </form>
                 {% endfor %}
                 </div>
                 <div class="col-md-4 justify-content-end">
+<<<<<<< HEAD
                     <input type="text" name="total" id="total" size="32" value="0.00" disabled="">
                     =<output name="total" for="a b"/>
+=======
+                    <div class="row"></div>
+                        <div class="col-md-12">Total Price</div>
+                        <div class="col-md-12"><input type="text" name="total" id="total" size="32" value="0.00" disabled=""></div>
+
+                    </div>
+>>>>>>> 85026f294119d9cb852117746e2a60c2ff97d81a
                 </div>
             </div>
         {% endif %}
     </div>
-    </form>
 
 {% endblock %}

@@ -158,10 +158,10 @@
                         <img src="{{housewares.link}}" class="figure-img img-fluid rounded" alt="", width="250px", height="200px" />
                         <figcaption class="figure-caption">
                             <h3>{{ housewares.name }}</h3>
-                            <h5>{{ housewares.price }}</h5>
-                            <h2>HKD ${{ housewares.price - 20 }}</h2>
+                            <!--h5>{{ housewares.price }}</h5-->
+                            <h2>HKD ${{ housewares.price }}</h2>
                             <input type="hidden" name="id" value="{{ housewares.id }}" />
-                            <a class="btn btn-success" href="{{ url_for('main.add_list1', id=housewares.id ) }}" role="button">follow</a>
+                            <a class="btn btn-success" href="{{ url_for('main.add_list1', id=housewares.product_id ) }}" role="button">follow</a>
                         </figcaption>
                     </figure>
                 </div>
@@ -174,7 +174,7 @@
                         <img src="https://picsum.photos/176/190" class="figure-img img-fluid rounded" alt=""/>
                         <figcaption class="figure-caption">
                             <h3>{{ housewares.name }}</h3>
-                            <h5>{{ housewares.price }}</h5>
+                            <!--h5>{{ housewares.price }}</h5-->
                             <h3>HKD ${{ 0.9*(product.price)|round|int }}</h3>
                             <input type="hidden" name="id" value="{{ housewares.id }}" />
                             <input type="submit" value="Add to Cart" class="btn-default" />
