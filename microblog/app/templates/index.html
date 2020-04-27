@@ -155,8 +155,8 @@
                         <img src="https://picsum.photos/273/190" class="figure-img img-fluid rounded" alt=""/>
                         <figcaption class="figure-caption">
                             <h3>{{ product.pname }}</h3>
-                            <h5>{{ product.price }}</h5>
-                            <h2>HKD ${{ product.price - 20 }}</h2>
+                            <h5>{{ product.price + 20 }}</h5>
+                            <h2>HKD ${{ product.price }}</h2>
                             <input type="hidden" name="pid" value="{{ product.pid }}" />
                             <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=product.pid ) }}" role="button">Add to Cart</a>
                             <a class="btn btn-success" href="{{ url_for('main.add_list', pid=product.pid ) }}" role="button">follow</a>

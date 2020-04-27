@@ -1,71 +1,38 @@
-2020-04-26 13:49:04,293 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 13:50:03,060 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 13:59:41,459 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:09:10,188 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:09:50,516 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:11:25,726 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:12:07,981 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:13:40,178 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:14:29,232 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:15:14,527 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:15:30,337 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:16:02,484 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:19:27,453 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:19:45,120 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:23:07,594 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:24:16,274 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:24:25,079 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:24:41,926 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:25:09,859 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:25:25,341 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:25:40,580 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:25:49,368 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:31:09,958 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:34:02,813 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:34:39,239 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:37:03,232 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:43:28,779 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:46:41,146 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:48:08,222 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:51:19,440 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:52:18,201 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:54:28,474 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:54:42,258 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:58:22,253 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 14:59:14,948 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:00:39,167 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:01:18,316 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:03:20,353 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:07:15,871 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:07:41,958 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:08:46,337 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:09:53,788 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:10:05,883 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:10:20,723 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:10:52,014 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:11:42,966 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:12:06,053 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:12:25,286 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:12:39,177 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:12:51,153 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:13:00,850 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:13:10,188 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:13:18,631 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 15:13:30,568 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:13:46,156 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:15:38,469 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:16:47,249 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:16:52,893 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:17:26,169 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:17:41,189 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:18:06,047 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:18:31,916 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:18:43,193 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:19:21,068 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:19:50,238 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:20:00,091 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:20:09,817 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:20:17,596 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:22:37,306 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:23:24,002 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:23:45,334 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 01:27:41,192 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 150, in cart
+    itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).all().update({'qty': qty})
+AttributeError: 'list' object has no attribute 'update'
+2020-04-27 01:31:07,220 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 01:31:13,744 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 151, in cart
+    itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update({'price': prodprice * qty})
+TypeError: can't multiply sequence by non-int of type 'str'
+2020-04-27 01:32:30,253 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 02:02:27,049 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-27 02:09:12,071 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
