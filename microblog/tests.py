@@ -49,7 +49,6 @@ c1 = Category(pc_id=999, pc_name="c1", ps_id=999)
 c2 = Category(pc_id=998, pc_name="c2", ps_id=998)
 c3 = Category(pc_id=997, pc_name="c3", ps_id=997)
 c4 = Category(pc_id=996, pc_name="c4", ps_id=996)
-
 p1 = Product(pid=999, pname='Testing Product1', qty=1, price=45, mid=999, status="Good", pc_id=999, ps_id=999,link= "https://picsum.photos/273/190")
 p2 = Product(pid= 998, pname= "TW Disposable Mask Protective Pad", qty = 1, price=55, mid= 998, status= "Good", pc_id= 998, ps_id=998,link = "https://images.hktv-img.com/images/HKTV/10787/MIT-001A_main_35311815_20200310182421_01_1200.jpg")
 p3 = Product(pid= 997, pname= "FitBoxx - Everlast Evercool Gloves Bag", qty = 1, price=56, mid= 997, status= "Good", pc_id= 997, ps_id=997,link="https://images.hktvmall.com/h0395001/m/photos/8831465193522_1_1200.jpg")

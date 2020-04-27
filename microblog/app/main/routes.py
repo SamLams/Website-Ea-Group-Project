@@ -24,8 +24,8 @@ def index():
     return render_template('index.html', title=_('Home'), prod=prod)
 
 
-@login_required
 @bp.route('/add_to_cart/<int:prod_id>', methods=['GET', 'POST'])
+@login_required
 def add_to_cart(prod_id):
     p = Product.query.filter_by(pid=prod_id).first()
     if current_user.is_authenticated:
@@ -144,6 +144,7 @@ def toysnbooks():
 
 
 @bp.route('/cart', methods=['GET', 'POST'])
+@login_required
 def cart():
     ccart = db.session.query(Shopping_cart.user_id, Product.pname, Product.price, Product.pid, Shopping_cart.qty).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(Shopping_cart.user_id == current_user.id).all()
     count = Shopping_cart.query.filter_by(user_id=current_user.id).count()
