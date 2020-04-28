@@ -1,10 +1,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href = "http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel = "stylesheet">
 
 {% block current_app_content %}
-
-    <form name="cart" method="POST">
     <div class="container">
         <div class="card-body justify-content-center">
             <div class="logo">
@@ -25,6 +24,8 @@
                     <input type="hidden" id="prodid" name="prodid" value="{{ item.pid }}">
                     <input type="hidden" id="prodprice" name="prodprice" value="{{ item.price }}">
                     <div class="row">
+                        <div class="col-md-1"><a href="{{ url_for('main.cart_del', prodid=item.pid) }}">
+                            <span class="glyphicon glyphicon-remove"></span></a></div>
                         <div class="col-md-2"><a href="#"><img src="https://picsum.photos/70/70"/></a></div>
                         <div class="col-md-4">{{ item.pname }}</div>
                         <div class="col"></div>
@@ -47,16 +48,16 @@
                     </form>
                 {% endfor %}
                 </div>
-                <div class="col-md-4 justify-content-end">
+                <div class="col-md-4 justify-content-end border border-success">
                     <div class="row"></div>
                         <div class="col-md-12">Total Price</div>
                         <div class="col-md-12">{{ sum }}</div>
-
-                </div>
-
+                    <div class="col-lg-10 justify-content-center">
+                        <a type="button" class="btn btn-success" href="{{ url_for('main.confirmed') }}">Checkout</a>
+                    </div>
                 </div>
             </div>
-        {% endif %}
     </div>
+        {% endif %}
 
 {% endblock %}

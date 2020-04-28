@@ -31,7 +31,7 @@ def index():
 def add_to_cart(prod_id):
     p = Product.query.filter_by(pid=prod_id).first()
     if current_user.is_authenticated:
-        cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=current_user.id, product_id=prod_id,
+        cart_item = Shopping_cart(user_id=current_user.id, product_id=prod_id,
                                   qty=1, price=p.price)
         db.session.add(cart_item)
         db.session.commit()
@@ -174,6 +174,25 @@ def cart():
 
     return render_template('cart.html', title=_('Shopping Cart'), ccart=ccart, count=count, sum=sum)
 
+
+@bp.route('/cart_del/<prodid>', methods=['GET', 'POST'])
+@login_required
+def cart_del(prodid):
+    dele = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).first()
+    db.session.delete(dele)
+    db.session.commit()
+    return redirect(url_for('main.cart'))
+
+
+@bp.route('/confirmed', methods=['GET', 'POST'])
+@login_required
+def confirmed():
+    ###ordered = Order()
+    item = Shopping_cart.query.filter_by(user_id=current_user.id).all()
+    for i in item:
+        db.session.delete(i)
+    db.session.commit()
+    return render_template('confirmed.html')
 
 @bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
 @login_required
