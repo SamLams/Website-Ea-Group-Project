@@ -171,13 +171,19 @@ class Subcategory(db.Model):
 
 
 class Pets(db.Model):
-    pet_id = db.Column(db.Integer, primary_key=True)
-    pid = db.Column(db.Integer, db.ForeignKey('product.pid'))
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120))
+    price = db.Column(db.Float)
+    link = db.Column(db.String(120))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
 
 class Disney(db.Model):
-    disney_id = db.Column(db.Integer, primary_key=True)
-    pid = db.Column(db.Integer, db.ForeignKey('product.pid'))
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120))
+    price = db.Column(db.Float)
+    link = db.Column(db.String(120))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
 
 class Merchant(db.Model):

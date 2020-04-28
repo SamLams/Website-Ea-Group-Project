@@ -6,7 +6,7 @@ from app import current_app, db
 from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, \
     EditMessage, DeliveryAddressForm, EditDeliveryAddressForm, AddVoucher, EditProduct
 from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Housewares, \
-    ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant, Order, Voucher
+    ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant, Order, Voucher, Pets, Disney
 from app.main import bp
 
 
@@ -126,6 +126,23 @@ def housewares():
                                 Housewares.product_id).outerjoin(Product,
                                                                  Housewares.product_id == Product.pid).filter().all()
     return render_template('housewares.html', title=_('Home'), products=products)
+
+
+@bp.route('/', methods=['GET', 'POST'])
+@bp.route('/pets', methods=['GET', 'POST'])
+def pets():
+    products = db.session.query(Pets.name, Product.price, Pets.id, Pets.link,
+                                Pets.product_id).outerjoin(Product,
+                                                                 Pets.product_id == Product.pid).filter().all()
+    return render_template('pets.html', title=_('Home'), products=products)
+
+@bp.route('/', methods=['GET', 'POST'])
+@bp.route('/disney', methods=['GET', 'POST'])
+def disney():
+    products = db.session.query(Disney.name, Product.price, Disney.id, Disney.link,
+                                Disney.product_id).outerjoin(Product,
+                                                                 Disney.product_id == Product.pid).filter().all()
+    return render_template('disney.html', title=_('Home'), products=products)
 
 
 @bp.route('/', methods=['GET', 'POST'])
@@ -252,27 +269,34 @@ def cs(username):
 @bp.route('/edit_message/<services_id>', methods=['GET', 'POST'])
 @login_required
 def edit_message(services_id):
-    form = EditMessage()
-    if form.validate_on_submit():
-        mes = Customer_Services.query.get(services_id)
-        mes.services = form.message.data
-        db.session.commit()
-        flash(_('Your message have been updated.'))
-        return redirect(url_for('main.cs', username=current_user.username))
-    elif request.method == 'GET':
-        mes = Customer_Services.query.get(services_id)
-        form.message.data = mes.services
-    return render_template('edit_message.html', title=_('Edit Message'), form=form)
-
+    auth = Customer_Services.query.filter_by(services_id=services_id, user_id=current_user.id).all()
+    if auth:
+        form = EditMessage()
+        if form.validate_on_submit():
+            mes = Customer_Services.query.get(services_id)
+            mes.services = form.message.data
+            db.session.commit()
+            flash(_('Your message have been updated.'))
+            return redirect(url_for('main.cs', username=current_user.username))
+        elif request.method == 'GET':
+            mes = Customer_Services.query.get(services_id)
+            form.message.data = mes.services
+        return render_template('edit_message.html', title=_('Edit Message'), form=form)
+    else:
+        return redirect(url_for('main.index'))
 
 @bp.route('/delete_message/<services_id>', methods=['GET', 'POST'])
 @login_required
 def delete_message(services_id):
-    del_m = Customer_Services.query.get_or_404(services_id)
-    db.session.delete(del_m)
-    db.session.commit()
-    flash(_('Your message have been deleted.'))
-    return redirect(url_for('main.cs', username=current_user.username))
+    auth = Customer_Services.query.filter_by(services_id=services_id, user_id=current_user.id).all()
+    if auth:
+        del_m = Customer_Services.query.get_or_404(services_id)
+        db.session.delete(del_m)
+        db.session.commit()
+        flash(_('Your message have been deleted.'))
+        return redirect(url_for('main.cs', username=current_user.username))
+    else:
+        return redirect(url_for('main.index'))
 
 
 @bp.route('/add_list/<int:pid>', methods=['GET'])
@@ -314,6 +338,23 @@ def add_list3(id):
     db.session.commit()
     return redirect(url_for('main.toysnbooks'))
 
+@bp.route('/add_list4/<int:id>', methods=['GET'])
+@login_required
+def add_list4(id):
+    p = Product.query.filter_by(pid=id).first()
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.pname, user_id=current_user.id, product_id=id)
+    db.session.add(cart_item)
+    db.session.commit()
+    return redirect(url_for('main.pets'))
+
+@bp.route('/add_list5/<int:id>', methods=['GET'])
+@login_required
+def add_list5(id):
+    p = Product.query.filter_by(pid=id).first()
+    cart_item = MyList(id=MyList.query.count() + 1, name=p.pname, user_id=current_user.id, product_id=id)
+    db.session.add(cart_item)
+    db.session.commit()
+    return redirect(url_for('main.disney'))
 
 @bp.route('/mylist')
 @login_required
@@ -349,44 +390,48 @@ def voucher():
 @bp.route('/edit_product/<pid>', methods=['GET', 'POST'])
 @login_required
 def edit_product(pid):
-    form = EditProduct()
-    if form.validate_on_submit():
-        product = Product.query.get(pid)
-        product.pid = form.pid.data
-        product.pname = form.pname.data
-        product.qty = form.qty.data
-        product.price = form.price.data
-        product.mid = form.mid.data
-        product.status = form.status.data
-        product.link = form.link.data
-        product.pc_id = form.pc_id.data
-        product.ps_id = form.ps_id.data
-        db.session.commit()
-        flash(_('Product have been updated.'))
-        return redirect(url_for('main.all_product'))
-    elif request.method == 'GET':
-        product = Product.query.get(pid)
-        form.pid.data = product.pid
-        form.pname.data = product.pname
-        form.qty.data = product.qty
-        form.price.data = product.price
-        form.mid.data = product.mid
-        form.status.data = product.status
-        form.link.data = product.link
-        form.pc_id.data = product.pc_id
-        form.ps_id.data = product.ps_id
-    return render_template('product/edit.html', title=_('Edit Product'), form=form)
-
+    if current_user.id == 0:
+        form = EditProduct()
+        if form.validate_on_submit():
+            product = Product.query.get(pid)
+            product.pid = form.pid.data
+            product.pname = form.pname.data
+            product.qty = form.qty.data
+            product.price = form.price.data
+            product.mid = form.mid.data
+            product.status = form.status.data
+            product.link = form.link.data
+            product.pc_id = form.pc_id.data
+            product.ps_id = form.ps_id.data
+            db.session.commit()
+            flash(_('Product have been updated.'))
+            return redirect(url_for('main.all_product'))
+        elif request.method == 'GET':
+            product = Product.query.get(pid)
+            form.pid.data = product.pid
+            form.pname.data = product.pname
+            form.qty.data = product.qty
+            form.price.data = product.price
+            form.mid.data = product.mid
+            form.status.data = product.status
+            form.link.data = product.link
+            form.pc_id.data = product.pc_id
+            form.ps_id.data = product.ps_id
+        return render_template('product/edit.html', title=_('Edit Product'), form=form)
+    else:
+        return redirect(url_for('main.index'))
 
 @bp.route('/delete_product/<pid>', methods=['GET', 'POST'])
 @login_required
 def delete_product(pid):
-    del_product = Product.query.get_or_404(pid)
-    db.session.delete(del_product)
-    db.session.commit()
-    flash(_('Prdouct have been deleted.'))
-    return redirect(url_for('main.all_product'))
-
+    if current_user.id ==0:
+        del_product = Product.query.get_or_404(pid)
+        db.session.delete(del_product)
+        db.session.commit()
+        flash(_('Prdouct have been deleted.'))
+        return redirect(url_for('main.all_product'))
+    else:
+        return redirect(url_for('main.index'))
 
 @bp.route('/all_product', methods=['GET', 'POST'])
 def all_product():
