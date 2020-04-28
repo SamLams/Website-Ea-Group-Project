@@ -129,19 +129,16 @@
             </div>
         </div>
     <!-- Catalogue - Health Product -->
-    <div class="row justify-content-center container center-block" style="background-color: white; display: flex">
+    <div class="row justify-content-center container center-block" style="background-color: white;">
         {% for product in prod %}
             {% if loop.index <= 4 %}
-                <div class="col-md-3" style="background-color: rgb(255, 216, 175);">
+                <div class="col-md-3" style="background-color: rgb(255, 216, 175); height:422px;">
                     <figure class="figure">
                         <img src="{{ product.link }}" class="figure-img img-fluid rounded" alt="", width="250px", height="200px"/>
                         <figcaption class="figure-caption">
                             <h3>{{ product.pname }}</h3>
-
-
                             <h5>{{ product.price + 20 }}</h5>
                             <h2>HKD ${{ product.price }}</h2>
-
                             <input type="hidden" name="pid" value="{{ product.pid }}" />
                             <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=product.pid ) }}" role="button">Add to Cart</a>
                             <a class="btn btn-success" href="{{ url_for('main.add_list', pid=product.pid ) }}" role="button">follow</a>
@@ -157,15 +154,16 @@
         {% endfor %}
         {% for product in prod %}
             {% if loop.index > 4 %}
-                <div class="col-md-2" style="background-color: rgb(255, 216, 175);">
+                <div class="col-md-2" style="background-color: rgb(255, 216, 175); height:422px;">
                     <figure class="figure">
-                        <img src="https://picsum.photos/176/190" class="figure-img img-fluid rounded" alt=""/>
+                        <img src="{{ product.link }}" class="figure-img img-fluid rounded" alt="", style="width:175px; height:175px;"/>
                         <figcaption class="figure-caption">
-                            <h3>{{ product.pname }}</h3>
-                            <h5>{{ product.price }}</h5>
-                            <h3>HKD ${{ 0.9*(product.price)|round|int }}</h3>
+                            <h4>{{ product.pname }}</h4>
+                            <h6>{{ product.price + 20 }}</h6>
+                            <h3>HKD ${{ product.price }}</h3>
                             <input type="hidden" name="pid" value="{{ product.pid }}" />
-                            <input type="submit" value="Add to Cart" class="btn-default" />
+                            <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=product.pid ) }}" role="button">Add to Cart</a>
+                            <a class="btn btn-success" href="{{ url_for('main.add_list', pid=product.pid ) }}" role="button">follow</a>
                             {% if current_user.id == 0 %}
                                 <br><br>
                                 <a class="btn btn-success" href="{{ url_for('main.edit_product', pid=product.pid ) }}" role="button">Edit</a>
