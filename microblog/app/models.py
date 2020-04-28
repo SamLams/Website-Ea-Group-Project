@@ -31,7 +31,6 @@ class User(UserMixin, db.Model):
     cart = db.relationship('Shopping_cart', backref='user')
     order = db.relationship('Order', backref='user')
 
-
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
@@ -88,6 +87,7 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.reviews)
 
+
 class MyList(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(140))
@@ -117,21 +117,7 @@ class Product(db.Model):
     disney = db.relationship('Disney', backref='Product', lazy=True)
     SportsAndTravels = db.relationship('SportsAndTravel', backref='product', uselist=False)
     ToysAndBook = db.relationship('ToysAndBooks', backref='product', uselist=False)
-    #follower = db.relationship('followers', secondary=followers, backref=db.backref('product', lazy='dynamic'))
     list = db.relationship('MyList', backref='product', lazy='dynamic')
-
-    def unfollow(self, product):
-        if self.is_following(product):
-            self.followed.remove(product)
-
-    def is_following(self, product):
-        return self.followed.filter(
-            followers.c.followed_id == product.pid).count() > 0
-
-
-    def follow(self, product):
-        if not self.is_following(product):
-            self.followed.append(product)
 
     def __init__(self, pid, pname, qty, price, mid, status, pc_id, ps_id, link):
         self.pid = pid
@@ -143,7 +129,6 @@ class Product(db.Model):
         self.pc_id = pc_id
         self.ps_id = ps_id
         self.link = link
-
 
 
 class Category(db.Model):

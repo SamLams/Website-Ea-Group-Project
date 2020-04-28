@@ -87,10 +87,6 @@ def delete(id):
 
 @bp.route('/del_list/<int:id>')
 @login_required
-
-
-
-
 def del_list(id):
     del_list = MyList.query.get_or_404(id)
     db.session.delete(del_list)
