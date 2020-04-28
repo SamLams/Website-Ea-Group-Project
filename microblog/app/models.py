@@ -44,13 +44,6 @@ class User(UserMixin, db.Model):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
 
-    def followed_posts(self):
-        followed = Post.query.join(
-            followers, (followers.c.followed_id == Post.user_id)).filter(
-            followers.c.follower_id == self.id)
-        own = Post.query.filter_by(user_id=self.id)
-        return followed.union(own).order_by(Post.timestamp.desc())
-
     def followed_address(self):
         followed = Delivery_Address.query.join(
             followers, (followers.c.followed_id == Delivery_Address.user_id)).filter(
@@ -118,6 +111,21 @@ class Product(db.Model):
     SportsAndTravels = db.relationship('SportsAndTravel', backref='product', uselist=False)
     ToysAndBook = db.relationship('ToysAndBooks', backref='product', uselist=False)
     list = db.relationship('MyList', backref='product', lazy='dynamic')
+
+
+
+    def unfollow(self, product):
+        if self.is_following(product):
+            self.followed.remove(product)
+
+    def is_following(self, product):
+        return self.followed.filter(
+            followers.c.followed_id == product.pid).count() > 0
+
+
+    def follow(self, product):
+        if not self.is_following(product):
+            self.followed.append(product)
 
     def __init__(self, pid, pname, qty, price, mid, status, pc_id, ps_id, link):
         self.pid = pid
@@ -242,13 +250,6 @@ class Shopping_cart(db.Model):
     price = db.Column(db.Integer)
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.relationship('Order', backref='shopping_cart')
-
-    def __init__(self, user_id, product_id, qty, price, id):
-        self.user_id = user_id
-        self.product_id = product_id
-        self.qty = qty
-        self.price = price
-        self.id = id
 
     def __repr__(self):
         return '<Post {}>'.format(self.user_id)

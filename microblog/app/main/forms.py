@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, \
-    TextAreaField, IntegerField
+    TextAreaField, IntegerField, FloatField
 from wtforms.validators import ValidationError, DataRequired, Email
 from flask_babel import _, lazy_gettext as _l
 from app.models import User, Delivery_Address, Customer_Services
@@ -59,7 +59,7 @@ class EditDeliveryAddressForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField(_l('Say something'))
+    post = TextAreaField(_l('Say something'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
 
@@ -81,5 +81,19 @@ class EditMessage(FlaskForm):
 class AddVoucher(FlaskForm):
     voucher = StringField(_l('Voucher Code'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
+
+class EditProduct(FlaskForm):
+    pid = IntegerField(_l('ProductID'), validators=[DataRequired()])
+    pname = StringField(_l('Product Name'), validators=[DataRequired()])
+    qty = IntegerField(_l('QTY'), validators=[DataRequired()])
+    price = FloatField(_l('Price'), validators=[DataRequired()])
+    mid = IntegerField(_l('MID'), validators=[DataRequired()])
+    status = StringField(_l('Status'), validators=[DataRequired()])
+    link = StringField(_l('Link'), validators=[DataRequired()])
+    pc_id = IntegerField(_l('pc_id'), validators=[DataRequired()])
+    ps_id = IntegerField(_l('ps_id'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))
+
+
 
 

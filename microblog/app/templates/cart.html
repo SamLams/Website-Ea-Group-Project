@@ -1,20 +1,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-    function price_by_item(price,id){
-        var quantity = parseInt(document.cart.write(eval(id)).value);
-        document.getElementById("total").value = parseFloat(quantity * price);
-    }
-
-</script>
+<link href = "http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel = "stylesheet">
 
 {% block current_app_content %}
-<<<<<<< HEAD
-    <form name="cart" oninput="total.value=parseFloat(a.value)+parseFloat(b.value)">
-=======
->>>>>>> 85026f294119d9cb852117746e2a60c2ff97d81a
     <div class="container">
         <div class="card-body justify-content-center">
             <div class="logo">
@@ -35,12 +24,14 @@
                     <input type="hidden" id="prodid" name="prodid" value="{{ item.pid }}">
                     <input type="hidden" id="prodprice" name="prodprice" value="{{ item.price }}">
                     <div class="row">
+                        <div class="col-md-1"><a href="{{ url_for('main.cart_del', prodid=item.pid) }}">
+                            <span class="glyphicon glyphicon-remove"></span></a></div>
                         <div class="col-md-2"><a href="#"><img src="https://picsum.photos/70/70"/></a></div>
                         <div class="col-md-4">{{ item.pname }}</div>
                         <div class="col"></div>
                         <div class="col-md-2 justify-content-end">{{ item.price }}</div>
                         <div class="col-md-2 justify-content-end">
-                            <select name="quantity" onchange="this.form.submit()">
+                            <select id="quantity" name="quantity" onchange="this.form.submit();">
                                 <option value="1"{% if item.qty==1 %}selected="selected"{% endif %}>1</option>
                                 <option value="2"{% if item.qty==2 %}selected="selected"{% endif %}>2</option>
                                 <option value="3"{% if item.qty==3 %}selected="selected"{% endif %}>3</option>
@@ -57,20 +48,16 @@
                     </form>
                 {% endfor %}
                 </div>
-                <div class="col-md-4 justify-content-end">
-<<<<<<< HEAD
-                    <input type="text" name="total" id="total" size="32" value="0.00" disabled="">
-                    =<output name="total" for="a b"/>
-=======
+                <div class="col-md-4 justify-content-end border border-success">
                     <div class="row"></div>
                         <div class="col-md-12">Total Price</div>
-                        <div class="col-md-12"><input type="text" name="total" id="total" size="32" value="0.00" disabled=""></div>
-
+                        <div class="col-md-12">{{ sum }}</div>
+                    <div class="col-lg-10 justify-content-center">
+                        <a type="button" class="btn btn-success" href="{{ url_for('main.confirmed') }}">Checkout</a>
                     </div>
->>>>>>> 85026f294119d9cb852117746e2a60c2ff97d81a
                 </div>
             </div>
-        {% endif %}
     </div>
+        {% endif %}
 
 {% endblock %}
