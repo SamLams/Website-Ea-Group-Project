@@ -32,7 +32,7 @@ sc3 = Subcategory(ps_id=997, ps_name="sc3")
 sc4 = Subcategory(ps_id=996, ps_name="sc4")
 c1 = Category(pc_id=999, pc_name="c1", ps_id=999)
 c2 = Category(pc_id=998, pc_name="c2", ps_id=998)
-c3 = Category(pc_id=997, pc_name="c3", ps_id=997)
+c3 = Category(pc_id=997, pc_nagitme="c3", ps_id=997)
 c4 = Category(pc_id=996, pc_name="c4", ps_id=996)
 
 p1 = Product(pid=999, pname='Testing Product1', qty=1, price=45, mid=999, status="Good", pc_id=999, ps_id=999,link= "https://picsum.photos/273/190")
