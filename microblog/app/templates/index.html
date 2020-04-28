@@ -4,9 +4,8 @@
 {% block current_app_content %}
     <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
     <!-- Slider1 -->
-    <div class="justify-content-center container">
-            <div class="col-sm-12 bg_change">
-                <div id="slider1" class="carousel slide" data-ride="carousel" style="width: 100vw; margin-left: -51vh; overflow: hidden">
+            <div class="bg_change">
+                <div id="slider1" class="carousel slide" data-ride="carousel" style="width: 100vw; margin-top:-40px;">
                     <!-- nav indicator -->
                     <ol class="carousel-indicators">
                         <li data-target="#slider1" data-slide-to="0" class="active"></li>
@@ -22,7 +21,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     <!-- Banner - QR Code -->
     <div style="background-color:#b8d201">
         <div class="justify-content-center container">
@@ -89,43 +87,27 @@
             <li data-target="#slider3" data-slide-to="0" class="active"></li>
             <li data-target="#slider3" data-slide-to="1"></li>
             <li data-target="#slider3" data-slide-to="2"></li>
-            <li data-target="#slider3" data-slide-to="3"></li>
-            <li data-target="#slider3" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <div class="row justify-content-center">
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
+                    <div class="col-sm-4"><img style="max-width:300px; height:auto;" src="https://images.hktvmall.com/store_content/banneren_200408123449.jpg" alt="" class="center-block" /></div>
+                    <div class="col-sm-4"><img style="max-width:300px; height:auto;" src="https://images.hktvmall.com/store_content/banneren_200316064530.jpg" alt="" class="center-block" /></div>
+                    <div class="col-sm-4"><img style="max-width:300px; height:auto;" src="https://images.hktvmall.com/store_content/banneren_200313052630.jpeg" alt="" class="center-block" /></div>
                 </div>
             </div>
             <div class="item">
                 <div class="row justify-content-center">
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
+                    <div class="col-sm-4"><img style="max-width:300px; height:auto;" src="https://images.hktvmall.com/store_content/banneren_200409052417.jpg" alt="" class="center-block" /></div>
+                    <div class="col-sm-4"><img style="max-width:300px; height:auto;" src="https://images.hktvmall.com/store_content/banneren_200306102733.jpg" alt="" class="center-block" /></div>
+                    <div class="col-sm-4"><img style="max-width:300px; height:auto;" src="https://images.hktvmall.com/store_content/banneren_200403113837.jpeg" alt="" class="center-block" /></div>
                 </div>
             </div>
             <div class="item">
                 <div class="row justify-content-center">
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="row justify-content-center">
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="row justify-content-center">
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
-                    <div class="col-sm-4"><img src="https://picsum.photos/300/300" alt="" class="center-block" /></div>
+                    <div class="col-sm-4"><img style="max-width:300px; height:auto;" src="https://images.hktvmall.com/store_content/banneren_190823025642.jpg" alt="" class="center-block" /></div>
+                    <div class="col-sm-4"><img style="max-width:300px; height:auto;" src="https://images.hktvmall.com/store_content/banneren_190927032727.jpg" alt="" class="center-block" /></div>
+                    <div class="col-sm-4"><img style="max-width:300px; height:auto;" src="https://images.hktvmall.com/store_content/banneren_191120022830.jpg" alt="" class="center-block" /></div>
                 </div>
             </div>
         </div>
@@ -147,19 +129,20 @@
             </div>
         </div>
     <!-- Catalogue - Health Product -->
+<<<<<<< HEAD
     <div class="row justify-content-center container center-block" style="background-color: white; >
+=======
+    <div class="row justify-content-center container center-block" style="background-color: white;">
+>>>>>>> 350499d56e3e967988faf17fcab070a5cee94be2
         {% for product in prod %}
             {% if loop.index <= 4 %}
-                <div class="col-md-3" style="background-color: rgb(255, 216, 175);">
+                <div class="col-md-3" style="background-color: rgb(255, 216, 175); height:422px;">
                     <figure class="figure">
                         <img src="{{ product.link }}" class="figure-img img-fluid rounded" alt="", width="250px", height="200px"/>
                         <figcaption class="figure-caption">
                             <h3>{{ product.pname }}</h3>
-
-
                             <h5>{{ product.price + 20 }}</h5>
                             <h2>HKD ${{ product.price }}</h2>
-
                             <input type="hidden" name="pid" value="{{ product.pid }}" />
                             <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=product.pid ) }}" role="button">Add to Cart</a>
                             <a class="btn btn-success" href="{{ url_for('main.add_list', pid=product.pid ) }}" role="button">follow</a>
@@ -175,15 +158,16 @@
         {% endfor %}
         {% for product in prod %}
             {% if loop.index > 4 %}
-                <div class="col-md-2" style="background-color: rgb(255, 216, 175);">
+                <div class="col-md-2" style="background-color: rgb(255, 216, 175); height:422px;">
                     <figure class="figure">
-                        <img src="https://picsum.photos/176/190" class="figure-img img-fluid rounded" alt=""/>
+                        <img src="{{ product.link }}" class="figure-img img-fluid rounded" alt="", style="width:175px; height:175px;"/>
                         <figcaption class="figure-caption">
-                            <h3>{{ product.pname }}</h3>
-                            <h5>{{ product.price }}</h5>
-                            <h3>HKD ${{ 0.9*(product.price)|round|int }}</h3>
+                            <h4>{{ product.pname }}</h4>
+                            <h6>{{ product.price + 20 }}</h6>
+                            <h3>HKD ${{ product.price }}</h3>
                             <input type="hidden" name="pid" value="{{ product.pid }}" />
-                            <input type="submit" value="Add to Cart" class="btn-default" />
+                            <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=product.pid ) }}" role="button">Add to Cart</a>
+                            <a class="btn btn-success" href="{{ url_for('main.add_list', pid=product.pid ) }}" role="button">follow</a>
                             {% if current_user.id == 0 %}
                                 <br><br>
                                 <a class="btn btn-success" href="{{ url_for('main.edit_product', pid=product.pid ) }}" role="button">Edit</a>

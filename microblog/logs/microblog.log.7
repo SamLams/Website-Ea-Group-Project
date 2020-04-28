@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 2020-04-26 13:49:04,293 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-26 13:50:03,060 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-26 13:59:41,459 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
@@ -153,12 +154,15 @@ AttributeError: 'NoneType' object has no attribute 'name'
 2020-04-27 01:23:36,375 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 =======
 2020-04-27 00:26:34,466 ERROR: Exception on /add_list/998 [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+=======
+2020-04-28 07:54:03,627 ERROR: Exception on /add_to_cart/996 [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+>>>>>>> 350499d56e3e967988faf17fcab070a5cee94be2
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
     context)
   File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in do_execute
     cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: my_list.id
+sqlite3.IntegrityError: UNIQUE constraint failed: shopping_cart.id
 
 The above exception was the direct cause of the following exception:
 
@@ -177,7 +181,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
+<<<<<<< HEAD
   File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 264, in add_list
+=======
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 37, in add_to_cart
+>>>>>>> 350499d56e3e967988faf17fcab070a5cee94be2
     db.session.commit()
   File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
     return getattr(self.registry(), name)(*args, **kwargs)
@@ -223,6 +231,7 @@ Traceback (most recent call last):
     context)
   File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in do_execute
     cursor.execute(statement, parameters)
+<<<<<<< HEAD
 sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: my_list.id [SQL: 'INSERT INTO my_list (id, name, user_id, product_id) VALUES (?, ?, ?, ?)'] [parameters: (2, 'TW Disposable Mask Protective Pad', 2, 998)] (Background on this error at: http://sqlalche.me/e/gkpj)
 2020-04-27 00:29:44,594 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 2020-04-27 00:41:37,823 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
@@ -249,3 +258,6 @@ AttributeError: 'ImmutableMultiDict' object has no attribute 'quantity'
 2020-04-27 00:46:32,919 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 >>>>>>> cc0a4678c82505202b76e4a5814545459bba165d
 >>>>>>> 85026f294119d9cb852117746e2a60c2ff97d81a
+=======
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: shopping_cart.id [SQL: 'INSERT INTO shopping_cart (user_id, product_id, qty, price, id) VALUES (?, ?, ?, ?, ?)'] [parameters: (2, 996, 1, 44.0, 5)] (Background on this error at: http://sqlalche.me/e/gkpj)
+>>>>>>> 350499d56e3e967988faf17fcab070a5cee94be2

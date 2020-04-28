@@ -1,0 +1,19 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href = "http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel = "stylesheet">
+
+{% block current_app_content %}
+    <div class="container">
+        <div class="card-body justify-content-center">
+            <div class="logo">
+                <a href="{{ url_for('main.index') }}"><img
+                        src="{{ url_for('static', filename='img/cart/HKTVlogo.png') }}" class="round"
+                        title="HKTVmalllogo_20171220.png" alt="HKTVmalllogo_20171220.png"></a>
+            </div>
+        </div>
+    <h1>Your order has been placed</h1>
+    <h2>Thank you for purchasing</h2>
+    <div><a class="btn btn-success btn-lg" href="{{ url_for('main.index') }}" role="button">Return to Homepage</a></div>
+    </div>
+{% endblock %}

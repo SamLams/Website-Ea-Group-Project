@@ -265,13 +265,6 @@ class Shopping_cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.relationship('Order', backref='shopping_cart')
 
-    def __init__(self, user_id, product_id, qty, price, id):
-        self.user_id = user_id
-        self.product_id = product_id
-        self.qty = qty
-        self.price = price
-        self.id = id
-
     def __repr__(self):
         return '<Post {}>'.format(self.user_id)
 
