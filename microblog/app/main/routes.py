@@ -8,6 +8,7 @@ from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, C
 from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Housewares, \
     ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant, Order, Voucher
 from app.main import bp
+from sqlalchemy import func
 
 
 @bp.before_request
@@ -38,6 +39,12 @@ def add_to_cart(prod_id):
         flash(_('Please login first.'))
         return redirect(url_for('auth.login'))
     return redirect(url_for('main.index'))
+
+
+@bp.route('/loading', methods=['GET', 'POST'])
+@login_required
+def loading():
+    return redirect(url_for('main.cart'))
 
 
 @bp.route('/post', methods=['GET', 'POST'])
@@ -153,6 +160,7 @@ def cart():
                              Shopping_cart.qty).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(
         Shopping_cart.user_id == current_user.id).all()
     count = Shopping_cart.query.filter_by(user_id=current_user.id).count()
+    sum = db.session.query(func.sum(Shopping_cart.price)).filter_by(user_id=current_user.id).first()[0]
     if request.method == "POST":
         qty = request.form.get('quantity')
         prodid = request.form.get('prodid')
@@ -162,9 +170,9 @@ def cart():
         itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update(
             {'price': float(prodprice) * int(qty)})
         db.session.commit()
-        redirect(url_for('main.cart'))
+        return redirect(url_for('main.loading'))
 
-    return render_template('cart.html', title=_('Shopping Cart'), ccart=ccart, count=count)
+    return render_template('cart.html', title=_('Shopping Cart'), ccart=ccart, count=count, sum=sum)
 
 
 @bp.route('/delivery_address/<username>', methods=['GET', 'POST'])

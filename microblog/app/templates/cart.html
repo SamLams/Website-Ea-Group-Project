@@ -2,18 +2,9 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script type="text/javascript">
-    function price_by_item(price,id){
-        var quantity = parseInt(document.cart.write(eval(id)).value);
-        document.getElementById("total").value = parseFloat(quantity * price);
-    }
-
-</script>
-
 {% block current_app_content %}
 
-    <form name="cart" oninput="total.value=parseFloat(a.value)+parseFloat(b.value)">
-
+    <form name="cart" method="POST">
     <div class="container">
         <div class="card-body justify-content-center">
             <div class="logo">
@@ -39,7 +30,7 @@
                         <div class="col"></div>
                         <div class="col-md-2 justify-content-end">{{ item.price }}</div>
                         <div class="col-md-2 justify-content-end">
-                            <select name="quantity" onchange="this.form.submit()">
+                            <select id="quantity" name="quantity" onchange="this.form.submit();">
                                 <option value="1"{% if item.qty==1 %}selected="selected"{% endif %}>1</option>
                                 <option value="2"{% if item.qty==2 %}selected="selected"{% endif %}>2</option>
                                 <option value="3"{% if item.qty==3 %}selected="selected"{% endif %}>3</option>
@@ -59,7 +50,7 @@
                 <div class="col-md-4 justify-content-end">
                     <div class="row"></div>
                         <div class="col-md-12">Total Price</div>
-                        <div class="col-md-12"><input type="text" name="total" id="total" size="32" value="0.00" disabled=""></div>
+                        <div class="col-md-12">{{ sum }}</div>
 
                 </div>
 
