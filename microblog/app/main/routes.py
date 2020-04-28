@@ -51,22 +51,16 @@ def loading():
 @login_required
 def post():
     form = PostForm()
+    otherpost = Post.query.all()
     if form.validate_on_submit():
         post = Post(post=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash(_('Your post is now live!'))
-        return redirect(url_for('main.post'))
-    page = request.args.get('page', 1, type=int)
-    posts = current_user.followed_posts().paginate(
-        page, current_app.config['POSTS_PER_PAGE'], False)
-    next_url = url_for('main.post', page=posts.next_num) \
-        if posts.has_next else None
-    prev_url = url_for('main.post', page=posts.prev_num) \
-        if posts.has_prev else None
-    return render_template('post.html', title=_('Post'), form=form,
-                           posts=posts.items, next_url=next_url,
-                           prev_url=prev_url)
+    return render_template('post.html', title=_('Post'), form=form, otherpost = otherpost)
+
+
+
 
 
 @bp.route('/explore')
@@ -82,15 +76,6 @@ def explore():
     return render_template('post.html', title=_('Explore'),
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
-
-
-@bp.route('/delete/<int:id>')
-@login_required
-def delete(id):
-    del_post = Post.query.get_or_404(id)
-    db.session.delete(del_post)
-    db.session.commit()
-    return redirect(url_for('main.post'))
 
 
 @bp.route('/del_list/<int:id>')
@@ -207,11 +192,11 @@ def delivery_address(username):
     page = request.args.get('page', 1, type=int)
     posts = current_user.followed_address().paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
-    next_url = url_for('main.delivery_address', user=user, page=posts.next_num) \
+    next_url = url_for('main.delivery_address', username = current_user.username, page=posts.next_num) \
         if posts.has_next else None
-    prev_url = url_for('main.delivery_address', user=user, page=posts.prev_num) \
+    prev_url = url_for('main.delivery_address', username = current_user.username, page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('delivery_address.html', user=user, title=_('Post'), form=form,
+    return render_template('delivery_address.html', user=user, title=_('delivery_address'), form=form,
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
 

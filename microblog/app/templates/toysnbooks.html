@@ -161,7 +161,14 @@
                             <!--h5>{{ toys_and_books.price }}</h5-->
                             <h2>HKD ${{ toys_and_books.price }}</h2>
                             <input type="hidden" name="id" value="{{ toys_and_books.id }}" />
+                            <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=toys_and_books.id ) }}" role="button">Add to Cart</a>
                             <a class="btn btn-success" href="{{ url_for('main.add_list3', id=toys_and_books.product_id ) }}" role="button">follow</a>
+
+                            {% if current_user.id == 0 %}
+                                <br><br>
+                                <a class="btn btn-success" href="{{ url_for('main.edit_product', pid=toys_and_books.id ) }}" role="button">Edit</a>
+                                <a class="btn btn-success" href="{{ url_for('main.delete_product', pid=toys_and_books.id ) }}" role="button">Delete</a>
+                            {% endif %}
                         </figcaption>
                     </figure>
                 </div>
