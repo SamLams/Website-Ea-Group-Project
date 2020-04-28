@@ -163,6 +163,11 @@
                             <input type="hidden" name="pid" value="{{ product.pid }}" />
                             <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=product.pid ) }}" role="button">Add to Cart</a>
                             <a class="btn btn-success" href="{{ url_for('main.add_list', pid=product.pid ) }}" role="button">follow</a>
+                            {% if current_user.id == 0 %}
+                                <br><br>
+                                <a class="btn btn-success" href="{{ url_for('main.edit_product', pid=product.pid ) }}" role="button">Edit</a>
+                                <a class="btn btn-success" href="{{ url_for('main.delete_product', pid=product.pid ) }}" role="button">Delete</a>
+                            {% endif %}
                         </figcaption>
                     </figure>
                 </div>
@@ -179,6 +184,11 @@
                             <h3>HKD ${{ 0.9*(product.price)|round|int }}</h3>
                             <input type="hidden" name="pid" value="{{ product.pid }}" />
                             <input type="submit" value="Add to Cart" class="btn-default" />
+                            {% if current_user.id == 0 %}
+                                <br><br>
+                                <a class="btn btn-success" href="{{ url_for('main.edit_product', pid=product.pid ) }}" role="button">Edit</a>
+                                <a class="btn btn-success" href="{{ url_for('main.delete_product', pid=product.pid ) }}" role="button">Delete</a>
+                            {% endif %}
                         </figcaption>
                     </figure>
                 </div>

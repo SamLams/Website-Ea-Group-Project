@@ -120,6 +120,7 @@ class Product(db.Model):
     #follower = db.relationship('followers', secondary=followers, backref=db.backref('product', lazy='dynamic'))
     list = db.relationship('MyList', backref='product', lazy='dynamic')
 
+
     def unfollow(self, product):
         if self.is_following(product):
             self.followed.remove(product)
