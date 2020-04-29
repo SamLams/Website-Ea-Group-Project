@@ -3,11 +3,12 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, \
+from app.main.forms import EditProfileForm, PostForm, CsForm, \
     EditMessage, DeliveryAddressForm, EditDeliveryAddressForm, AddVoucher, EditProduct
 from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Housewares, \
-    ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant, Order, Voucher, Pets, Disney
+    ToysAndBooks, SportsAndTravel, MyList, Merchant, Order, Voucher, Pets, Disney, Category, Subcategory
 from app.main import bp
+from sqlalchemy import func
 
 
 @bp.before_request
@@ -22,15 +23,16 @@ def before_request():
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
     prod = Product.query.all()
+
     return render_template('index.html', title=_('Home'), prod=prod)
 
 
-@login_required
 @bp.route('/add_to_cart/<int:prod_id>', methods=['GET', 'POST'])
+@login_required
 def add_to_cart(prod_id):
     p = Product.query.filter_by(pid=prod_id).first()
     if current_user.is_authenticated:
-        cart_item = Shopping_cart(id=Shopping_cart.query.count() + 1, user_id=current_user.id, product_id=prod_id,
+        cart_item = Shopping_cart(user_id=current_user.id, product_id=prod_id,
                                   qty=1, price=p.price)
         db.session.add(cart_item)
         db.session.commit()
@@ -40,26 +42,26 @@ def add_to_cart(prod_id):
     return redirect(url_for('main.index'))
 
 
+@bp.route('/loading', methods=['GET', 'POST'])
+@login_required
+def loading():
+    return redirect(url_for('main.cart'))
+
+
 @bp.route('/post', methods=['GET', 'POST'])
 @login_required
 def post():
     form = PostForm()
+    otherpost = Post.query.all()
     if form.validate_on_submit():
         post = Post(post=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash(_('Your post is now live!'))
-        return redirect(url_for('main.post'))
-    page = request.args.get('page', 1, type=int)
-    posts = current_user.followed_posts().paginate(
-        page, current_app.config['POSTS_PER_PAGE'], False)
-    next_url = url_for('main.post', page=posts.next_num) \
-        if posts.has_next else None
-    prev_url = url_for('main.post', page=posts.prev_num) \
-        if posts.has_prev else None
-    return render_template('post.html', title=_('Post'), form=form,
-                           posts=posts.items, next_url=next_url,
-                           prev_url=prev_url)
+    return render_template('post.html', title=_('Post'), form=form, otherpost = otherpost)
+
+
+
 
 
 @bp.route('/explore')
@@ -75,15 +77,6 @@ def explore():
     return render_template('post.html', title=_('Explore'),
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
-
-
-@bp.route('/delete/<int:id>')
-@login_required
-def delete(id):
-    del_post = Post.query.get_or_404(id)
-    db.session.delete(del_post)
-    db.session.commit()
-    return redirect(url_for('main.post'))
 
 
 @bp.route('/del_list/<int:id>')
@@ -170,6 +163,7 @@ def cart():
                              Shopping_cart.qty).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(
         Shopping_cart.user_id == current_user.id).all()
     count = Shopping_cart.query.filter_by(user_id=current_user.id).count()
+    sum = db.session.query(func.sum(Shopping_cart.price)).filter_by(user_id=current_user.id).first()[0]
     if request.method == "POST":
         qty = request.form.get('quantity')
         prodid = request.form.get('prodid')
@@ -179,10 +173,29 @@ def cart():
         itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update(
             {'price': float(prodprice) * int(qty)})
         db.session.commit()
-        redirect(url_for('main.cart'))
+        return redirect(url_for('main.loading'))
 
-    return render_template('cart.html', title=_('Shopping Cart'), ccart=ccart, count=count)
+    return render_template('cart.html', title=_('Shopping Cart'), ccart=ccart, count=count, sum=sum)
 
+
+@bp.route('/cart_del/<prodid>', methods=['GET', 'POST'])
+@login_required
+def cart_del(prodid):
+    dele = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).first()
+    db.session.delete(dele)
+    db.session.commit()
+    return redirect(url_for('main.cart'))
+
+
+@bp.route('/confirmed', methods=['GET', 'POST'])
+@login_required
+def confirmed():
+    ###ordered = Order()
+    item = Shopping_cart.query.filter_by(user_id=current_user.id).all()
+    for i in item:
+        db.session.delete(i)
+    db.session.commit()
+    return render_template('confirmed.html')
 
 @bp.route('/delivery_address/<username>', methods=['GET', 'POST'])
 @login_required
@@ -197,11 +210,11 @@ def delivery_address(username):
     page = request.args.get('page', 1, type=int)
     posts = current_user.followed_address().paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
-    next_url = url_for('main.delivery_address', user=user, page=posts.next_num) \
+    next_url = url_for('main.delivery_address', username = current_user.username, page=posts.next_num) \
         if posts.has_next else None
-    prev_url = url_for('main.delivery_address', user=user, page=posts.prev_num) \
+    prev_url = url_for('main.delivery_address', username = current_user.username, page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('delivery_address.html', user=user, title=_('Post'), form=form,
+    return render_template('delivery_address.html', user=user, title=_('delivery_address'), form=form,
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
 

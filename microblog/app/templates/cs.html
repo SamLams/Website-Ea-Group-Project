@@ -21,7 +21,7 @@
                        class="list-group-item list-group-item-action">Delivery Addresses</a>
                     <a href="#" class="list-group-item list-group-item-action">My e-Wallet</a>
                     <a href="#" class="list-group-item list-group-item-action">Notifications</a>
-                    <a href="{{ url_for('main.post') }}" class="list-group-item list-group-item-action">My Product
+                    <a href="{{ url_for('main.post', username = current_user.username) }}" class="list-group-item list-group-item-action">My Product
                         Reviews</a>
 
 

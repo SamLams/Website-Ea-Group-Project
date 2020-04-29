@@ -3,9 +3,8 @@ from datetime import datetime, timedelta
 import unittest
 from app import create_app, db
 from app.models import User, Post, Merchant, Category, Subcategory, Product, Housewares, SportsAndTravel, ToysAndBooks, \
-    MyList
+    MyList, Disney, Pets
 from config import Config
-from app.models import *
 from app import db
 
 
@@ -16,10 +15,26 @@ class TestConfig(Config):
 class UserModelCase(unittest.TestCase):
 
     def testData(self):
-        app = create_app(TestConfig)
-        app_context = app.app_context()
-        app_context.push()
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
         db.create_all()
+        print("before")
+        mer1 = Merchant(910, 'Test Company', 'Testing', 5.0)
+
+        db.session.add(mer1)
+
+
+
+        print("after")
+
+        #pending = [mer1, sc1, c1, p1]
+        #db.session.add(mer1)
+        #db.session.add(sc1)
+        #db.session.add(c1)
+        #db.session.add(p1)
+        db.session.commit()
+
 
 
 mer1 = Merchant(999, 'Test Company', 'Testing', 5.0)
@@ -32,10 +47,10 @@ sc3 = Subcategory(ps_id=997, ps_name="sc3")
 sc4 = Subcategory(ps_id=996, ps_name="sc4")
 c1 = Category(pc_id=999, pc_name="c1", ps_id=999)
 c2 = Category(pc_id=998, pc_name="c2", ps_id=998)
-c3 = Category(pc_id=997, pc_name="c3", ps_id=997)
+c3 = Category(pc_id=997, pc_nagitme="c3", ps_id=997)
 c4 = Category(pc_id=996, pc_name="c4", ps_id=996)
-c5 = Category(pc_id=996, pc_name="c4", ps_id=996)
-c6 = Category(pc_id=996, pc_name="c4", ps_id=996)
+c5 = Category(pc_id=995, pc_name="c4", ps_id=995)
+c6 = Category(pc_id=994, pc_name="c4", ps_id=994)
 
 p1 = Product(pid=999, pname='Testing Product1', qty=1, price=45, mid=999, status="Good", pc_id=999, ps_id=999,
              link="https://picsum.photos/273/190")
