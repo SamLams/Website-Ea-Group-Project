@@ -191,6 +191,15 @@ class Merchant(db.Model):
         self.description = description
         self.rating = rating
 
+class Status(db.Model):
+    status_id = db.Column(db.Integer, primary_key=True)
+    status = db.Column(db.String(255))
+    shipment = db.Column(db.String(255))
+    #order_id = db.relationship('Order', backref='status')
+
+    def __repr__(self):
+        return '<Status {}>'.format(self.status_id)
+
 
 class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
@@ -199,23 +208,13 @@ class Order(db.Model):
     price = db.Column(db.Integer)
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    status_id = db.Column(db.String(255), db.ForeignKey('status.status_id'))
+    #status_id = db.Column(db.String(255), db.ForeignKey('status.status_id'))
 
     create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     card = db.relationship('Payment', backref='card')
 
     def __repr__(self):
         return '<Order {}>'.format(self.order_id)
-
-
-class Status(db.Model):
-    status_id = db.Column(db.Integer, primary_key=True)
-    status = db.Column(db.String(255))
-    shipment = db.Column(db.String(255))
-    order_id = db.relationship('Order', backref='status')
-
-    def __repr__(self):
-        return '<Status {}>'.format(self.status_id)
 
 
 class Payment(db.Model):
@@ -292,3 +291,11 @@ class ToysAndBooks(db.Model):
 
     def __repr__(self):
         return '<ToysAndBooks {}>'.format(self.id)
+
+#class CartOrder(db.Model):
+    #user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    #product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
+    #qty = db.Column(db.Integer)
+    #price = db.Column(db.Integer)
+    #id = db.Column(db.Integer, primary_key=True)
+    #cart_id = db.Column(db.Integer, db.ForeignKey('shopping_cart.id'))
