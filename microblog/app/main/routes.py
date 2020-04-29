@@ -3,10 +3,10 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm, EditDeliveryAddressForm, CsForm, \
+from app.main.forms import EditProfileForm, PostForm, CsForm, \
     EditMessage, DeliveryAddressForm, EditDeliveryAddressForm, AddVoucher, EditProduct
 from app.models import User, Post, Product, Customer_Services, Delivery_Address, Shopping_cart, Housewares, \
-    ToysAndBooks, Disney, SportsAndTravel, MyList, Merchant, Order, Voucher, Pets, Disney
+    ToysAndBooks, SportsAndTravel, MyList, Merchant, Order, Voucher, Pets, Disney, Category, Subcategory
 from app.main import bp
 from sqlalchemy import func
 
@@ -23,6 +23,7 @@ def before_request():
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
     prod = Product.query.all()
+
     return render_template('index.html', title=_('Home'), prod=prod)
 
 

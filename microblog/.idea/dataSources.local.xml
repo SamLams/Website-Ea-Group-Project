@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-
-
-    <data-source name="app" uuid="e58876f2-685f-4158-b814-227e0d7049f5">
-
-    <data-source name="app" uuid="6a111516-521b-4bf8-9b57-c732cdcaebd5">
-
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <schema-mapping />
-
-
-
-    <data-source name="app" uuid="6a111516-521b-4bf8-9b57-c732cdcaebd5">
-
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
-
-      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1">
+    <data-source name="app.db" uuid="29750e26-4a6a-4cf5-aef5-0bd64c286903">
+      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1" dbms="SQLITE" exact-version="3.25.1" exact-driver-version="3.25">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-
-
-
-      <introspection-schemas>*:main</introspection-schemas>
-
-
-
-      <introspection-schemas>*:main</introspection-schemas>
-
+      <secret-storage>master_key</secret-storage>
+      <auth-provider>no-auth</auth-provider>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" qname="@" />
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
   </component>
 </project>

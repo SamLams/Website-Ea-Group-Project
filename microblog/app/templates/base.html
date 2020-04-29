@@ -90,6 +90,8 @@
                             <ul id="nav">
                                 <li><a href="{{ url_for('main.all_product') }}">{{ _('Categories') }}</a>
                                     <ul>
+                                        {% for category in categories %}
+                                        {% endfor %}
                                         <li><a href="#">{{ _('Pets') }}</a>
                                             <ul>
                                                 <li><a href="#">Sub Sub Item 1</a>
