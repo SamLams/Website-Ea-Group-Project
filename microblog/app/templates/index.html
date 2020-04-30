@@ -1,8 +1,12 @@
+{% if count == 0 %}
+    <a class="btn btn-success btn-lg" href="{{ url_for('main.init') }}" role="button">Initialize Database</a>
+{% endif %}
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block current_app_content %}
     <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+
     <!-- Slider1 -->
             <div class="bg_change">
                 <div id="slider1" class="carousel slide" data-ride="carousel" style="width: 100vw; margin-top:-40px;">
