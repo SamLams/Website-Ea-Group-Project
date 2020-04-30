@@ -8,6 +8,8 @@
 
 {% endblock %}
 
+
+
 {% block navbar %}
     <script>
 
@@ -91,6 +93,7 @@
                                 <li><a href="{{ url_for('main.all_product') }}">{{ _('Categories') }}</a>
                                     <ul>
                                         {% for category in categories %}
+                                            <li><a>{{ category.pc_name }}</a></li>
                                         {% endfor %}
                                         <li><a href="#">{{ _('Pets') }}</a>
                                             <ul>

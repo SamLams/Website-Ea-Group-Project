@@ -19,6 +19,7 @@ def before_request():
     g.locale = str(get_locale())
 
 
+
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
@@ -191,9 +192,16 @@ def cart_del(prodid):
 @login_required
 def confirmed():
     ###ordered = Order()
+    qty = 0
+    price = 0
     item = Shopping_cart.query.filter_by(user_id=current_user.id).all()
     for i in item:
+        qty += i.qty
+        price += i.price
         db.session.delete(i)
+
+    o = Order(shopping_cart_id=i.id, qty=qty, price=price,user_id=current_user.id)
+    db.session.add(o)
     db.session.commit()
     return render_template('confirmed.html')
 
