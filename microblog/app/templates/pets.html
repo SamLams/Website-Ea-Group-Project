@@ -151,39 +151,32 @@
         </div>
     <!-- Catalogue - Health Product -->
     <div class="row justify-content-center container center-block" style="background-color: white;">
-        {% for toys_and_books in products %}
+        {% for pets in products %}
             {% if loop.index <= 4 %}
                 <div class="col-md-3" style="background-color: rgb(255, 216, 175);">
                     <figure class="figure">
-                        <img src="{{toys_and_books.link}}" class="figure-img img-fluid rounded" alt="", width="250px", height="200px" />
+                        <img src="{{pets.link}}" class="figure-img img-fluid rounded" alt="", width="250px", height="200px" />
                         <figcaption class="figure-caption">
-                            <h3>{{ toys_and_books.name }}</h3>
-                            <!--h5>{{ toys_and_books.price }}</h5-->
-                            <h2>HKD ${{ toys_and_books.price }}</h2>
-                            <input type="hidden" name="id" value="{{ toys_and_books.id }}" />
-                            <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=toys_and_books.id ) }}" role="button">Add to Cart</a>
-                            <a class="btn btn-success" href="{{ url_for('main.add_list3', id=toys_and_books.product_id ) }}" role="button">follow</a>
-
-                            {% if current_user.id == 0 %}
-                                <br><br>
-                                <a class="btn btn-success" href="{{ url_for('main.edit_product', pid=toys_and_books.id ) }}" role="button">Edit</a>
-                                <a class="btn btn-success" href="{{ url_for('main.delete_product', pid=toys_and_books.id ) }}" role="button">Delete</a>
-                            {% endif %}
+                            <h3>{{ pets.name }}</h3>
+                            <!--h5>{{ pets.price }}</h5-->
+                            <h2>HKD ${{ pets.price }}</h2>
+                            <input type="hidden" name="id" value="{{ pets.id }}" />
+                            <a class="btn btn-success" href="{{ url_for('main.add_list1', id=pets.product_id ) }}" role="button">follow</a>
                         </figcaption>
                     </figure>
                 </div>
             {% endif %}
         {% endfor %}
-        {% for housewares in product %}
+        {% for pets in product %}
             {% if loop.index > 4 %}
                 <div class="col-md-2" style="background-color: rgb(255, 216, 175);">
                     <figure class="figure">
                         <img src="https://picsum.photos/176/190" class="figure-img img-fluid rounded" alt=""/>
                         <figcaption class="figure-caption">
-                            <h3>{{ housewares.name }}</h3>
-                            <h5>{{ housewares.price }}</h5>
+                            <h3>{{ pets.name }}</h3>
+                            <!--h5>{{ pets.price }}</h5-->
                             <h3>HKD ${{ 0.9*(product.price)|round|int }}</h3>
-                            <input type="hidden" name="id" value="{{ housewares.id }}" />
+                            <input type="hidden" name="id" value="{{ pets.id }}" />
                             <input type="submit" value="Add to Cart" class="btn-default" />
 
                         </figcaption>

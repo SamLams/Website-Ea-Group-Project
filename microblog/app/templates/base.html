@@ -45,13 +45,13 @@
 
         <ul class="row nav nav-tabs" style="font-size: 13px;">
             <li class="col-sm-2 nav-item">
-                <a href="{{ url_for('main.index') }}">{{ _('Supermarket') }}</a>
+                <a href="{{ url_for('main.index') }}">{{ _('Home') }}</a>
             </li>
             <li class="col-sm-2 nav-pills">
-                <a href="#">{{ _('Personal Care') }}</a>
+                <a href="{{ url_for('main.pets') }}">{{ _('Pets') }}</a>
             </li>
             <li class="col-sm-2 nav-pills">
-                <a href="#">{{ _('Skincare & Makeup') }}</a>
+                <a href="{{ url_for('main.disney') }}">{{ _('Disney') }}</a>
             </li>
             <li class="col-sm-2 nav-pills">
                 <a href="{{ url_for('main.housewares') }}">{{_('Housewares')}}</a>

@@ -31,7 +31,6 @@ class User(db.Model):
     cart = db.relationship('Shopping_cart', backref='user')
     order = db.relationship('Order', backref='user')
 
-
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
@@ -44,13 +43,6 @@ class User(db.Model):
     def avatar(self, size):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
-
-    def followed_posts(self):
-        followed = Post.query.join(
-            followers, (followers.c.followed_id == Post.user_id)).filter(
-            followers.c.follower_id == self.id)
-        own = Post.query.filter_by(user_id=self.id)
-        return followed.union(own).order_by(Post.timestamp.desc())
 
     def followed_address(self):
         followed = Delivery_Address.query.join(
@@ -88,6 +80,7 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.reviews)
 
+
 class MyList(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(140))
@@ -117,8 +110,8 @@ class Product(db.Model):
     disney = db.relationship('Disney', backref='Product', lazy=True)
     SportsAndTravels = db.relationship('SportsAndTravel', backref='product', uselist=False)
     ToysAndBook = db.relationship('ToysAndBooks', backref='product', uselist=False)
-    #follower = db.relationship('followers', secondary=followers, backref=db.backref('product', lazy='dynamic'))
     list = db.relationship('MyList', backref='product', lazy='dynamic')
+
 
 
     def unfollow(self, product):
@@ -146,7 +139,6 @@ class Product(db.Model):
         self.link = link
 
 
-
 class Category(db.Model):
     pc_id = db.Column(db.Integer, primary_key=True)
     pc_name = db.Column(db.String(255))
@@ -171,13 +163,19 @@ class Subcategory(db.Model):
 
 
 class Pets(db.Model):
-    pet_id = db.Column(db.Integer, primary_key=True)
-    pid = db.Column(db.Integer, db.ForeignKey('product.pid'))
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120))
+    price = db.Column(db.Float)
+    link = db.Column(db.String(120))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
 
 class Disney(db.Model):
-    disney_id = db.Column(db.Integer, primary_key=True)
-    pid = db.Column(db.Integer, db.ForeignKey('product.pid'))
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120))
+    price = db.Column(db.Float)
+    link = db.Column(db.String(120))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
 
 
 class Merchant(db.Model):

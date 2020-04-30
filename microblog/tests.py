@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import unittest
 from app import create_app, db
 from app.models import User, Post, Merchant, Category, Subcategory, Product, Housewares, SportsAndTravel, ToysAndBooks, \
-    MyList
+    MyList, Disney, Pets
 from config import Config
 from app import db
 
@@ -49,6 +49,20 @@ c1 = Category(pc_id=999, pc_name="c1", ps_id=999)
 c2 = Category(pc_id=998, pc_name="c2", ps_id=998)
 c3 = Category(pc_id=997, pc_name="c3", ps_id=997)
 c4 = Category(pc_id=996, pc_name="c4", ps_id=996)
+c5 = Category(pc_id=995, pc_name="c5", ps_id=996)
+c6 = Category(pc_id=994, pc_name="c6", ps_id=996)
+
+p5 = Product(pid=995, pname='Disney Toy Story', qty=3, price=155, mid=995, status="Good", pc_id=995, ps_id=995,
+             link="https://images.hktv-img.com/images/HKTV/18800/H1283ToyStoryBook_main_36832182_20200409124617_01_1200.jpg")
+p6 = Product(pid=994, pname='FRONTLINE - Plus for Cats & Kittens 8 Weeks or Older', qty=4, price=159, mid=994,
+             status="Good", pc_id=994, ps_id=994, link="https://images.hktvmall.com/h0888001/129563/h0888001_10130629_171018034423_01_1200.jpg")
+
+d1 = Disney(id=995, name="Disney Toy Story",
+            link="https://images.hktv-img.com/images/HKTV/18800/H1283ToyStoryBook_main_36832182_20200409124617_01_1200.jpg",
+            price=155, product_id=995)
+pet1 = Pets(id=995, name="FRONTLINE - Plus for Cats & Kittens 8 Weeks or Older",
+            link="https://images.hktvmall.com/h0888001/129563/h0888001_10130629_171018034423_01_1200.jpg", price=159,
+            product_id=994)
 p1 = Product(pid=999, pname='Testing Product1', qty=1, price=45, mid=999, status="Good", pc_id=999, ps_id=999,link= "https://picsum.photos/273/190")
 p2 = Product(pid= 998, pname= "TW Disposable Mask Protective Pad", qty = 1, price=55, mid= 998, status= "Good", pc_id= 998, ps_id=998,link = "https://images.hktv-img.com/images/HKTV/10787/MIT-001A_main_35311815_20200310182421_01_1200.jpg")
 p3 = Product(pid= 997, pname= "FitBoxx - Everlast Evercool Gloves Bag", qty = 1, price=56, mid= 997, status= "Good", pc_id= 997, ps_id=997,link="https://images.hktvmall.com/h0395001/m/photos/8831465193522_1_1200.jpg")
@@ -56,25 +70,33 @@ p4 = Product(pid= 996, pname= "HKQgamers - Switch Game - Pokemon Sword", qty = 2
 h1 = Housewares(id = 995, name = "TW Disposable Mask Protective Pad", link= "https://images.hktv-img.com/images/HKTV/10787/MIT-001A_main_35311815_20200310182421_01_1200.jpg", price= 55,product_id=998)
 s1 = SportsAndTravel(id=995, name="FitBoxx - Everlast Evercool Gloves Bag",link="https://images.hktvmall.com/h0395001/m/photos/8831465193522_1_1200.jpg",price=65, product_id=997)
 t1 = ToysAndBooks(id=995, name="HKQgamers - Switch Game - Pokemon Sword",link="https://images.hktv-img.com/images/HKTV/10823/GA20191104A08_main_31312491_20191112141038_01_1200.jpg",price=44, product_id=996)
+admin = User(id=0, first_name="a", last_name="a", username="a", email="a@g.com", phone=132, password_hash="pbkdf2:sha256:50000$K1aBNTtq$a627489faa2332223c5225bbc26a9c875d57437fa4865b83875eeb957b3f04dd")
+db.session.add(admin)
 db.session.add(mer1)
-db.session.add(sc1)
-db.session.add(c1)
-db.session.add(p1)
 db.session.add(mer2)
-db.session.add(sc2)
-db.session.add(p2)
-db.session.add(c2)
-db.session.add(h1)
 db.session.add(mer3)
-db.session.add(sc3)
-db.session.add(c3)
-db.session.add(p3)
-db.session.add(s1)
 db.session.add(mer4)
+db.session.add(sc1)
+db.session.add(sc2)
+db.session.add(sc3)
 db.session.add(sc4)
+db.session.add(c1)
+db.session.add(c2)
+db.session.add(c3)
 db.session.add(c4)
+db.session.add(c5)
+db.session.add(c6)
+db.session.add(p1)
+db.session.add(p2)
+db.session.add(p3)
 db.session.add(p4)
+db.session.add(p5)
+db.session.add(p6)
+db.session.add(h1)
+db.session.add(s1)
 db.session.add(t1)
+db.session.add(d1)
+db.session.add(pet1)
 db.session.commit()
 
 if __name__ == '__main__':
