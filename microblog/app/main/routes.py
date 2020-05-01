@@ -164,18 +164,26 @@ def cart():
                              Shopping_cart.qty).outerjoin(Product, Shopping_cart.product_id == Product.pid).filter(
         Shopping_cart.user_id == current_user.id).all()
     count = Shopping_cart.query.filter_by(user_id=current_user.id).count()
-    sum = db.session.query(func.sum(Shopping_cart.price)).filter_by(user_id=current_user.id).first()[0]
+
+
     if request.method == "POST":
         qty = request.form.get('quantity')
         prodid = request.form.get('prodid')
         prodprice = request.form.get('prodprice')
+        code = request.form.get('voucher')
+        result = Voucher.query.filter_by(code=code).first()
+        discount = 0
+        if result:
+            discount = result.discount
         itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update(
             {'qty': qty})
         itemcart = Shopping_cart.query.filter_by(product_id=prodid).filter_by(user_id=current_user.id).update(
-            {'price': float(prodprice) * int(qty)})
+            {'price': float(prodprice) * int(qty) - float(discount)})
         db.session.commit()
+
         return redirect(url_for('main.loading'))
 
+    sum = db.session.query(func.sum(Shopping_cart.price)).filter_by(user_id=current_user.id).first()[0]
     return render_template('cart.html', title=_('Shopping Cart'), ccart=ccart, count=count, sum=sum)
 
 

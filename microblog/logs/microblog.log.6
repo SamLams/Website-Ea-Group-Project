@@ -1,26 +1,18 @@
 <<<<<<< HEAD
-2020-04-30 08:27:13,496 ERROR: Exception on /index [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-2020-04-27 10:39:13,332 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:41:32,997 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:42:05,864 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:42:29,920 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:43:29,431 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:43:48,711 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:44:16,428 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:45:22,623 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:45:54,393 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:46:36,065 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:49:08,339 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:50:06,209 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:52:51,135 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:53:25,265 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 10:53:53,019 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:03:35,687 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:04:33,359 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:04:44,302 ERROR: Exception on /insert_product [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+2020-04-30 22:50:43,182 ERROR: Exception on /pets [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1974, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/wrappers.py", line 921, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/wrappers.py", line 59, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/test.py", line 923, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'list' object is not callable
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -28,165 +20,62 @@ Traceback (most recent call last):
     return self.finalize_request(rv)
   File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1831, in finalize_request
     response = self.make_response(rv)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1957, in make_response
-    'The view function did not return a valid response. The'
-TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
-2020-04-27 11:07:19,578 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:09:29,537 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:13:34,888 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:15:32,119 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:16:59,624 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:18:39,384 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:19:23,743 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:21:27,497 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:21:52,782 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:22:22,570 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:24:32,238 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:25:17,420 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:25:56,726 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:26:35,113 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:27:15,680 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:27:52,216 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:28:36,646 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:41:05,702 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:42:27,752 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:47:07,933 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:52:01,286 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:52:47,852 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 11:56:25,311 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 12:15:30,427 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 12:41:16,973 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 05:26:23,774 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 05:28:06,319 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 05:31:50,922 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 06:58:21,379 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 07:21:15,832 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 07:24:04,639 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 07:27:03,848 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 07:29:19,107 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:02:09,760 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:02:21,408 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:02:29,151 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:02:32,272 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:04:19,332 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:05:10,120 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:09:56,978 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:09:56,978 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:15:49,081 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:16:01,149 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:16:05,565 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:16:11,764 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:16:17,341 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:16:21,159 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:16:51,216 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:17:29,071 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in make_response
+    reraise(TypeError, new_error, sys.exc_info()[2])
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 34, in reraise
+    raise value.with_traceback(tb)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1974, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/wrappers.py", line 921, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/wrappers.py", line 59, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/test.py", line 923, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'list' object is not callable
+The view function did not return a valid response. The return type must be a string, tuple, Response instance, or WSGI callable, but it was a list.
+2020-04-30 22:52:15,308 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-05-01 00:36:35,760 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-05-01 00:36:43,589 ERROR: Exception on /pets [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
 =======
-2020-04-28 08:01:43,313 ERROR: Exception on /confirmed [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
-=======
-2020-04-28 10:40:24,237 ERROR: Exception on /post [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
->>>>>>> 444c9d6159365977d8d00e3ee9ed297412d3cd2b
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-2020-04-26 23:58:50,021 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:59:03,745 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-26 23:59:10,008 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 00:02:18,519 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 00:03:29,391 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-=======
-<<<<<<< HEAD
-2020-04-27 01:38:29,150 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:39:50,175 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:40:27,219 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:40:54,241 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:41:20,782 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:43:56,191 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:48:50,231 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:49:04,493 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:49:50,195 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:50:15,051 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:50:50,740 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:51:29,067 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:51:46,660 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:52:28,498 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:53:31,046 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:54:13,846 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 02:00:52,067 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 02:00:58,893 ERROR: Exception on /mylist [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
-=======
-2020-04-27 01:07:57,256 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
->>>>>>> cc0a4678c82505202b76e4a5814545459bba165d
+2020-04-30 09:44:28,986 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-30 09:45:29,813 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-30 09:45:33,976 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-30 09:45:38,502 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-30 09:45:42,317 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-30 09:45:54,220 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
 >>>>>>> 2bdea8f362e448dbbe5663abeaf34af2509d7853
 Traceback (most recent call last):
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
 <<<<<<< HEAD
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 62, in post
-    posts = current_user.followed_posts().paginate(
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'User' object has no attribute 'followed_posts'
-2020-04-28 10:41:02,946 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 10:43:34,111 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 10:44:46,048 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 10:45:53,481 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 10:48:19,677 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 10:49:10,657 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 10:49:14,498 ERROR: Exception on /housewares [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 20, in before_request
+    g.form = Category()
+TypeError: __init__() missing 3 required positional arguments: 'pc_id', 'pc_name', and 'ps_id'
+2020-05-01 00:37:04,955 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-05-01 00:41:48,348 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-05-01 00:43:21,273 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 =======
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 299, in mylist
-    return render_template('mylist.html', title=_('My List'), item=item)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/mylist.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
-    {% block content -%}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/base.html", line 219, in block "content"
-    {% block current_app_content %}{% endblock %}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/mylist.html", line 38, in block "current_app_content"
-    <button onclick="location.href='{{ url_for('main.del_list', id=message.mylist.id) }}';">
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'message' is undefined
-2020-04-27 02:01:15,671 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-=======
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 152, in cart
-    itemcart.qty = str(quantity)
-NameError: name 'quantity' is not defined
-2020-04-27 01:08:23,689 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:08:25,937 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
->>>>>>> 2bdea8f362e448dbbe5663abeaf34af2509d7853
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/auth/routes.py", line 28, in login
+    login_user(email, remember=form.remember_me.data)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 158, in login_user
+    if not force and not user.is_active:
+AttributeError: 'User' object has no attribute 'is_active'
+2020-04-30 09:47:14,918 ERROR: Exception on /auth/login [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -200,290 +89,17 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-<<<<<<< HEAD
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 120, in housewares
-    return render_template('housewares.html', title=_('Home'), products=products)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-<<<<<<< HEAD
-=======
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 152, in cart
-    itemcart.qty = str(qty)
-AttributeError: 'list' object has no attribute 'qty'
-2020-04-27 01:08:42,965 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:08:44,472 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 152, in cart
-    itemcart.qty = qty
-AttributeError: 'list' object has no attribute 'qty'
-2020-04-27 01:08:59,645 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:12:07,932 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:12:10,548 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:12:17,973 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
-=======
-2020-04-28 07:54:40,660 ERROR: Exception on /add_to_cart/999 [GET] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
-=======
-2020-04-28 09:34:18,079 ERROR: Exception on /auth/register [POST] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
->>>>>>> 444c9d6159365977d8d00e3ee9ed297412d3cd2b
-Traceback (most recent call last):
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
-    context)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.first_name
-
-The above exception was the direct cause of the following exception:
-
->>>>>>> 350499d56e3e967988faf17fcab070a5cee94be2
->>>>>>> 8600c4fc8a854f9b7b7176ae0e6b2c4fa92aac0e
-Traceback (most recent call last):
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/auth/routes.py", line 28, in login
+    login_user(email, remember=form.remember_me.data)
+  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 158, in login_user
+    if not force and not user.is_active:
+AttributeError: 'User' object has no attribute 'is_active'
+2020-04-30 10:02:20,595 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-30 10:03:44,807 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-30 10:03:50,656 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-30 10:03:57,827 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-04-30 10:04:07,308 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
 >>>>>>> 2bdea8f362e448dbbe5663abeaf34af2509d7853
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-<<<<<<< HEAD
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 194, in confirmed
-    dele = dele.append(i)
-AttributeError: 'NoneType' object has no attribute 'append'
-2020-04-28 08:11:47,316 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:22:41,186 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:23:56,212 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:33:25,974 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:35:45,184 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:36:58,635 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:37:43,841 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:39:33,156 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:40:10,983 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:40:44,668 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:41:17,829 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:41:32,832 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:44:31,907 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:44:42,431 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:45:39,834 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:45:56,398 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:46:40,472 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:47:40,758 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:47:53,519 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 08:48:13,760 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
->>>>>>> 350499d56e3e967988faf17fcab070a5cee94be2
-=======
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/housewares.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
-    {% block content -%}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/base.html", line 219, in block "content"
-    {% block current_app_content %}{% endblock %}
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/templates/housewares.html", line 164, in block "current_app_content"
-    <a class="btn btn-success" href="{{ url_for('main.add_to_cart', prod_id=housewares.pid ) }}" role="button">Add to Cart</a>
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/helpers.py", line 345, in url_for
-    force_external=external)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1774, in build
-    rv = self._partial_build(endpoint, values, method, append_unknown)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1689, in _partial_build
-    append_unknown)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1697, in _partial_build
-    rv = rule.build(values, append_unknown)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 809, in build
-    add(self._converters[data].to_url(values[data]))
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1034, in to_url
-    value = self.num_convert(value)
-jinja2.exceptions.UndefinedError: 'sqlalchemy.util._collections.result object' has no attribute 'pid'
-2020-04-28 10:49:29,528 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-=======
-<<<<<<< HEAD
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 26, in index
-    return render_template('index.html', title=_('Home'), prod=prod)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/templates/index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
-    {% block content -%}
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/templates/base.html", line 219, in block "content"
-    {% block current_app_content %}{% endblock %}
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/templates/index.html", line 7, in block "current_app_content"
-    <a class="btn btn-success" href="{{ url_for('init.init') }}" role="button">Initialize Database</a>
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/helpers.py", line 345, in url_for
-    force_external=external)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'init.init'. Did you mean 'main.index' instead?
-2020-04-30 08:27:43,975 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-=======
-<<<<<<< HEAD
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 152, in cart
-    itemcart.qty = qty
-AttributeError: 'list' object has no attribute 'qty'
-2020-04-27 01:24:47,208 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-27 01:24:54,220 ERROR: Exception on /cart [POST] [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-<<<<<<< HEAD
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 152, in cart
-    itemcart.update({'qty': qty})
-AttributeError: 'list' object has no attribute 'update'
-2020-04-27 01:27:31,701 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/__init__.py:78]
->>>>>>> cc0a4678c82505202b76e4a5814545459bba165d
->>>>>>> 85026f294119d9cb852117746e2a60c2ff97d81a
-=======
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/osboxes/PycharmProjects/Redo/Website-Ea-Group-Project/microblog/app/main/routes.py", line 37, in add_to_cart
-=======
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/auth/routes.py", line 70, in register
->>>>>>> 444c9d6159365977d8d00e3ee9ed297412d3cd2b
-    db.session.commit()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
-    self.transaction.commit()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 467, in commit
-    self._prepare_impl()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
-    self.session.flush()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
-    self._flush(objects)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
-    raise value
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
-    flush_context.execute()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
-    rec.execute(self)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
-    uow
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
-    mapper, table, insert)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 866, in _emit_insert_statements
-    execute(statement, params)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
-    return meth(self, multiparams, params)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
-    compiled_sql, distilled_params
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
-    context)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
-    exc_info
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
-    raise value.with_traceback(tb)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
-    context)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in do_execute
-    cursor.execute(statement, parameters)
-<<<<<<< HEAD
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: shopping_cart.id [SQL: 'INSERT INTO shopping_cart (user_id, product_id, qty, price, id) VALUES (?, ?, ?, ?, ?)'] [parameters: (2, 999, 1, 45.0, 5)] (Background on this error at: http://sqlalche.me/e/gkpj)
->>>>>>> 350499d56e3e967988faf17fcab070a5cee94be2
-=======
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.first_name [SQL: 'INSERT INTO user (first_name, last_name, username, email, phone, password_hash, gender, last_seen) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'] [parameters: ('sam', 'ds', 'sas', 'samlam020613d@gmail.com', 12345678, 'pbkdf2:sha256:50000$ueQhQVEa$a73348ee2d35e5366200792bdabb4240b6c0fd44fcfb1e61256110b205b5ff6a', None, '2020-04-28 13:33:00.307394')] (Background on this error at: http://sqlalche.me/e/gkpj)
-2020-04-28 09:34:54,775 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:39:00,591 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:41:55,709 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:42:01,667 ERROR: Exception on /post [GET] [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/main/routes.py", line 70, in post
-    prev_url=prev_url, message = message)
-NameError: name 'message' is not defined
-2020-04-28 09:42:14,822 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:47:01,299 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:47:29,703 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
-2020-04-28 09:49:52,288 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
->>>>>>> 2bdea8f362e448dbbe5663abeaf34af2509d7853
->>>>>>> 444c9d6159365977d8d00e3ee9ed297412d3cd2b
->>>>>>> 8600c4fc8a854f9b7b7176ae0e6b2c4fa92aac0e
+2020-05-01 00:52:31,731 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-05-01 13:45:40,122 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
+2020-05-01 13:47:33,843 INFO: Microblog startup [in /home/osboxes/PycharmProjects/Website-Ea-Group-Project/microblog/app/__init__.py:78]
