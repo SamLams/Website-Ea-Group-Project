@@ -196,7 +196,7 @@ class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
     shopping_cart_id = db.Column(db.Integer, db.ForeignKey('shopping_cart.id'))
     qty = db.Column(db.Integer)
-    price = db.Column(db.Integer)
+    price = db.Column(db.Float)
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     status_id = db.Column(db.String(255), db.ForeignKey('status.status_id'))
@@ -243,7 +243,7 @@ class Voucher(db.Model):
     code = db.Column(db.String(255))
     expiary = db.Column(db.DateTime)
     status = db.Column(db.Boolean)
-    discount = db.Column(db.Integer)
+    discount = db.Column(db.Float)
 
     def __repr__(self):
         return '<Voucher {}>'.format(self.v_id)
@@ -253,7 +253,7 @@ class Shopping_cart(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.pid'))
     qty = db.Column(db.Integer)
-    price = db.Column(db.Integer)
+    price = db.Column(db.Float)
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.relationship('Order', backref='shopping_cart')
 
