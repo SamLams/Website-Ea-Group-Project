@@ -541,6 +541,8 @@ def init():
     admin = User(id=0, first_name="a", last_name="a", username="a", email="a@g.com", phone=132,
                  password_hash="pbkdf2:sha256:50000$K1aBNTtq$a627489faa2332223c5225bbc26a9c875d57437fa4865b83875eeb957b3f04dd")
     db.session.add(admin)
+    v1 = Voucher(v_id=1,code="hktv",discount="10")
+    db.session.add(v1)
     db.session.add(mer1)
     db.session.add(mer2)
     db.session.add(mer3)
