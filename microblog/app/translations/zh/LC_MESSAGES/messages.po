@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-23 04:10-0400\n"
+"POT-Creation-Date: 2020-05-01 04:49-0400\n"
 "PO-Revision-Date: 2018-07-03 02:33-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -16,130 +16,283 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Generated-By: Babel 2.6.0\n"
 
-#: app/__init__.py:18
+#: app/__init__.py:19
 msgid "Please log in to access this page."
 msgstr ""
 
-#: app/auth/email.py:8
+#: app/auth/email.py:9
 msgid "[Microblog] Reset Your Password"
 msgstr ""
 
-#: app/auth/forms.py:10 app/auth/forms.py:17 app/main/forms.py:10
-msgid "Username"
-msgstr "XXX"
-
-#: app/auth/forms.py:11 app/auth/forms.py:19 app/auth/forms.py:42
-msgid "Password"
-msgstr "YYY"
-
-#: app/auth/forms.py:12
-msgid "Remember Me"
-msgstr ""
-
-#: app/auth/forms.py:13 app/auth/routes.py:28
-msgid "Sign In"
-msgstr ""
-
-#: app/auth/forms.py:18 app/auth/forms.py:37
+#: app/auth/forms.py:10 app/auth/forms.py:27 app/auth/forms.py:51
 msgid "Email"
 msgstr ""
 
-#: app/auth/forms.py:21 app/auth/forms.py:44
+#: app/auth/forms.py:11 app/auth/forms.py:18 app/auth/forms.py:29
+#: app/auth/forms.py:56
+msgid "Password"
+msgstr ""
+
+#: app/auth/forms.py:12 app/auth/forms.py:19
+msgid "Remember Me"
+msgstr ""
+
+#: app/auth/forms.py:13 app/auth/forms.py:20 app/auth/routes.py:34
+#: app/auth/routes.py:52 app/templates/auth/login.html:9
+msgid "Sign In"
+msgstr ""
+
+#: app/auth/forms.py:17 app/auth/forms.py:28
+msgid "Phone"
+msgstr ""
+
+#: app/auth/forms.py:24 app/main/forms.py:11
+msgid "First Name"
+msgstr ""
+
+#: app/auth/forms.py:25 app/main/forms.py:12
+msgid "Last Name"
+msgstr ""
+
+#: app/auth/forms.py:26 app/main/forms.py:10
+msgid "Username"
+msgstr "XXX"
+
+#: app/auth/forms.py:31 app/auth/forms.py:58
 msgid "Repeat Password"
 msgstr ""
 
-#: app/auth/forms.py:23 app/auth/routes.py:49
-#: app/templates/auth/register.html:5
+#: app/auth/forms.py:33 app/auth/routes.py:74
+#: app/templates/auth/register.html:7 app/templates/base.html:143
 msgid "Register"
 msgstr ""
 
-#: app/auth/forms.py:28 app/main/forms.py:23
+#: app/auth/forms.py:38 app/main/forms.py:31
 msgid "Please use a different username."
 msgstr ""
 
-#: app/auth/forms.py:33
+#: app/auth/forms.py:43 app/main/forms.py:37
 msgid "Please use a different email address."
 msgstr ""
 
-#: app/auth/forms.py:38 app/auth/forms.py:46
+#: app/auth/forms.py:48 app/main/forms.py:43
+msgid "Please use a different phone number."
+msgstr ""
+
+#: app/auth/forms.py:52 app/auth/forms.py:60
 msgid "Request Password Reset"
 msgstr ""
 
-#: app/auth/routes.py:21
-msgid "Invalid username or password"
+#: app/auth/routes.py:27
+msgid "Invalid email or password"
 msgstr ""
 
-#: app/auth/routes.py:47
+#: app/auth/routes.py:45
+msgid "Invalid phone or password"
+msgstr ""
+
+#: app/auth/routes.py:72
 msgid "Congratulations, you are now a registered user!"
 msgstr ""
 
-#: app/auth/routes.py:62
+#: app/auth/routes.py:87
 msgid "Check your email for the instructions to reset your password"
 msgstr ""
 
-#: app/auth/routes.py:65
+#: app/auth/routes.py:90
 msgid "Reset Password"
 msgstr ""
 
-#: app/auth/routes.py:79
+#: app/auth/routes.py:104
 msgid "Your password has been reset."
 msgstr ""
 
-#: app/main/forms.py:11
-msgid "About me"
+#: app/main/forms.py:13 app/templates/user.html:43
+msgid "Email Address"
 msgstr ""
 
-#: app/main/forms.py:13 app/main/forms.py:28
+#: app/main/forms.py:14
+msgid "Phone Number"
+msgstr ""
+
+#: app/main/forms.py:15 app/templates/user.html:45
+msgid "Gender"
+msgstr ""
+
+#: app/main/forms.py:16 app/main/forms.py:48 app/main/forms.py:63
+#: app/main/forms.py:68 app/main/forms.py:73 app/main/forms.py:78
+#: app/main/forms.py:83 app/main/forms.py:95
 msgid "Submit"
 msgstr ""
 
-#: app/main/forms.py:27
+#: app/main/forms.py:47 app/main/forms.py:67
+#: app/templates/delivery_address.html:44
+msgid "Delivery Address"
+msgstr ""
+
+#: app/main/forms.py:58
+msgid "Please use a different delivery address."
+msgstr ""
+
+#: app/main/forms.py:62
 msgid "Say something"
 msgstr ""
 
-#: app/main/routes.py:28
-msgid "Your post is now live!"
+#: app/main/forms.py:72
+msgid "Send message to admin"
 msgstr ""
 
-#: app/main/routes.py:37 app/templates/base.html:22
+#: app/main/forms.py:77
+msgid "Message"
+msgstr ""
+
+#: app/main/forms.py:82
+msgid "Voucher Code"
+msgstr ""
+
+#: app/main/forms.py:86
+msgid "ProductID"
+msgstr ""
+
+#: app/main/forms.py:87
+msgid "Product Name"
+msgstr ""
+
+#: app/main/forms.py:88 app/templates/order/order.html:8
+msgid "QTY"
+msgstr ""
+
+#: app/main/forms.py:89 app/templates/order/order.html:12
+msgid "Price"
+msgstr ""
+
+#: app/main/forms.py:90
+msgid "MID"
+msgstr ""
+
+#: app/main/forms.py:91 app/templates/order/order.html:16
+msgid "Status"
+msgstr ""
+
+#: app/main/forms.py:92
+msgid "Link"
+msgstr ""
+
+#: app/main/forms.py:93
+msgid "pc_id"
+msgstr ""
+
+#: app/main/forms.py:94
+msgid "ps_id"
+msgstr ""
+
+#: app/main/routes.py:28 app/main/routes.py:122 app/main/routes.py:131
+#: app/main/routes.py:139 app/main/routes.py:148 app/main/routes.py:157
+#: app/templates/base.html:50
 msgid "Home"
 msgstr ""
 
-#: app/main/routes.py:52 app/templates/base.html:23
+#: app/main/routes.py:41
+msgid "Please login first."
+msgstr ""
+
+#: app/main/routes.py:61
+msgid "Your post is now live!"
+msgstr ""
+
+#: app/main/routes.py:62
+msgid "Post"
+msgstr ""
+
+#: app/main/routes.py:78
 msgid "Explore"
 msgstr ""
 
-#: app/main/routes.py:80
+#: app/main/routes.py:179
+msgid "Shopping Cart"
+msgstr ""
+
+#: app/main/routes.py:225
+msgid "delivery_address"
+msgstr ""
+
+#: app/main/routes.py:243
 msgid "Your changes have been saved."
 msgstr ""
 
-#: app/main/routes.py:85 app/templates/edit_profile.html:5
+#: app/main/routes.py:252 app/templates/edit_profile.html:6
 msgid "Edit Profile"
 msgstr ""
 
-#: app/main/routes.py:94 app/main/routes.py:110
-#, python-format
-msgid "User %(username)s not found."
+#: app/main/routes.py:268 app/templates/edit_delivery_address.html:6
+msgid "Edit Delivery Address"
 msgstr ""
 
-#: app/main/routes.py:97
-msgid "You cannot follow yourself!"
+#: app/main/routes.py:285
+msgid "Your message sent! Thank you!"
 msgstr ""
 
-#: app/main/routes.py:101
-#, python-format
-msgid "You are following %(username)s!"
+#: app/main/routes.py:287 app/templates/base.html:206 app/templates/cs.html:39
+msgid "Customer Services"
 msgstr ""
 
-#: app/main/routes.py:113
-msgid "You cannot unfollow yourself!"
+#: app/main/routes.py:300
+msgid "Your message have been updated."
 msgstr ""
 
-#: app/main/routes.py:117
-#, python-format
-msgid "You are not following %(username)s."
+#: app/main/routes.py:305 app/templates/edit_message.html:6
+#: app/templates/product/insert_product.html:6
+msgid "Edit Message"
+msgstr ""
+
+#: app/main/routes.py:317
+msgid "Your message have been deleted."
+msgstr ""
+
+#: app/main/routes.py:386 app/templates/base.html:170
+msgid "My List"
+msgstr ""
+
+#: app/main/routes.py:394
+msgid "order"
+msgstr ""
+
+#: app/main/routes.py:404
+msgid "Voucher is able"
+msgstr ""
+
+#: app/main/routes.py:406
+msgid "Voucher is disable"
+msgstr ""
+
+#: app/main/routes.py:408
+msgid "Voucher"
+msgstr ""
+
+#: app/main/routes.py:428
+msgid "Product have been updated."
+msgstr ""
+
+#: app/main/routes.py:441 app/templates/product/edit.html:6
+msgid "Edit Product"
+msgstr ""
+
+#: app/main/routes.py:452
+msgid "Prdouct have been deleted."
+msgstr ""
+
+#: app/main/routes.py:460 app/templates/product/all_product.html:7
+msgid "All Product"
+msgstr ""
+
+#: app/main/routes.py:479
+msgid "Product have been inserted."
+msgstr ""
+
+#: app/main/routes.py:481
+msgid "Insert Product"
 msgstr ""
 
 #: app/templates/_post.html:14
@@ -147,67 +300,152 @@ msgstr ""
 msgid "%(username)s said %(when)s"
 msgstr ""
 
-#: app/templates/base.html:4
-msgid "Welcome to Microblog"
+#: app/templates/base.html:3
+msgid "Welcome to HKTVmall"
 msgstr ""
 
-#: app/templates/base.html:27
+#: app/templates/base.html:53 app/templates/base.html:96
+msgid "Pets"
+msgstr ""
+
+#: app/templates/base.html:56
+msgid "Disney"
+msgstr ""
+
+#: app/templates/base.html:59
+msgid "Housewares"
+msgstr ""
+
+#: app/templates/base.html:63
+msgid "Sports & Travel"
+msgstr ""
+
+#: app/templates/base.html:67
+msgid "Toys & Books"
+msgstr ""
+
+#: app/templates/base.html:91
+msgid "Categories"
+msgstr ""
+
+#: app/templates/base.html:102
+msgid "Fashion"
+msgstr ""
+
+#: app/templates/base.html:138
 msgid "Login"
 msgstr ""
 
-#: app/templates/base.html:29
+#: app/templates/base.html:151
 msgid "Profile"
 msgstr ""
 
-#: app/templates/base.html:30
+#: app/templates/base.html:157
 msgid "Logout"
 msgstr ""
 
-#: app/templates/index.html:5
-#, python-format
-msgid "Hi, %(username)s!"
+#: app/templates/base.html:164
+msgid "Notification"
 msgstr ""
 
-#: app/templates/index.html:17 app/templates/user.html:31
+#: app/templates/base.html:175
+msgid "Cart"
+msgstr ""
+
+#: app/templates/base.html:188
+msgid "top1"
+msgstr ""
+
+#: app/templates/base.html:191
+msgid "top2"
+msgstr ""
+
+#: app/templates/base.html:194
+msgid "top3"
+msgstr ""
+
+#: app/templates/delivery_address.html:20
+msgid "Account Profile"
+msgstr ""
+
+#: app/templates/delivery_address.html:22
+msgid "Delivery Addresses"
+msgstr ""
+
+#: app/templates/delivery_address.html:23
+msgid "My e-Wallet"
+msgstr ""
+
+#: app/templates/delivery_address.html:24
+msgid "Notifications"
+msgstr ""
+
+#: app/templates/delivery_address.html:25
+msgid ""
+"My Product\n"
+"                        Reviews"
+msgstr ""
+
+#: app/templates/delivery_address.html:49 app/templates/message.html:16
+#: app/templates/mylist.html:39
+msgid "Delete"
+msgstr ""
+
+#: app/templates/delivery_address.html:52 app/templates/message.html:12
+msgid "Edit"
+msgstr ""
+
+#: app/templates/delivery_address.html:58 app/templates/user.html:67
 msgid "Newer posts"
 msgstr ""
 
-#: app/templates/index.html:22 app/templates/user.html:36
+#: app/templates/delivery_address.html:63 app/templates/user.html:72
 msgid "Older posts"
 msgstr ""
 
-#: app/templates/user.html:8
+#: app/templates/message.html:4
+msgid "Message: Someone "
+msgstr ""
+
+#: app/templates/message.html:5
+msgid " said "
+msgstr ""
+
+#: app/templates/message.html:7
+msgid " at "
+msgstr ""
+
+#: app/templates/mylist.html:27
+msgid "Wishlist"
+msgstr ""
+
+#: app/templates/user.html:41
 msgid "User"
 msgstr ""
 
-#: app/templates/user.html:11
-msgid "Last seen on"
+#: app/templates/user.html:42
+msgid "Name"
 msgstr ""
 
-#: app/templates/user.html:13
-#, python-format
-msgid "%(count)d followers"
+#: app/templates/user.html:44
+msgid "phone"
 msgstr ""
 
-#: app/templates/user.html:13
-#, python-format
-msgid "%(count)d following"
-msgstr ""
-
-#: app/templates/user.html:15
+#: app/templates/user.html:48
 msgid "Edit your profile"
 msgstr ""
 
-#: app/templates/user.html:17
-msgid "Follow"
+#: app/templates/user.html:52
+msgid "Last seen on"
 msgstr ""
 
-#: app/templates/user.html:19
-msgid "Unfollow"
+#: app/templates/user.html:55
+msgid "You are admin now"
 msgstr ""
 
-#: app/templates/auth/reset_password.html:4
-#: app/templates/auth/reset_password_request.html:5
+#: app/templates/auth/reset_password.html:6
+#: app/templates/auth/reset_password.html:13
+#: app/templates/auth/reset_password_request.html:6
 msgid "Reset Your Password"
 msgstr ""
 
@@ -227,6 +465,22 @@ msgstr ""
 msgid "The administrator has been notified. Sorry for the inconvenience!"
 msgstr ""
 
+#: app/templates/order/order.html:4
+msgid "Order "
+msgstr ""
+
+#: app/templates/order/order.html:20
+msgid "Date"
+msgstr ""
+
+#: app/templates/order/order_history.html:40
+msgid "Order History"
+msgstr ""
+
+#: app/templates/vouchers/voucher.html:34
+msgid "Test Vouchers"
+msgstr ""
+
 #~ msgid "New User?"
 #~ msgstr ""
 
@@ -237,5 +491,47 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Click to Reset It"
+#~ msgstr ""
+
+#~ msgid "Invalid username or password"
+#~ msgstr ""
+
+#~ msgid "About me"
+#~ msgstr ""
+
+#~ msgid "User %(username)s not found."
+#~ msgstr ""
+
+#~ msgid "You cannot follow yourself!"
+#~ msgstr ""
+
+#~ msgid "You are following %(username)s!"
+#~ msgstr ""
+
+#~ msgid "You cannot unfollow yourself!"
+#~ msgstr ""
+
+#~ msgid "You are not following %(username)s."
+#~ msgstr ""
+
+#~ msgid "Welcome to Microblog"
+#~ msgstr ""
+
+#~ msgid "Hi, %(username)s!"
+#~ msgstr ""
+
+#~ msgid "%(count)d followers"
+#~ msgstr ""
+
+#~ msgid "%(count)d following"
+#~ msgstr ""
+
+#~ msgid "Follow"
+#~ msgstr ""
+
+#~ msgid "Unfollow"
+#~ msgstr ""
+
+#~ msgid "phone Address"
 #~ msgstr ""
 

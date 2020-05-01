@@ -10,7 +10,7 @@ from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
 from config import Config
-from flask_session import Session
+
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -28,7 +28,6 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.secret_key = 'awooo_wryyy'
     app.config["SESSION_TYPE"] = "filesystem"
-    Session(app)
 
     db.init_app(app)
     migrate.init_app(app, db)
