@@ -499,12 +499,14 @@ def init():
     sc2 = Subcategory(ps_id=998, ps_name="sc2")
     sc3 = Subcategory(ps_id=997, ps_name="sc3")
     sc4 = Subcategory(ps_id=996, ps_name="sc4")
+    sc5 = Subcategory(ps_id=995, ps_name="sc5")
+    sc6 = Subcategory(ps_id=994, ps_name="sc6")
     c1 = Category(pc_id=999, pc_name="c1", ps_id=999)
     c2 = Category(pc_id=998, pc_name="c2", ps_id=998)
     c3 = Category(pc_id=997, pc_name="c3", ps_id=997)
     c4 = Category(pc_id=996, pc_name="c4", ps_id=996)
-    c5 = Category(pc_id=995, pc_name="c5", ps_id=996)
-    c6 = Category(pc_id=994, pc_name="c6", ps_id=996)
+    c5 = Category(pc_id=995, pc_name="c5", ps_id=995)
+    c6 = Category(pc_id=994, pc_name="c6", ps_id=994)
 
     p5 = Product(pid=995, pname='Disney Toy Story', qty=3, price=155, mid=995, status="Good", pc_id=995, ps_id=995,
                  link="https://images.hktv-img.com/images/HKTV/18800/H1283ToyStoryBook_main_36832182_20200409124617_01_1200.jpg")
