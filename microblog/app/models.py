@@ -195,7 +195,7 @@ class Merchant(db.Model):
 
 class Order(db.Model):
     order_id = db.Column(db.Integer, primary_key=True)
-    shopping_cart_id = db.Column(db.Integer, db.ForeignKey('shopping_cart.id'))
+    #shopping_cart_id = db.Column(db.Integer, db.ForeignKey('shopping_cart.id'))
     qty = db.Column(db.Integer)
     price = db.Column(db.Float)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -254,7 +254,7 @@ class Shopping_cart(db.Model):
     qty = db.Column(db.Integer)
     price = db.Column(db.Float)
     id = db.Column(db.Integer, primary_key=True)
-    order_id = db.relationship('Order', backref='shopping_cart')
+    #order_id = db.relationship('Order', backref='shopping_cart')
 
     def __repr__(self):
         return '<Post {}>'.format(self.user_id)
