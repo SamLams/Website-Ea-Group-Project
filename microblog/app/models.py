@@ -197,10 +197,8 @@ class Order(db.Model):
     shopping_cart_id = db.Column(db.Integer, db.ForeignKey('shopping_cart.id'))
     qty = db.Column(db.Integer)
     price = db.Column(db.Float)
-
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    status_id = db.Column(db.String(255), db.ForeignKey('status.status_id'))
-
+    status_id = db.Column(db.Integer, db.ForeignKey('status.status_id'))
     create_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     card = db.relationship('Payment', backref='card')
 
