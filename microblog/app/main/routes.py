@@ -208,7 +208,7 @@ def confirmed():
         price += i.price
         db.session.delete(i)
 
-    o = Order(shopping_cart_id=i.id, qty=qty, price=price,user_id=current_user.id)
+    o = Order(qty=qty, price=price,user_id=current_user.id)#shopping_cart_id=i.id
     db.session.add(o)
     db.session.commit()
     return render_template('confirmed.html')
