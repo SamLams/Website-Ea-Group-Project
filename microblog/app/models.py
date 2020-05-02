@@ -108,8 +108,9 @@ class Product(db.Model):
     ps_id = db.Column(db.Integer, db.ForeignKey('subcategory.ps_id'), nullable=False)
     pets = db.relationship('Pets', backref='Product', lazy=True)
     disney = db.relationship('Disney', backref='Product', lazy=True)
-    SportsAndTravels = db.relationship('SportsAndTravel', backref='product', uselist=False)
-    ToysAndBook = db.relationship('ToysAndBooks', backref='product', uselist=False)
+    houseware = db.relationship('Housewares', backref='product', uselist=False)
+    sportsAndTravels = db.relationship('SportsAndTravel', backref='product', uselist=False)
+    toysAndBook = db.relationship('ToysAndBooks', backref='product', uselist=False)
     list = db.relationship('MyList', backref='product', lazy='dynamic')
 
 
